@@ -1,0 +1,485 @@
+
+
+Microchip MPLAB XC8 Assembler V2.05 build -831301201 
+                                                                                               Mon May 18 16:34:33 2020
+
+Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1 
+     1                           	processor	18F4550
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	flic
+     5                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     6                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     7                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     8                           	psect	text1,global,reloc=2,class=CODE,delta=1
+     9                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    10                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    11  0000                     
+    12                           ; Version 2.05
+    13                           ; Generated 20/12/2018 GMT
+    14                           ; 
+    15                           ; Copyright © 2018, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    16                           ; All rights reserved.
+    17                           ; 
+    18                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    19                           ; 
+    20                           ; Redistribution and use in source and binary forms, with or without modification, are
+    21                           ; permitted provided that the following conditions are met:
+    22                           ; 
+    23                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    24                           ;        conditions and the following disclaimer.
+    25                           ; 
+    26                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    27                           ;        of conditions and the following disclaimer in the documentation and/or other
+    28                           ;        materials provided with the distribution.
+    29                           ; 
+    30                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    31                           ;        software without specific prior written permission.
+    32                           ; 
+    33                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    34                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    35                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    36                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    37                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    38                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    39                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    40                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    41                           ; 
+    42                           ; 
+    43                           ; Code-generator required, PIC18F4550 Definitions
+    44                           ; 
+    45                           ; SFR Addresses
+    46  0000                     _LATAbits	set	3977
+    47  0000                     _CMCONbits	set	4020
+    48  0000                     _TRISAbits	set	3986
+    49  0000                     _ADCON1bits	set	4033
+    50                           
+    51                           ; #config settings
+    52  0000                     
+    53                           	psect	cinit
+    54  007F8A                     __pcinit:
+    55                           	opt callstack 0
+    56  007F8A                     start_initialization:
+    57                           	opt callstack 0
+    58  007F8A                     __initialization:
+    59                           	opt callstack 0
+    60  007F8A                     end_of_initialization:
+    61                           	opt callstack 0
+    62  007F8A                     __end_of__initialization:
+    63                           	opt callstack 0
+    64  007F8A  0100               	movlb	0
+    65  007F8C  EFC8  F03F         	goto	_main	;jump to C main() function
+    66                           
+    67                           	psect	cstackCOMRAM
+    68  000001                     __pcstackCOMRAM:
+    69                           	opt callstack 0
+    70  000001                     Comp_Init@C1Out:
+    71                           	opt callstack 0
+    72                           
+    73                           ; 1 bytes @ 0x0
+    74  000001                     	ds	1
+    75  000002                     Comp_Init@C2Out:
+    76                           	opt callstack 0
+    77                           
+    78                           ; 1 bytes @ 0x1
+    79  000002                     	ds	1
+    80  000003                     Comp_Init@C1Logic:
+    81                           	opt callstack 0
+    82                           
+    83                           ; 1 bytes @ 0x2
+    84  000003                     	ds	1
+    85  000004                     Comp_Init@C2Logic:
+    86                           	opt callstack 0
+    87                           
+    88                           ; 1 bytes @ 0x3
+    89  000004                     	ds	1
+    90  000005                     Comp_Init@Mode:
+    91                           	opt callstack 0
+    92                           
+    93                           ; 1 bytes @ 0x4
+    94  000005                     	ds	1
+    95  000006                     Comp_Init@Comparators:
+    96                           	opt callstack 0
+    97                           
+    98                           ; 1 bytes @ 0x5
+    99  000006                     	ds	1
+   100  000007                     
+   101                           ; 1 bytes @ 0x6
+   102 ;;
+   103 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   104 ;;
+   105 ;; *************** function _main *****************
+   106 ;; Defined at:
+   107 ;;		line 6 in file "Main.c"
+   108 ;; Parameters:    Size  Location     Type
+   109 ;;		None
+   110 ;; Auto vars:     Size  Location     Type
+   111 ;;		None
+   112 ;; Return value:  Size  Location     Type
+   113 ;;                  1    wreg      void 
+   114 ;; Registers used:
+   115 ;;		wreg, status,2, status,0, cstack
+   116 ;; Tracked objects:
+   117 ;;		On entry : 0/0
+   118 ;;		On exit  : 0/0
+   119 ;;		Unchanged: 0/0
+   120 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   121 ;;      Params:         0       0       0       0       0       0       0       0       0
+   122 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   123 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   124 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   125 ;;Total ram usage:        0 bytes
+   126 ;; Hardware stack levels required when called:    1
+   127 ;; This function calls:
+   128 ;;		_Comp_Init
+   129 ;; This function is called by:
+   130 ;;		Startup code after reset
+   131 ;; This function uses a non-reentrant model
+   132 ;;
+   133                           
+   134                           	psect	text0
+   135  007F90                     __ptext0:
+   136                           	opt callstack 0
+   137  007F90                     _main:
+   138                           	opt callstack 30
+   139                           
+   140                           ;Main.c: 7:     Comp_Init(0x00,0x01,0x01,0x01,0x00,0x01);
+   141                           
+   142                           ;incstack = 0
+   143  007F90  0E01               	movlw	1
+   144  007F92  6E01               	movwf	Comp_Init@C1Out,c
+   145  007F94  0E01               	movlw	1
+   146  007F96  6E02               	movwf	Comp_Init@C2Out,c
+   147  007F98  0E01               	movlw	1
+   148  007F9A  6E03               	movwf	Comp_Init@C1Logic,c
+   149  007F9C  0E00               	movlw	0
+   150  007F9E  6E04               	movwf	Comp_Init@C2Logic,c
+   151  007FA0  0E01               	movlw	1
+   152  007FA2  6E05               	movwf	Comp_Init@Mode,c
+   153  007FA4  0E00               	movlw	0
+   154  007FA6  ECD7  F03F         	call	_Comp_Init
+   155                           
+   156                           ;Main.c: 8:     LATAbits.LATA5 = 1;
+   157  007FAA  8A89               	bsf	3977,5,c	;volatile
+   158  007FAC                     l18:
+   159                           
+   160                           ;Main.c: 12:     }
+   161  007FAC  D7FF               	goto	l18
+   162  007FAE                     __end_of_main:
+   163                           	opt callstack 0
+   164                           
+   165 ;; *************** function _Comp_Init *****************
+   166 ;; Defined at:
+   167 ;;		line 12 in file "./Comparator.h"
+   168 ;; Parameters:    Size  Location     Type
+   169 ;;  Comparators     1    wreg     unsigned char 
+   170 ;;  C1Out           1    0[COMRAM] unsigned char 
+   171 ;;  C2Out           1    1[COMRAM] unsigned char 
+   172 ;;  C1Logic         1    2[COMRAM] unsigned char 
+   173 ;;  C2Logic         1    3[COMRAM] unsigned char 
+   174 ;;  Mode            1    4[COMRAM] unsigned char 
+   175 ;; Auto vars:     Size  Location     Type
+   176 ;;  Comparators     1    5[COMRAM] unsigned char 
+   177 ;; Return value:  Size  Location     Type
+   178 ;;                  1    wreg      void 
+   179 ;; Registers used:
+   180 ;;		wreg, status,2, status,0
+   181 ;; Tracked objects:
+   182 ;;		On entry : 0/0
+   183 ;;		On exit  : 0/0
+   184 ;;		Unchanged: 0/0
+   185 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   186 ;;      Params:         5       0       0       0       0       0       0       0       0
+   187 ;;      Locals:         1       0       0       0       0       0       0       0       0
+   188 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   189 ;;      Totals:         6       0       0       0       0       0       0       0       0
+   190 ;;Total ram usage:        6 bytes
+   191 ;; Hardware stack levels used:    1
+   192 ;; This function calls:
+   193 ;;		Nothing
+   194 ;; This function is called by:
+   195 ;;		_main
+   196 ;; This function uses a non-reentrant model
+   197 ;;
+   198                           
+   199                           	psect	text1
+   200  007FAE                     __ptext1:
+   201                           	opt callstack 0
+   202  007FAE                     _Comp_Init:
+   203                           	opt callstack 30
+   204                           
+   205                           ;incstack = 0
+   206                           ;Comp_Init@Comparators stored from wreg
+   207  007FAE  6E06               	movwf	Comp_Init@Comparators,c
+   208                           
+   209                           ;./Comparator.h: 13:     ADCON1bits.PCFG = 0x0B;
+   210  007FB0  50C1               	movf	4033,w,c	;volatile
+   211  007FB2  0BF0               	andlw	-16
+   212  007FB4  090B               	iorlw	11
+   213  007FB6  6EC1               	movwf	4033,c	;volatile
+   214                           
+   215                           ;./Comparator.h: 15:     if(Comparators == 0x00){
+   216  007FB8  5006               	movf	Comp_Init@Comparators,w,c
+   217  007FBA  A4D8               	btfss	status,2,c
+   218  007FBC  D004               	goto	l11
+   219                           
+   220                           ;./Comparator.h: 16:         TRISAbits.RA0 = 1;
+   221  007FBE  8092               	bsf	3986,0,c	;volatile
+   222                           
+   223                           ;./Comparator.h: 17:         TRISAbits.RA3 = 1;
+   224  007FC0  8692               	bsf	3986,3,c	;volatile
+   225                           
+   226                           ;./Comparator.h: 18:         TRISAbits.RA4 = 0;
+   227  007FC2  9892               	bcf	3986,4,c	;volatile
+   228                           
+   229                           ;./Comparator.h: 19:     }
+   230  007FC4  D003               	goto	l12
+   231  007FC6                     l11:
+   232                           
+   233                           ;./Comparator.h: 21:         TRISAbits.RA1 = 1;
+   234  007FC6  8292               	bsf	3986,1,c	;volatile
+   235                           
+   236                           ;./Comparator.h: 22:         TRISAbits.RA2 = 1;
+   237  007FC8  8492               	bsf	3986,2,c	;volatile
+   238                           
+   239                           ;./Comparator.h: 23:         TRISAbits.RA5 = 0;
+   240  007FCA  9A92               	bcf	3986,5,c	;volatile
+   241  007FCC                     l12:
+   242                           
+   243                           ;./Comparator.h: 25:     CMCONbits.C1OUT = C1Out;
+   244  007FCC  B001               	btfsc	Comp_Init@C1Out,0,c
+   245  007FCE  D002               	bra	u75
+   246  007FD0  9CB4               	bcf	4020,6,c	;volatile
+   247  007FD2  D001               	bra	u76
+   248  007FD4                     u75:
+   249  007FD4  8CB4               	bsf	4020,6,c	;volatile
+   250  007FD6                     u76:
+   251                           
+   252                           ;./Comparator.h: 26:     CMCONbits.C2OUT = C2Out;
+   253  007FD6  B002               	btfsc	Comp_Init@C2Out,0,c
+   254  007FD8  D002               	bra	u85
+   255  007FDA  9EB4               	bcf	4020,7,c	;volatile
+   256  007FDC  D001               	bra	u86
+   257  007FDE                     u85:
+   258  007FDE  8EB4               	bsf	4020,7,c	;volatile
+   259  007FE0                     u86:
+   260                           
+   261                           ;./Comparator.h: 27:     CMCONbits.C1INV = C1Logic;
+   262  007FE0  B003               	btfsc	Comp_Init@C1Logic,0,c
+   263  007FE2  D002               	bra	u95
+   264  007FE4  98B4               	bcf	4020,4,c	;volatile
+   265  007FE6  D001               	bra	u96
+   266  007FE8                     u95:
+   267  007FE8  88B4               	bsf	4020,4,c	;volatile
+   268  007FEA                     u96:
+   269                           
+   270                           ;./Comparator.h: 28:     CMCONbits.C2INV = C2Logic;
+   271  007FEA  B004               	btfsc	Comp_Init@C2Logic,0,c
+   272  007FEC  D002               	bra	u105
+   273  007FEE  9AB4               	bcf	4020,5,c	;volatile
+   274  007FF0  D001               	bra	u106
+   275  007FF2                     u105:
+   276  007FF2  8AB4               	bsf	4020,5,c	;volatile
+   277  007FF4                     u106:
+   278                           
+   279                           ;./Comparator.h: 29:     CMCONbits.CM = Mode;
+   280  007FF4  50B4               	movf	4020,w,c	;volatile
+   281  007FF6  1805               	xorwf	Comp_Init@Mode,w,c
+   282  007FF8  0BF8               	andlw	-8
+   283  007FFA  1805               	xorwf	Comp_Init@Mode,w,c
+   284  007FFC  6EB4               	movwf	4020,c	;volatile
+   285  007FFE  0012               	return		;funcret
+   286  008000                     __end_of_Comp_Init:
+   287                           	opt callstack 0
+   288  0000                     
+   289                           	psect	rparam
+   290  0000                     tosu	equ	0xFFF
+   291                           tosh	equ	0xFFE
+   292                           tosl	equ	0xFFD
+   293                           stkptr	equ	0xFFC
+   294                           pclatu	equ	0xFFB
+   295                           pclath	equ	0xFFA
+   296                           pcl	equ	0xFF9
+   297                           tblptru	equ	0xFF8
+   298                           tblptrh	equ	0xFF7
+   299                           tblptrl	equ	0xFF6
+   300                           tablat	equ	0xFF5
+   301                           prodh	equ	0xFF4
+   302                           prodl	equ	0xFF3
+   303                           indf0	equ	0xFEF
+   304                           postinc0	equ	0xFEE
+   305                           postdec0	equ	0xFED
+   306                           preinc0	equ	0xFEC
+   307                           plusw0	equ	0xFEB
+   308                           fsr0h	equ	0xFEA
+   309                           fsr0l	equ	0xFE9
+   310                           wreg	equ	0xFE8
+   311                           indf1	equ	0xFE7
+   312                           postinc1	equ	0xFE6
+   313                           postdec1	equ	0xFE5
+   314                           preinc1	equ	0xFE4
+   315                           plusw1	equ	0xFE3
+   316                           fsr1h	equ	0xFE2
+   317                           fsr1l	equ	0xFE1
+   318                           bsr	equ	0xFE0
+   319                           indf2	equ	0xFDF
+   320                           postinc2	equ	0xFDE
+   321                           postdec2	equ	0xFDD
+   322                           preinc2	equ	0xFDC
+   323                           plusw2	equ	0xFDB
+   324                           fsr2h	equ	0xFDA
+   325                           fsr2l	equ	0xFD9
+   326                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95      6       6
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMRAM
+
+    _main->_Comp_Init
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0     512
+                          _Comp_Init
+ ---------------------------------------------------------------------------------
+ (1) _Comp_Init                                            6     1      5     512
+                                              0 COMRAM     6     1      5
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _Comp_Init
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMRAM           5F      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMRAM              5F      6       6       1        6.3%
+STACK                0      0       0       2        0.0%
+DATA                 0      0       0       3        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK6           100      0       0      16        0.0%
+BANK6              100      0       0      17        0.0%
+BITBANK7           100      0       0      18        0.0%
+BANK7              100      0       0      19        0.0%
+ABS                  0      0       0      20        0.0%
+BIGRAM             7FF      0       0      21        0.0%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.05 build -831301201 
+Symbol Table                                                                                   Mon May 18 16:34:33 2020
+
+                     l11 7FC6                       l12 7FCC                       l18 7FAC  
+                     u75 7FD4                       u76 7FD6                       u85 7FDE  
+                     u86 7FE0                       u95 7FE8                       u96 7FEA  
+            __CFG_BOR$ON 000000              __CFG_BORV$3 000000             __CFG_CP0$OFF 000000  
+           __CFG_CP1$OFF 000000             __CFG_CP2$OFF 000000             __CFG_CP3$OFF 000000  
+           __CFG_CPB$OFF 000000                      u105 7FF2                      u106 7FF4  
+           __CFG_CPD$OFF 000000             __CFG_LVP$OFF 000000             __CFG_WDT$OFF 000000  
+                   _main 7F90                     start 0000            __CFG_IESO$OFF 000000  
+          __CFG_MCLRE$ON 000000             ___param_bank 000000            __CFG_PLLDIV$1 000000  
+         __CFG_CCP2MX$ON 000000                    ?_main 0001            __CFG_USBDIV$1 000000  
+          __CFG_PWRT$OFF 000000            __CFG_WRT0$OFF 000000            __CFG_WRT1$OFF 000000  
+          __CFG_WRT2$OFF 000000            __CFG_WRT3$OFF 000000           __CFG_EBTR0$OFF 000000  
+         __CFG_FCMEN$OFF 000000           __CFG_EBTR1$OFF 000000           __CFG_EBTR2$OFF 000000  
+         __CFG_EBTR3$OFF 000000            __CFG_WRTB$OFF 000000            __CFG_WRTC$OFF 000000  
+          __CFG_WRTD$OFF 000000           __CFG_EBTRB$OFF 000000                    status 000FD8  
+         __CFG_ICPRT$OFF 000000          __initialization 7F8A             __end_of_main 7FAE  
+                 ??_main 0007            __activetblptr 000000       __size_of_Comp_Init 0052  
+         __CFG_XINST$OFF 000000           __CFG_STVREN$ON 000000               __accesstop 0060  
+__end_of__initialization 7F8A          __CFG_PBADEN$OFF 000000          __CFG_FOSC$XT_XT 000000  
+          ___rparam_used 000001        __end_of_Comp_Init 8000           __pcstackCOMRAM 0001  
+        __CFG_VREGEN$OFF 000000                  __Hparam 0000                  __Lparam 0000  
+              _CMCONbits 000FB4                  __pcinit 7F8A                  __ramtop 0800  
+                __ptext0 7F90                  __ptext1 7FAE     end_of_initialization 7F8A  
+         Comp_Init@C1Out 0001           Comp_Init@C2Out 0002                _TRISAbits 000F92  
+              _Comp_Init 7FAE      start_initialization 7F8A         __CFG_LPT1OSC$OFF 000000  
+             ?_Comp_Init 0001                 _LATAbits 000F89            Comp_Init@Mode 0005  
+       __CFG_WDTPS$32768 000000              ??_Comp_Init 0006               _ADCON1bits 000FC1  
+               __Hrparam 0000                 __Lrparam 0000         Comp_Init@C1Logic 0003  
+       Comp_Init@C2Logic 0004            __size_of_main 001E    __CFG_CPUDIV$OSC1_PLL2 000000  
+   Comp_Init@Comparators 0006  

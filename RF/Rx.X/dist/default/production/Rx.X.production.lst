@@ -1,0 +1,564 @@
+
+
+Microchip MPLAB XC8 Assembler V2.10 build 88905656 
+                                                                                               Wed Jun 24 22:06:38 2020
+
+Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
+     1                           	processor	18F4550
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	flic
+     5                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     6                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     7                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     8                           	psect	text1,global,reloc=2,class=CODE,delta=1
+     9                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    10                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    11                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    12  0000                     
+    13                           ; Version 2.10
+    14                           ; Generated 31/07/2019 GMT
+    15                           ; 
+    16                           ; Copyright © 2019, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    17                           ; All rights reserved.
+    18                           ; 
+    19                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    20                           ; 
+    21                           ; Redistribution and use in source and binary forms, with or without modification, are
+    22                           ; permitted provided that the following conditions are met:
+    23                           ; 
+    24                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    25                           ;        conditions and the following disclaimer.
+    26                           ; 
+    27                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    28                           ;        of conditions and the following disclaimer in the documentation and/or other
+    29                           ;        materials provided with the distribution.
+    30                           ; 
+    31                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    32                           ;        software without specific prior written permission.
+    33                           ; 
+    34                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    35                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    36                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    37                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    38                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    39                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    40                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    41                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    42                           ; 
+    43                           ; 
+    44                           ; Code-generator required, PIC18F4550 Definitions
+    45                           ; 
+    46                           ; SFR Addresses
+    47  0000                     _LATCbits	set	3979
+    48  0000                     _LATC	set	3979
+    49  0000                     _RCREG	set	4014
+    50  0000                     _PIR1bits	set	3998
+    51  0000                     _TXREG	set	4013
+    52  0000                     _RCSTAbits	set	4011
+    53  0000                     _SPBRG	set	4015
+    54  0000                     _TXSTAbits	set	4012
+    55  0000                     _TRISCbits	set	3988
+    56                           
+    57                           ; #config settings
+    58  0000                     
+    59                           	psect	cinit
+    60  007F46                     __pcinit:
+    61                           	opt callstack 0
+    62  007F46                     start_initialization:
+    63                           	opt callstack 0
+    64  007F46                     __initialization:
+    65                           	opt callstack 0
+    66  007F46                     end_of_initialization:
+    67                           	opt callstack 0
+    68  007F46                     __end_of__initialization:
+    69                           	opt callstack 0
+    70  007F46  0100               	movlb	0
+    71  007F48  EFB5  F03F         	goto	_main	;jump to C main() function
+    72                           
+    73                           	psect	cstackCOMRAM
+    74  000001                     __pcstackCOMRAM:
+    75                           	opt callstack 0
+    76  000001                     EUSART_Read@Data:
+    77                           	opt callstack 0
+    78  000001                     EUSART_Init@FCPU:
+    79                           	opt callstack 0
+    80                           
+    81                           ; 4 bytes @ 0x0
+    82  000001                     	ds	4
+    83  000005                     EUSART_Init@BAUDRATE:
+    84                           	opt callstack 0
+    85                           
+    86                           ; 4 bytes @ 0x4
+    87  000005                     	ds	4
+    88  000009                     ??_main:
+    89                           
+    90                           ; 1 bytes @ 0x8
+    91  000009                     	ds	1
+    92  00000A                     main@Data:
+    93                           	opt callstack 0
+    94                           
+    95                           ; 1 bytes @ 0x9
+    96  00000A                     	ds	1
+    97                           
+    98 ;;
+    99 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   100 ;;
+   101 ;; *************** function _main *****************
+   102 ;; Defined at:
+   103 ;;		line 7 in file "Main.c"
+   104 ;; Parameters:    Size  Location     Type
+   105 ;;		None
+   106 ;; Auto vars:     Size  Location     Type
+   107 ;;  Data            1    9[COMRAM] unsigned char 
+   108 ;; Return value:  Size  Location     Type
+   109 ;;                  1    wreg      void 
+   110 ;; Registers used:
+   111 ;;		wreg, status,2, status,0, cstack
+   112 ;; Tracked objects:
+   113 ;;		On entry : 0/0
+   114 ;;		On exit  : 0/0
+   115 ;;		Unchanged: 0/0
+   116 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   117 ;;      Params:         0       0       0       0       0       0       0       0       0
+   118 ;;      Locals:         1       0       0       0       0       0       0       0       0
+   119 ;;      Temps:          1       0       0       0       0       0       0       0       0
+   120 ;;      Totals:         2       0       0       0       0       0       0       0       0
+   121 ;;Total ram usage:        2 bytes
+   122 ;; Hardware stack levels required when called:    1
+   123 ;; This function calls:
+   124 ;;		_EUSART_Init
+   125 ;;		_EUSART_Read
+   126 ;; This function is called by:
+   127 ;;		Startup code after reset
+   128 ;; This function uses a non-reentrant model
+   129 ;;
+   130                           
+   131                           	psect	text0
+   132  007F6A                     __ptext0:
+   133                           	opt callstack 0
+   134  007F6A                     _main:
+   135                           	opt callstack 30
+   136                           
+   137                           ;Main.c: 8: char Data;;Main.c: 10: TRISCbits.TRISC0 = 0;
+   138                           
+   139                           ;incstack = 0
+   140  007F6A  9094               	bcf	148,0,c	;volatile
+   141                           
+   142                           ;Main.c: 11: TRISCbits.TRISC1 = 0;
+   143  007F6C  9294               	bcf	148,1,c	;volatile
+   144                           
+   145                           ;Main.c: 12: TRISCbits.TRISC2 = 0;
+   146  007F6E  9494               	bcf	148,2,c	;volatile
+   147                           
+   148                           ;Main.c: 13: LATC = 0x00;
+   149  007F70  0E00               	movlw	0
+   150  007F72  6E8B               	movwf	139,c	;volatile
+   151                           
+   152                           ;Main.c: 14: EUSART_Init(4000000,1200);
+   153  007F74  0E00               	movlw	0
+   154  007F76  6E01               	movwf	EUSART_Init@FCPU^0,c
+   155  007F78  0E09               	movlw	9
+   156  007F7A  6E02               	movwf	(EUSART_Init@FCPU+1)^0,c
+   157  007F7C  0E3D               	movlw	61
+   158  007F7E  6E03               	movwf	(EUSART_Init@FCPU+2)^0,c
+   159  007F80  0E00               	movlw	0
+   160  007F82  6E04               	movwf	(EUSART_Init@FCPU+3)^0,c
+   161  007F84  0EB0               	movlw	176
+   162  007F86  6E05               	movwf	EUSART_Init@BAUDRATE^0,c
+   163  007F88  0E04               	movlw	4
+   164  007F8A  6E06               	movwf	(EUSART_Init@BAUDRATE+1)^0,c
+   165  007F8C  0E00               	movlw	0
+   166  007F8E  6E07               	movwf	(EUSART_Init@BAUDRATE+2)^0,c
+   167  007F90  0E00               	movlw	0
+   168  007F92  6E08               	movwf	(EUSART_Init@BAUDRATE+3)^0,c
+   169  007F94  ECAC  F03F         	call	_EUSART_Init	;wreg free
+   170  007F98                     l858:
+   171                           
+   172                           ;Main.c: 17: Data = EUSART_Read();
+   173  007F98  ECA6  F03F         	call	_EUSART_Read	;wreg free
+   174  007F9C  6E0A               	movwf	main@Data^0,c
+   175                           
+   176                           ;Main.c: 19: if(Data == 'B')
+   177  007F9E  0E42               	movlw	66
+   178  007FA0  180A               	xorwf	main@Data^0,w,c
+   179  007FA2  A4D8               	btfss	status,2,c
+   180  007FA4  D00B               	goto	l45
+   181                           
+   182                           ;Main.c: 20: LATCbits.LATC0 = !LATCbits.LATC0;
+   183  007FA6  B08B               	btfsc	139,0,c	;volatile
+   184  007FA8  D003               	goto	u140
+   185  007FAA  6A09               	clrf	??_main^0,c
+   186  007FAC  2A09               	incf	??_main^0,f,c
+   187  007FAE  D001               	goto	u158
+   188  007FB0                     u140:
+   189  007FB0  6A09               	clrf	??_main^0,c
+   190  007FB2                     u158:
+   191  007FB2  508B               	movf	139,w,c	;volatile
+   192  007FB4  1809               	xorwf	??_main^0,w,c
+   193  007FB6  0BFE               	andlw	-2
+   194  007FB8  1809               	xorwf	??_main^0,w,c
+   195  007FBA  6E8B               	movwf	139,c	;volatile
+   196  007FBC                     l45:
+   197                           
+   198                           ;Main.c: 21: if(Data == 'G')
+   199  007FBC  0E47               	movlw	71
+   200  007FBE  180A               	xorwf	main@Data^0,w,c
+   201  007FC0  A4D8               	btfss	status,2,c
+   202  007FC2  D00C               	goto	l46
+   203                           
+   204                           ;Main.c: 22: LATCbits.LATC1 = !LATCbits.LATC1;
+   205  007FC4  B28B               	btfsc	139,1,c	;volatile
+   206  007FC6  D003               	goto	u170
+   207  007FC8  6A09               	clrf	??_main^0,c
+   208  007FCA  2A09               	incf	??_main^0,f,c
+   209  007FCC  D001               	goto	u188
+   210  007FCE                     u170:
+   211  007FCE  6A09               	clrf	??_main^0,c
+   212  007FD0                     u188:
+   213  007FD0  4609               	rlncf	??_main^0,f,c
+   214  007FD2  508B               	movf	139,w,c	;volatile
+   215  007FD4  1809               	xorwf	??_main^0,w,c
+   216  007FD6  0BFD               	andlw	-3
+   217  007FD8  1809               	xorwf	??_main^0,w,c
+   218  007FDA  6E8B               	movwf	139,c	;volatile
+   219  007FDC                     l46:
+   220                           
+   221                           ;Main.c: 23: if(Data == 'Y')
+   222  007FDC  0E59               	movlw	89
+   223  007FDE  180A               	xorwf	main@Data^0,w,c
+   224  007FE0  A4D8               	btfss	status,2,c
+   225  007FE2  D7DA               	goto	l858
+   226                           
+   227                           ;Main.c: 24: LATCbits.LATC2 = !LATCbits.LATC2;
+   228  007FE4  B48B               	btfsc	139,2,c	;volatile
+   229  007FE6  D003               	goto	u200
+   230  007FE8  6A09               	clrf	??_main^0,c
+   231  007FEA  2A09               	incf	??_main^0,f,c
+   232  007FEC  D001               	goto	u218
+   233  007FEE                     u200:
+   234  007FEE  6A09               	clrf	??_main^0,c
+   235  007FF0                     u218:
+   236  007FF0  4609               	rlncf	??_main^0,f,c
+   237  007FF2  4609               	rlncf	??_main^0,f,c
+   238  007FF4  508B               	movf	139,w,c	;volatile
+   239  007FF6  1809               	xorwf	??_main^0,w,c
+   240  007FF8  0BFB               	andlw	-5
+   241  007FFA  1809               	xorwf	??_main^0,w,c
+   242  007FFC  6E8B               	movwf	139,c	;volatile
+   243  007FFE  D7CC               	goto	l858
+   244  008000                     __end_of_main:
+   245                           	opt callstack 0
+   246                           
+   247 ;; *************** function _EUSART_Read *****************
+   248 ;; Defined at:
+   249 ;;		line 32 in file "EUSART.h"
+   250 ;; Parameters:    Size  Location     Type
+   251 ;;		None
+   252 ;; Auto vars:     Size  Location     Type
+   253 ;;  Data            1    0[COMRAM] unsigned char 
+   254 ;; Return value:  Size  Location     Type
+   255 ;;                  1    wreg      unsigned char 
+   256 ;; Registers used:
+   257 ;;		wreg, status,2
+   258 ;; Tracked objects:
+   259 ;;		On entry : 0/0
+   260 ;;		On exit  : 0/0
+   261 ;;		Unchanged: 0/0
+   262 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   263 ;;      Params:         0       0       0       0       0       0       0       0       0
+   264 ;;      Locals:         1       0       0       0       0       0       0       0       0
+   265 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   266 ;;      Totals:         1       0       0       0       0       0       0       0       0
+   267 ;;Total ram usage:        1 bytes
+   268 ;; Hardware stack levels used:    1
+   269 ;; This function calls:
+   270 ;;		Nothing
+   271 ;; This function is called by:
+   272 ;;		_main
+   273 ;; This function uses a non-reentrant model
+   274 ;;
+   275                           
+   276                           	psect	text1
+   277  007F4C                     __ptext1:
+   278                           	opt callstack 0
+   279  007F4C                     _EUSART_Read:
+   280                           	opt callstack 30
+   281                           
+   282                           ;EUSART.h: 33: char Data;;EUSART.h: 34: while(PIR1bits.RCIF == 0);
+   283                           
+   284                           ;incstack = 0
+   285  007F4C  AA9E               	btfss	158,5,c	;volatile
+   286  007F4E  D7FE               	goto	_EUSART_Read
+   287                           
+   288                           ;EUSART.h: 35: Data = RCREG;
+   289  007F50  CFAE F001          	movff	4014,EUSART_Read@Data	;volatile
+   290                           
+   291                           ;EUSART.h: 37: return Data;
+   292  007F54  5001               	movf	EUSART_Read@Data^0,w,c
+   293  007F56  0012               	return		;funcret
+   294  007F58                     __end_of_EUSART_Read:
+   295                           	opt callstack 0
+   296                           
+   297 ;; *************** function _EUSART_Init *****************
+   298 ;; Defined at:
+   299 ;;		line 9 in file "EUSART.h"
+   300 ;; Parameters:    Size  Location     Type
+   301 ;;  FCPU            4    0[COMRAM] unsigned long 
+   302 ;;  BAUDRATE        4    4[COMRAM] unsigned long 
+   303 ;; Auto vars:     Size  Location     Type
+   304 ;;		None
+   305 ;; Return value:  Size  Location     Type
+   306 ;;                  1    wreg      void 
+   307 ;; Registers used:
+   308 ;;		wreg, status,2
+   309 ;; Tracked objects:
+   310 ;;		On entry : 0/0
+   311 ;;		On exit  : 0/0
+   312 ;;		Unchanged: 0/0
+   313 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   314 ;;      Params:         8       0       0       0       0       0       0       0       0
+   315 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   316 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   317 ;;      Totals:         8       0       0       0       0       0       0       0       0
+   318 ;;Total ram usage:        8 bytes
+   319 ;; Hardware stack levels used:    1
+   320 ;; This function calls:
+   321 ;;		Nothing
+   322 ;; This function is called by:
+   323 ;;		_main
+   324 ;; This function uses a non-reentrant model
+   325 ;;
+   326                           
+   327                           	psect	text2
+   328  007F58                     __ptext2:
+   329                           	opt callstack 0
+   330  007F58                     _EUSART_Init:
+   331                           	opt callstack 30
+   332                           
+   333                           ;EUSART.h: 10: TRISCbits.TRISC7 = 1;
+   334                           
+   335                           ;incstack = 0
+   336  007F58  8E94               	bsf	148,7,c	;volatile
+   337                           
+   338                           ;EUSART.h: 11: TRISCbits.TRISC6 = 0;
+   339  007F5A  9C94               	bcf	148,6,c	;volatile
+   340                           
+   341                           ;EUSART.h: 12: TXSTAbits.BRGH = 1;
+   342  007F5C  84AC               	bsf	172,2,c	;volatile
+   343                           
+   344                           ;EUSART.h: 13: SPBRG = 207;
+   345  007F5E  0ECF               	movlw	207
+   346  007F60  6EAF               	movwf	175,c	;volatile
+   347                           
+   348                           ;EUSART.h: 14: TXSTAbits.TXEN = 1;
+   349  007F62  8AAC               	bsf	172,5,c	;volatile
+   350                           
+   351                           ;EUSART.h: 15: RCSTAbits.CREN = 1;
+   352  007F64  88AB               	bsf	171,4,c	;volatile
+   353                           
+   354                           ;EUSART.h: 16: RCSTAbits.SPEN = 1;
+   355  007F66  8EAB               	bsf	171,7,c	;volatile
+   356  007F68  0012               	return		;funcret
+   357  007F6A                     __end_of_EUSART_Init:
+   358                           	opt callstack 0
+   359  0000                     
+   360                           	psect	rparam
+   361  0000                     tosu	equ	0xFFF
+   362                           tosh	equ	0xFFE
+   363                           tosl	equ	0xFFD
+   364                           stkptr	equ	0xFFC
+   365                           pclatu	equ	0xFFB
+   366                           pclath	equ	0xFFA
+   367                           pcl	equ	0xFF9
+   368                           tblptru	equ	0xFF8
+   369                           tblptrh	equ	0xFF7
+   370                           tblptrl	equ	0xFF6
+   371                           tablat	equ	0xFF5
+   372                           prodh	equ	0xFF4
+   373                           prodl	equ	0xFF3
+   374                           indf0	equ	0xFEF
+   375                           postinc0	equ	0xFEE
+   376                           postdec0	equ	0xFED
+   377                           preinc0	equ	0xFEC
+   378                           plusw0	equ	0xFEB
+   379                           fsr0h	equ	0xFEA
+   380                           fsr0l	equ	0xFE9
+   381                           wreg	equ	0xFE8
+   382                           indf1	equ	0xFE7
+   383                           postinc1	equ	0xFE6
+   384                           postdec1	equ	0xFE5
+   385                           preinc1	equ	0xFE4
+   386                           plusw1	equ	0xFE3
+   387                           fsr1h	equ	0xFE2
+   388                           fsr1l	equ	0xFE1
+   389                           bsr	equ	0xFE0
+   390                           indf2	equ	0xFDF
+   391                           postinc2	equ	0xFDE
+   392                           postdec2	equ	0xFDD
+   393                           preinc2	equ	0xFDC
+   394                           plusw2	equ	0xFDB
+   395                           fsr2h	equ	0xFDA
+   396                           fsr2l	equ	0xFD9
+   397                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95     10      10
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMRAM
+
+    _main->_EUSART_Init
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 2     2      0     234
+                                              8 COMRAM     2     2      0
+                        _EUSART_Init
+                        _EUSART_Read
+ ---------------------------------------------------------------------------------
+ (1) _EUSART_Read                                          1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _EUSART_Init                                          8     0      8     152
+                                              0 COMRAM     8     0      8
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _EUSART_Init
+   _EUSART_Read
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMRAM           5F      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMRAM              5F      A       A       1       10.5%
+STACK                0      0       0       2        0.0%
+DATA                 0      0       0       3        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK6           100      0       0      16        0.0%
+BANK6              100      0       0      17        0.0%
+BITBANK7           100      0       0      18        0.0%
+BANK7              100      0       0      19        0.0%
+ABS                  0      0       0      20        0.0%
+BIGRAM             7FF      0       0      21        0.0%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.10 build 88905656 
+Symbol Table                                                                                   Wed Jun 24 22:06:38 2020
+
+                     l45 7FBC                       l46 7FDC              __CFG_BOR$ON 000000  
+            __CFG_BORV$3 000000             __CFG_CP0$OFF 000000             __CFG_CP1$OFF 000000  
+           __CFG_CP2$OFF 000000             __CFG_CP3$OFF 000000                      l858 7F98  
+           __CFG_CPB$OFF 000000                      u200 7FEE                      u140 7FB0  
+                    u218 7FF0                      u170 7FCE                      u158 7FB2  
+           __CFG_CPD$OFF 000000                      u188 7FD0             ?_EUSART_Init 0001  
+           ?_EUSART_Read 0001             __CFG_LVP$OFF 000000             __CFG_WDT$OFF 000000  
+                   _LATC 000F8B                     _main 7F6A                     start 0000  
+          __CFG_IESO$OFF 000000            __CFG_MCLRE$ON 000000             ___param_bank 000000  
+          __CFG_PLLDIV$1 000000           __CFG_CCP2MX$ON 000000                    ?_main 0001  
+                  _RCREG 000FAE                    _SPBRG 000FAF            __CFG_USBDIV$1 000000  
+                  _TXREG 000FAD            __CFG_PWRT$OFF 000000            __CFG_WRT0$OFF 000000  
+          __CFG_WRT1$OFF 000000            __CFG_WRT2$OFF 000000            __CFG_WRT3$OFF 000000  
+         __CFG_EBTR0$OFF 000000           __CFG_FCMEN$OFF 000000           __CFG_EBTR1$OFF 000000  
+         __CFG_EBTR2$OFF 000000           __CFG_EBTR3$OFF 000000            __CFG_WRTB$OFF 000000  
+          __CFG_WRTC$OFF 000000            __CFG_WRTD$OFF 000000           __CFG_EBTRB$OFF 000000  
+                  status 000FD8           __CFG_ICPRT$OFF 000000          __initialization 7F46  
+           __end_of_main 8000                   ??_main 0009            __activetblptr 000000  
+         __CFG_XINST$OFF 000000           __CFG_STVREN$ON 000000     __size_of_EUSART_Init 0012  
+   __size_of_EUSART_Read 000C               __accesstop 0060  __end_of__initialization 7F46  
+        __CFG_PBADEN$OFF 000000          __CFG_FOSC$XT_XT 000000            ___rparam_used 000001  
+         __pcstackCOMRAM 0001          __CFG_VREGEN$OFF 000000                  __Hparam 0000  
+                __Lparam 0000                  __pcinit 7F46                  __ramtop 0800  
+                __ptext0 7F6A                  __ptext1 7F4C                  __ptext2 7F58  
+   end_of_initialization 7F46                _RCSTAbits 000FAB                _TRISCbits 000F94  
+              _TXSTAbits 000FAC      start_initialization 7F46            ??_EUSART_Init 0009  
+          ??_EUSART_Read 0001         __CFG_LPT1OSC$OFF 000000      EUSART_Init@BAUDRATE 0005  
+    __end_of_EUSART_Init 7F6A      __end_of_EUSART_Read 7F58                 _LATCbits 000F8B  
+               _PIR1bits 000F9E         __CFG_WDTPS$32768 000000              _EUSART_Init 7F58  
+            _EUSART_Read 7F4C          EUSART_Init@FCPU 0001                 __Hrparam 0000  
+        EUSART_Read@Data 0001                 __Lrparam 0000            __size_of_main 0096  
+               main@Data 000A    __CFG_CPUDIV$OSC1_PLL2 000000  

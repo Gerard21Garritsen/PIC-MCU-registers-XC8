@@ -1,0 +1,3729 @@
+
+
+Microchip MPLAB XC8 Assembler V2.10 build 88905656 
+                                                                                               Tue Jul 07 22:55:16 2020
+
+Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
+     1                           	processor	18F4550
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	flic
+     5                           	psect	mediumconst,global,reloc=2,class=MEDIUMCONST,delta=1,noexec
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     8                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     9                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    10                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    19                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    20                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    21  0000                     
+    22                           ; Version 2.10
+    23                           ; Generated 31/07/2019 GMT
+    24                           ; 
+    25                           ; Copyright © 2019, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    26                           ; All rights reserved.
+    27                           ; 
+    28                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    29                           ; 
+    30                           ; Redistribution and use in source and binary forms, with or without modification, are
+    31                           ; permitted provided that the following conditions are met:
+    32                           ; 
+    33                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    34                           ;        conditions and the following disclaimer.
+    35                           ; 
+    36                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    37                           ;        of conditions and the following disclaimer in the documentation and/or other
+    38                           ;        materials provided with the distribution.
+    39                           ; 
+    40                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    41                           ;        software without specific prior written permission.
+    42                           ; 
+    43                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    44                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    45                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    46                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    47                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    48                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    49                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    50                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    51                           ; 
+    52                           ; 
+    53                           ; Code-generator required, PIC18F4550 Definitions
+    54                           ; 
+    55                           ; SFR Addresses
+    56  0000                     
+    57                           	psect	mediumconst
+    58  0077B2                     __pmediumconst:
+    59                           	opt callstack 0
+    60  0077B2  00                 	db	0
+    61  0077B3                     _cypress:
+    62                           	opt callstack 0
+    63  0077B3  00                 	db	0
+    64  0077B4  00                 	db	0
+    65  0077B5  00                 	db	0
+    66  0077B6  00                 	db	0
+    67  0077B7  00                 	db	0
+    68  0077B8  00                 	db	0
+    69  0077B9  00                 	db	0
+    70  0077BA  00                 	db	0
+    71  0077BB  00                 	db	0
+    72  0077BC  00                 	db	0
+    73  0077BD  00                 	db	0
+    74  0077BE  00                 	db	0
+    75  0077BF  00                 	db	0
+    76  0077C0  00                 	db	0
+    77  0077C1  00                 	db	0
+    78  0077C2  00                 	db	0
+    79  0077C3  00                 	db	0
+    80  0077C4  00                 	db	0
+    81  0077C5  00                 	db	0
+    82  0077C6  00                 	db	0
+    83  0077C7  00                 	db	0
+    84  0077C8  00                 	db	0
+    85  0077C9  00                 	db	0
+    86  0077CA  00                 	db	0
+    87  0077CB  00                 	db	0
+    88  0077CC  00                 	db	0
+    89  0077CD  00                 	db	0
+    90  0077CE  00                 	db	0
+    91  0077CF  00                 	db	0
+    92  0077D0  00                 	db	0
+    93  0077D1  00                 	db	0
+    94  0077D2  00                 	db	0
+    95  0077D3  00                 	db	0
+    96  0077D4  00                 	db	0
+    97  0077D5  00                 	db	0
+    98  0077D6  00                 	db	0
+    99  0077D7  00                 	db	0
+   100  0077D8  00                 	db	0
+   101  0077D9  00                 	db	0
+   102  0077DA  00                 	db	0
+   103  0077DB  00                 	db	0
+   104  0077DC  00                 	db	0
+   105  0077DD  00                 	db	0
+   106  0077DE  00                 	db	0
+   107  0077DF  00                 	db	0
+   108  0077E0  00                 	db	0
+   109  0077E1  00                 	db	0
+   110  0077E2  00                 	db	0
+   111  0077E3  00                 	db	0
+   112  0077E4  00                 	db	0
+   113  0077E5  00                 	db	0
+   114  0077E6  00                 	db	0
+   115  0077E7  00                 	db	0
+   116  0077E8  00                 	db	0
+   117  0077E9  00                 	db	0
+   118  0077EA  00                 	db	0
+   119  0077EB  00                 	db	0
+   120  0077EC  00                 	db	0
+   121  0077ED  00                 	db	0
+   122  0077EE  00                 	db	0
+   123  0077EF  00                 	db	0
+   124  0077F0  00                 	db	0
+   125  0077F1  00                 	db	0
+   126  0077F2  00                 	db	0
+   127  0077F3  00                 	db	0
+   128  0077F4  00                 	db	0
+   129  0077F5  00                 	db	0
+   130  0077F6  00                 	db	0
+   131  0077F7  00                 	db	0
+   132  0077F8  00                 	db	0
+   133  0077F9  00                 	db	0
+   134  0077FA  00                 	db	0
+   135  0077FB  00                 	db	0
+   136  0077FC  00                 	db	0
+   137  0077FD  00                 	db	0
+   138  0077FE  00                 	db	0
+   139  0077FF  00                 	db	0
+   140  007800  00                 	db	0
+   141  007801  00                 	db	0
+   142  007802  00                 	db	0
+   143  007803  00                 	db	0
+   144  007804  00                 	db	0
+   145  007805  00                 	db	0
+   146  007806  00                 	db	0
+   147  007807  00                 	db	0
+   148  007808  00                 	db	0
+   149  007809  00                 	db	0
+   150  00780A  00                 	db	0
+   151  00780B  00                 	db	0
+   152  00780C  00                 	db	0
+   153  00780D  00                 	db	0
+   154  00780E  00                 	db	0
+   155  00780F  00                 	db	0
+   156  007810  00                 	db	0
+   157  007811  00                 	db	0
+   158  007812  00                 	db	0
+   159  007813  00                 	db	0
+   160  007814  00                 	db	0
+   161  007815  00                 	db	0
+   162  007816  00                 	db	0
+   163  007817  00                 	db	0
+   164  007818  00                 	db	0
+   165  007819  00                 	db	0
+   166  00781A  00                 	db	0
+   167  00781B  00                 	db	0
+   168  00781C  00                 	db	0
+   169  00781D  00                 	db	0
+   170  00781E  00                 	db	0
+   171  00781F  00                 	db	0
+   172  007820  00                 	db	0
+   173  007821  00                 	db	0
+   174  007822  00                 	db	0
+   175  007823  00                 	db	0
+   176  007824  00                 	db	0
+   177  007825  00                 	db	0
+   178  007826  00                 	db	0
+   179  007827  00                 	db	0
+   180  007828  00                 	db	0
+   181  007829  00                 	db	0
+   182  00782A  00                 	db	0
+   183  00782B  00                 	db	0
+   184  00782C  00                 	db	0
+   185  00782D  00                 	db	0
+   186  00782E  00                 	db	0
+   187  00782F  00                 	db	0
+   188  007830  00                 	db	0
+   189  007831  00                 	db	0
+   190  007832  00                 	db	0
+   191  007833  00                 	db	0
+   192  007834  00                 	db	0
+   193  007835  00                 	db	0
+   194  007836  00                 	db	0
+   195  007837  00                 	db	0
+   196  007838  00                 	db	0
+   197  007839  00                 	db	0
+   198  00783A  00                 	db	0
+   199  00783B  00                 	db	0
+   200  00783C  00                 	db	0
+   201  00783D  00                 	db	0
+   202  00783E  00                 	db	0
+   203  00783F  00                 	db	0
+   204  007840  00                 	db	0
+   205  007841  80                 	db	128
+   206  007842  80                 	db	128
+   207  007843  80                 	db	128
+   208  007844  C0                 	db	192
+   209  007845  C0                 	db	192
+   210  007846  C0                 	db	192
+   211  007847  C0                 	db	192
+   212  007848  C0                 	db	192
+   213  007849  C0                 	db	192
+   214  00784A  C0                 	db	192
+   215  00784B  C0                 	db	192
+   216  00784C  C0                 	db	192
+   217  00784D  80                 	db	128
+   218  00784E  80                 	db	128
+   219  00784F  80                 	db	128
+   220  007850  00                 	db	0
+   221  007851  00                 	db	0
+   222  007852  00                 	db	0
+   223  007853  00                 	db	0
+   224  007854  00                 	db	0
+   225  007855  00                 	db	0
+   226  007856  00                 	db	0
+   227  007857  00                 	db	0
+   228  007858  00                 	db	0
+   229  007859  00                 	db	0
+   230  00785A  00                 	db	0
+   231  00785B  00                 	db	0
+   232  00785C  00                 	db	0
+   233  00785D  00                 	db	0
+   234  00785E  00                 	db	0
+   235  00785F  00                 	db	0
+   236  007860  00                 	db	0
+   237  007861  00                 	db	0
+   238  007862  00                 	db	0
+   239  007863  00                 	db	0
+   240  007864  00                 	db	0
+   241  007865  00                 	db	0
+   242  007866  00                 	db	0
+   243  007867  00                 	db	0
+   244  007868  00                 	db	0
+   245  007869  00                 	db	0
+   246  00786A  00                 	db	0
+   247  00786B  00                 	db	0
+   248  00786C  00                 	db	0
+   249  00786D  00                 	db	0
+   250  00786E  00                 	db	0
+   251  00786F  00                 	db	0
+   252  007870  00                 	db	0
+   253  007871  00                 	db	0
+   254  007872  00                 	db	0
+   255  007873  00                 	db	0
+   256  007874  00                 	db	0
+   257  007875  00                 	db	0
+   258  007876  00                 	db	0
+   259  007877  00                 	db	0
+   260  007878  00                 	db	0
+   261  007879  00                 	db	0
+   262  00787A  00                 	db	0
+   263  00787B  00                 	db	0
+   264  00787C  00                 	db	0
+   265  00787D  00                 	db	0
+   266  00787E  00                 	db	0
+   267  00787F  00                 	db	0
+   268  007880  00                 	db	0
+   269  007881  00                 	db	0
+   270  007882  00                 	db	0
+   271  007883  00                 	db	0
+   272  007884  00                 	db	0
+   273  007885  00                 	db	0
+   274  007886  00                 	db	0
+   275  007887  00                 	db	0
+   276  007888  00                 	db	0
+   277  007889  00                 	db	0
+   278  00788A  00                 	db	0
+   279  00788B  00                 	db	0
+   280  00788C  00                 	db	0
+   281  00788D  00                 	db	0
+   282  00788E  00                 	db	0
+   283  00788F  00                 	db	0
+   284  007890  00                 	db	0
+   285  007891  00                 	db	0
+   286  007892  00                 	db	0
+   287  007893  00                 	db	0
+   288  007894  00                 	db	0
+   289  007895  00                 	db	0
+   290  007896  00                 	db	0
+   291  007897  00                 	db	0
+   292  007898  00                 	db	0
+   293  007899  00                 	db	0
+   294  00789A  00                 	db	0
+   295  00789B  00                 	db	0
+   296  00789C  00                 	db	0
+   297  00789D  00                 	db	0
+   298  00789E  00                 	db	0
+   299  00789F  00                 	db	0
+   300  0078A0  00                 	db	0
+   301  0078A1  00                 	db	0
+   302  0078A2  00                 	db	0
+   303  0078A3  00                 	db	0
+   304  0078A4  00                 	db	0
+   305  0078A5  00                 	db	0
+   306  0078A6  00                 	db	0
+   307  0078A7  00                 	db	0
+   308  0078A8  00                 	db	0
+   309  0078A9  00                 	db	0
+   310  0078AA  00                 	db	0
+   311  0078AB  00                 	db	0
+   312  0078AC  00                 	db	0
+   313  0078AD  00                 	db	0
+   314  0078AE  00                 	db	0
+   315  0078AF  00                 	db	0
+   316  0078B0  00                 	db	0
+   317  0078B1  00                 	db	0
+   318  0078B2  00                 	db	0
+   319  0078B3  00                 	db	0
+   320  0078B4  00                 	db	0
+   321  0078B5  00                 	db	0
+   322  0078B6  00                 	db	0
+   323  0078B7  00                 	db	0
+   324  0078B8  80                 	db	128
+   325  0078B9  E0                 	db	224
+   326  0078BA  F0                 	db	240
+   327  0078BB  F8                 	db	248
+   328  0078BC  FC                 	db	252
+   329  0078BD  FE                 	db	254
+   330  0078BE  FE                 	db	254
+   331  0078BF  7F                 	db	127
+   332  0078C0  7F                 	db	127
+   333  0078C1  7F                 	db	127
+   334  0078C2  3F                 	db	63
+   335  0078C3  3F                 	db	63
+   336  0078C4  3F                 	db	63
+   337  0078C5  3F                 	db	63
+   338  0078C6  3F                 	db	63
+   339  0078C7  7F                 	db	127
+   340  0078C8  7F                 	db	127
+   341  0078C9  7F                 	db	127
+   342  0078CA  7F                 	db	127
+   343  0078CB  7F                 	db	127
+   344  0078CC  7F                 	db	127
+   345  0078CD  FF                 	db	255
+   346  0078CE  FF                 	db	255
+   347  0078CF  FF                 	db	255
+   348  0078D0  FF                 	db	255
+   349  0078D1  FF                 	db	255
+   350  0078D2  FE                 	db	254
+   351  0078D3  FE                 	db	254
+   352  0078D4  FC                 	db	252
+   353  0078D5  F8                 	db	248
+   354  0078D6  F0                 	db	240
+   355  0078D7  E0                 	db	224
+   356  0078D8  C0                 	db	192
+   357  0078D9  00                 	db	0
+   358  0078DA  00                 	db	0
+   359  0078DB  00                 	db	0
+   360  0078DC  00                 	db	0
+   361  0078DD  00                 	db	0
+   362  0078DE  00                 	db	0
+   363  0078DF  00                 	db	0
+   364  0078E0  00                 	db	0
+   365  0078E1  00                 	db	0
+   366  0078E2  00                 	db	0
+   367  0078E3  80                 	db	128
+   368  0078E4  80                 	db	128
+   369  0078E5  00                 	db	0
+   370  0078E6  00                 	db	0
+   371  0078E7  00                 	db	0
+   372  0078E8  00                 	db	0
+   373  0078E9  00                 	db	0
+   374  0078EA  00                 	db	0
+   375  0078EB  00                 	db	0
+   376  0078EC  00                 	db	0
+   377  0078ED  00                 	db	0
+   378  0078EE  00                 	db	0
+   379  0078EF  00                 	db	0
+   380  0078F0  00                 	db	0
+   381  0078F1  00                 	db	0
+   382  0078F2  00                 	db	0
+   383  0078F3  00                 	db	0
+   384  0078F4  00                 	db	0
+   385  0078F5  00                 	db	0
+   386  0078F6  00                 	db	0
+   387  0078F7  00                 	db	0
+   388  0078F8  00                 	db	0
+   389  0078F9  00                 	db	0
+   390  0078FA  00                 	db	0
+   391  0078FB  00                 	db	0
+   392  0078FC  00                 	db	0
+   393  0078FD  00                 	db	0
+   394  0078FE  00                 	db	0
+   395  0078FF  00                 	db	0
+   396  007900  00                 	db	0
+   397  007901  00                 	db	0
+   398  007902  00                 	db	0
+   399  007903  00                 	db	0
+   400  007904  00                 	db	0
+   401  007905  00                 	db	0
+   402  007906  00                 	db	0
+   403  007907  00                 	db	0
+   404  007908  00                 	db	0
+   405  007909  00                 	db	0
+   406  00790A  00                 	db	0
+   407  00790B  00                 	db	0
+   408  00790C  00                 	db	0
+   409  00790D  00                 	db	0
+   410  00790E  00                 	db	0
+   411  00790F  00                 	db	0
+   412  007910  00                 	db	0
+   413  007911  00                 	db	0
+   414  007912  00                 	db	0
+   415  007913  00                 	db	0
+   416  007914  00                 	db	0
+   417  007915  00                 	db	0
+   418  007916  00                 	db	0
+   419  007917  00                 	db	0
+   420  007918  00                 	db	0
+   421  007919  00                 	db	0
+   422  00791A  00                 	db	0
+   423  00791B  00                 	db	0
+   424  00791C  80                 	db	128
+   425  00791D  80                 	db	128
+   426  00791E  00                 	db	0
+   427  00791F  00                 	db	0
+   428  007920  00                 	db	0
+   429  007921  00                 	db	0
+   430  007922  00                 	db	0
+   431  007923  00                 	db	0
+   432  007924  00                 	db	0
+   433  007925  00                 	db	0
+   434  007926  00                 	db	0
+   435  007927  80                 	db	128
+   436  007928  80                 	db	128
+   437  007929  00                 	db	0
+   438  00792A  00                 	db	0
+   439  00792B  00                 	db	0
+   440  00792C  00                 	db	0
+   441  00792D  00                 	db	0
+   442  00792E  00                 	db	0
+   443  00792F  00                 	db	0
+   444  007930  00                 	db	0
+   445  007931  00                 	db	0
+   446  007932  00                 	db	0
+   447  007933  00                 	db	0
+   448  007934  00                 	db	0
+   449  007935  00                 	db	0
+   450  007936  E0                 	db	224
+   451  007937  E7                 	db	231
+   452  007938  E7                 	db	231
+   453  007939  E3                 	db	227
+   454  00793A  C3                 	db	195
+   455  00793B  C2                 	db	194
+   456  00793C  C2                 	db	194
+   457  00793D  80                 	db	128
+   458  00793E  00                 	db	0
+   459  00793F  00                 	db	0
+   460  007940  00                 	db	0
+   461  007941  00                 	db	0
+   462  007942  00                 	db	0
+   463  007943  00                 	db	0
+   464  007944  80                 	db	128
+   465  007945  80                 	db	128
+   466  007946  80                 	db	128
+   467  007947  80                 	db	128
+   468  007948  00                 	db	0
+   469  007949  00                 	db	0
+   470  00794A  00                 	db	0
+   471  00794B  00                 	db	0
+   472  00794C  01                 	db	1
+   473  00794D  01                 	db	1
+   474  00794E  01                 	db	1
+   475  00794F  01                 	db	1
+   476  007950  01                 	db	1
+   477  007951  01                 	db	1
+   478  007952  01                 	db	1
+   479  007953  01                 	db	1
+   480  007954  01                 	db	1
+   481  007955  81                 	db	129
+   482  007956  81                 	db	129
+   483  007957  81                 	db	129
+   484  007958  83                 	db	131
+   485  007959  D3                 	db	211
+   486  00795A  F0                 	db	240
+   487  00795B  00                 	db	0
+   488  00795C  00                 	db	0
+   489  00795D  00                 	db	0
+   490  00795E  00                 	db	0
+   491  00795F  08                 	db	8
+   492  007960  FE                 	db	254
+   493  007961  FF                 	db	255
+   494  007962  07                 	db	7
+   495  007963  03                 	db	3
+   496  007964  03                 	db	3
+   497  007965  03                 	db	3
+   498  007966  1F                 	db	31
+   499  007967  1E                 	db	30
+   500  007968  1C                 	db	28
+   501  007969  00                 	db	0
+   502  00796A  01                 	db	1
+   503  00796B  07                 	db	7
+   504  00796C  3F                 	db	63
+   505  00796D  FE                 	db	254
+   506  00796E  F0                 	db	240
+   507  00796F  F8                 	db	248
+   508  007970  FF                 	db	255
+   509  007971  1F                 	db	31
+   510  007972  03                 	db	3
+   511  007973  00                 	db	0
+   512  007974  00                 	db	0
+   513  007975  00                 	db	0
+   514  007976  FF                 	db	255
+   515  007977  FF                 	db	255
+   516  007978  03                 	db	3
+   517  007979  03                 	db	3
+   518  00797A  03                 	db	3
+   519  00797B  87                 	db	135
+   520  00797C  FF                 	db	255
+   521  00797D  FE                 	db	254
+   522  00797E  7C                 	db	124
+   523  00797F  00                 	db	0
+   524  007980  00                 	db	0
+   525  007981  FF                 	db	255
+   526  007982  FF                 	db	255
+   527  007983  FF                 	db	255
+   528  007984  83                 	db	131
+   529  007985  83                 	db	131
+   530  007986  83                 	db	131
+   531  007987  87                 	db	135
+   532  007988  FF                 	db	255
+   533  007989  FE                 	db	254
+   534  00798A  00                 	db	0
+   535  00798B  00                 	db	0
+   536  00798C  00                 	db	0
+   537  00798D  FF                 	db	255
+   538  00798E  FF                 	db	255
+   539  00798F  FF                 	db	255
+   540  007990  83                 	db	131
+   541  007991  83                 	db	131
+   542  007992  83                 	db	131
+   543  007993  83                 	db	131
+   544  007994  83                 	db	131
+   545  007995  03                 	db	3
+   546  007996  00                 	db	0
+   547  007997  00                 	db	0
+   548  007998  3C                 	db	60
+   549  007999  7E                 	db	126
+   550  00799A  FF                 	db	255
+   551  00799B  E3                 	db	227
+   552  00799C  C3                 	db	195
+   553  00799D  83                 	db	131
+   554  00799E  07                 	db	7
+   555  00799F  1F                 	db	31
+   556  0079A0  1E                 	db	30
+   557  0079A1  00                 	db	0
+   558  0079A2  00                 	db	0
+   559  0079A3  00                 	db	0
+   560  0079A4  3E                 	db	62
+   561  0079A5  7F                 	db	127
+   562  0079A6  F7                 	db	247
+   563  0079A7  C3                 	db	195
+   564  0079A8  C3                 	db	195
+   565  0079A9  83                 	db	131
+   566  0079AA  1F                 	db	31
+   567  0079AB  1F                 	db	31
+   568  0079AC  1C                 	db	28
+   569  0079AD  00                 	db	0
+   570  0079AE  01                 	db	1
+   571  0079AF  00                 	db	0
+   572  0079B0  00                 	db	0
+   573  0079B1  00                 	db	0
+   574  0079B2  00                 	db	0
+   575  0079B3  00                 	db	0
+   576  0079B4  00                 	db	0
+   577  0079B5  00                 	db	0
+   578  0079B6  1F                 	db	31
+   579  0079B7  FF                 	db	255
+   580  0079B8  FF                 	db	255
+   581  0079B9  FF                 	db	255
+   582  0079BA  FF                 	db	255
+   583  0079BB  FF                 	db	255
+   584  0079BC  FF                 	db	255
+   585  0079BD  FF                 	db	255
+   586  0079BE  FF                 	db	255
+   587  0079BF  FF                 	db	255
+   588  0079C0  FF                 	db	255
+   589  0079C1  FF                 	db	255
+   590  0079C2  FF                 	db	255
+   591  0079C3  FF                 	db	255
+   592  0079C4  FF                 	db	255
+   593  0079C5  FF                 	db	255
+   594  0079C6  FE                 	db	254
+   595  0079C7  FE                 	db	254
+   596  0079C8  FE                 	db	254
+   597  0079C9  7E                 	db	126
+   598  0079CA  18                 	db	24
+   599  0079CB  00                 	db	0
+   600  0079CC  82                 	db	130
+   601  0079CD  C6                 	db	198
+   602  0079CE  E2                 	db	226
+   603  0079CF  F0                 	db	240
+   604  0079D0  F8                 	db	248
+   605  0079D1  FC                 	db	252
+   606  0079D2  FC                 	db	252
+   607  0079D3  FC                 	db	252
+   608  0079D4  FD                 	db	253
+   609  0079D5  FC                 	db	252
+   610  0079D6  FC                 	db	252
+   611  0079D7  FC                 	db	252
+   612  0079D8  FC                 	db	252
+   613  0079D9  FC                 	db	252
+   614  0079DA  3C                 	db	60
+   615  0079DB  00                 	db	0
+   616  0079DC  00                 	db	0
+   617  0079DD  00                 	db	0
+   618  0079DE  00                 	db	0
+   619  0079DF  10                 	db	16
+   620  0079E0  7F                 	db	127
+   621  0079E1  FF                 	db	255
+   622  0079E2  C0                 	db	192
+   623  0079E3  C0                 	db	192
+   624  0079E4  C0                 	db	192
+   625  0079E5  C0                 	db	192
+   626  0079E6  F8                 	db	248
+   627  0079E7  78                 	db	120
+   628  0079E8  38                 	db	56
+   629  0079E9  00                 	db	0
+   630  0079EA  00                 	db	0
+   631  0079EB  00                 	db	0
+   632  0079EC  00                 	db	0
+   633  0079ED  01                 	db	1
+   634  0079EE  FF                 	db	255
+   635  0079EF  FF                 	db	255
+   636  0079F0  00                 	db	0
+   637  0079F1  00                 	db	0
+   638  0079F2  00                 	db	0
+   639  0079F3  00                 	db	0
+   640  0079F4  00                 	db	0
+   641  0079F5  00                 	db	0
+   642  0079F6  FF                 	db	255
+   643  0079F7  FF                 	db	255
+   644  0079F8  03                 	db	3
+   645  0079F9  03                 	db	3
+   646  0079FA  03                 	db	3
+   647  0079FB  03                 	db	3
+   648  0079FC  03                 	db	3
+   649  0079FD  01                 	db	1
+   650  0079FE  00                 	db	0
+   651  0079FF  00                 	db	0
+   652  007A00  00                 	db	0
+   653  007A01  FF                 	db	255
+   654  007A02  FF                 	db	255
+   655  007A03  FF                 	db	255
+   656  007A04  03                 	db	3
+   657  007A05  03                 	db	3
+   658  007A06  0F                 	db	15
+   659  007A07  7F                 	db	127
+   660  007A08  FD                 	db	253
+   661  007A09  E0                 	db	224
+   662  007A0A  00                 	db	0
+   663  007A0B  00                 	db	0
+   664  007A0C  00                 	db	0
+   665  007A0D  FF                 	db	255
+   666  007A0E  FF                 	db	255
+   667  007A0F  FF                 	db	255
+   668  007A10  C1                 	db	193
+   669  007A11  C1                 	db	193
+   670  007A12  C1                 	db	193
+   671  007A13  C1                 	db	193
+   672  007A14  C1                 	db	193
+   673  007A15  C0                 	db	192
+   674  007A16  00                 	db	0
+   675  007A17  00                 	db	0
+   676  007A18  38                 	db	56
+   677  007A19  F8                 	db	248
+   678  007A1A  F8                 	db	248
+   679  007A1B  C1                 	db	193
+   680  007A1C  C3                 	db	195
+   681  007A1D  C3                 	db	195
+   682  007A1E  E7                 	db	231
+   683  007A1F  FE                 	db	254
+   684  007A20  7C                 	db	124
+   685  007A21  00                 	db	0
+   686  007A22  00                 	db	0
+   687  007A23  00                 	db	0
+   688  007A24  78                 	db	120
+   689  007A25  F8                 	db	248
+   690  007A26  E0                 	db	224
+   691  007A27  C1                 	db	193
+   692  007A28  C3                 	db	195
+   693  007A29  C7                 	db	199
+   694  007A2A  FF                 	db	255
+   695  007A2B  FE                 	db	254
+   696  007A2C  7C                 	db	124
+   697  007A2D  00                 	db	0
+   698  007A2E  00                 	db	0
+   699  007A2F  00                 	db	0
+   700  007A30  00                 	db	0
+   701  007A31  00                 	db	0
+   702  007A32  00                 	db	0
+   703  007A33  00                 	db	0
+   704  007A34  00                 	db	0
+   705  007A35  00                 	db	0
+   706  007A36  00                 	db	0
+   707  007A37  00                 	db	0
+   708  007A38  03                 	db	3
+   709  007A39  07                 	db	7
+   710  007A3A  0F                 	db	15
+   711  007A3B  0F                 	db	15
+   712  007A3C  2F                 	db	47
+   713  007A3D  6F                 	db	111
+   714  007A3E  6F                 	db	111
+   715  007A3F  EF                 	db	239
+   716  007A40  EF                 	db	239
+   717  007A41  EF                 	db	239
+   718  007A42  E7                 	db	231
+   719  007A43  E7                 	db	231
+   720  007A44  E7                 	db	231
+   721  007A45  E3                 	db	227
+   722  007A46  E3                 	db	227
+   723  007A47  E1                 	db	225
+   724  007A48  E0                 	db	224
+   725  007A49  E0                 	db	224
+   726  007A4A  E0                 	db	224
+   727  007A4B  E3                 	db	227
+   728  007A4C  E3                 	db	227
+   729  007A4D  E3                 	db	227
+   730  007A4E  E3                 	db	227
+   731  007A4F  E3                 	db	227
+   732  007A50  E3                 	db	227
+   733  007A51  E3                 	db	227
+   734  007A52  63                 	db	99
+   735  007A53  63                 	db	99
+   736  007A54  23                 	db	35
+   737  007A55  03                 	db	3
+   738  007A56  03                 	db	3
+   739  007A57  03                 	db	3
+   740  007A58  03                 	db	3
+   741  007A59  00                 	db	0
+   742  007A5A  00                 	db	0
+   743  007A5B  00                 	db	0
+   744  007A5C  00                 	db	0
+   745  007A5D  00                 	db	0
+   746  007A5E  00                 	db	0
+   747  007A5F  00                 	db	0
+   748  007A60  20                 	db	32
+   749  007A61  20                 	db	32
+   750  007A62  01                 	db	1
+   751  007A63  01                 	db	1
+   752  007A64  31                 	db	49
+   753  007A65  21                 	db	33
+   754  007A66  30                 	db	48
+   755  007A67  00                 	db	0
+   756  007A68  00                 	db	0
+   757  007A69  20                 	db	32
+   758  007A6A  20                 	db	32
+   759  007A6B  00                 	db	0
+   760  007A6C  00                 	db	0
+   761  007A6D  20                 	db	32
+   762  007A6E  21                 	db	33
+   763  007A6F  01                 	db	1
+   764  007A70  00                 	db	0
+   765  007A71  00                 	db	0
+   766  007A72  00                 	db	0
+   767  007A73  00                 	db	0
+   768  007A74  00                 	db	0
+   769  007A75  00                 	db	0
+   770  007A76  01                 	db	1
+   771  007A77  21                 	db	33
+   772  007A78  00                 	db	0
+   773  007A79  60                 	db	96
+   774  007A7A  20                 	db	32
+   775  007A7B  00                 	db	0
+   776  007A7C  00                 	db	0
+   777  007A7D  00                 	db	0
+   778  007A7E  00                 	db	0
+   779  007A7F  30                 	db	48
+   780  007A80  00                 	db	0
+   781  007A81  01                 	db	1
+   782  007A82  01                 	db	1
+   783  007A83  01                 	db	1
+   784  007A84  00                 	db	0
+   785  007A85  10                 	db	16
+   786  007A86  00                 	db	0
+   787  007A87  70                 	db	112
+   788  007A88  01                 	db	1
+   789  007A89  01                 	db	1
+   790  007A8A  00                 	db	0
+   791  007A8B  00                 	db	0
+   792  007A8C  00                 	db	0
+   793  007A8D  01                 	db	1
+   794  007A8E  01                 	db	1
+   795  007A8F  01                 	db	1
+   796  007A90  01                 	db	1
+   797  007A91  01                 	db	1
+   798  007A92  01                 	db	1
+   799  007A93  31                 	db	49
+   800  007A94  21                 	db	33
+   801  007A95  31                 	db	49
+   802  007A96  00                 	db	0
+   803  007A97  00                 	db	0
+   804  007A98  00                 	db	0
+   805  007A99  00                 	db	0
+   806  007A9A  00                 	db	0
+   807  007A9B  01                 	db	1
+   808  007A9C  21                 	db	33
+   809  007A9D  21                 	db	33
+   810  007A9E  11                 	db	17
+   811  007A9F  00                 	db	0
+   812  007AA0  30                 	db	48
+   813  007AA1  20                 	db	32
+   814  007AA2  10                 	db	16
+   815  007AA3  00                 	db	0
+   816  007AA4  50                 	db	80
+   817  007AA5  00                 	db	0
+   818  007AA6  70                 	db	112
+   819  007AA7  01                 	db	1
+   820  007AA8  11                 	db	17
+   821  007AA9  41                 	db	65
+   822  007AAA  10                 	db	16
+   823  007AAB  40                 	db	64
+   824  007AAC  00                 	db	0
+   825  007AAD  00                 	db	0
+   826  007AAE  00                 	db	0
+   827  007AAF  00                 	db	0
+   828  007AB0  00                 	db	0
+   829  007AB1  00                 	db	0
+   830  007AB2  00                 	db	0
+   831  007AB3  00                 	db	0
+   832  007AB4  00                 	db	0
+   833  007AB5  00                 	db	0
+   834  007AB6  00                 	db	0
+   835  007AB7  00                 	db	0
+   836  007AB8  00                 	db	0
+   837  007AB9  00                 	db	0
+   838  007ABA  00                 	db	0
+   839  007ABB  00                 	db	0
+   840  007ABC  00                 	db	0
+   841  007ABD  00                 	db	0
+   842  007ABE  00                 	db	0
+   843  007ABF  00                 	db	0
+   844  007AC0  00                 	db	0
+   845  007AC1  01                 	db	1
+   846  007AC2  01                 	db	1
+   847  007AC3  01                 	db	1
+   848  007AC4  03                 	db	3
+   849  007AC5  03                 	db	3
+   850  007AC6  03                 	db	3
+   851  007AC7  03                 	db	3
+   852  007AC8  03                 	db	3
+   853  007AC9  03                 	db	3
+   854  007ACA  03                 	db	3
+   855  007ACB  03                 	db	3
+   856  007ACC  03                 	db	3
+   857  007ACD  01                 	db	1
+   858  007ACE  01                 	db	1
+   859  007ACF  01                 	db	1
+   860  007AD0  00                 	db	0
+   861  007AD1  00                 	db	0
+   862  007AD2  00                 	db	0
+   863  007AD3  00                 	db	0
+   864  007AD4  00                 	db	0
+   865  007AD5  00                 	db	0
+   866  007AD6  00                 	db	0
+   867  007AD7  00                 	db	0
+   868  007AD8  00                 	db	0
+   869  007AD9  00                 	db	0
+   870  007ADA  00                 	db	0
+   871  007ADB  00                 	db	0
+   872  007ADC  00                 	db	0
+   873  007ADD  00                 	db	0
+   874  007ADE  00                 	db	0
+   875  007ADF  00                 	db	0
+   876  007AE0  00                 	db	0
+   877  007AE1  00                 	db	0
+   878  007AE2  00                 	db	0
+   879  007AE3  00                 	db	0
+   880  007AE4  00                 	db	0
+   881  007AE5  00                 	db	0
+   882  007AE6  00                 	db	0
+   883  007AE7  00                 	db	0
+   884  007AE8  00                 	db	0
+   885  007AE9  00                 	db	0
+   886  007AEA  00                 	db	0
+   887  007AEB  00                 	db	0
+   888  007AEC  00                 	db	0
+   889  007AED  00                 	db	0
+   890  007AEE  00                 	db	0
+   891  007AEF  00                 	db	0
+   892  007AF0  00                 	db	0
+   893  007AF1  00                 	db	0
+   894  007AF2  00                 	db	0
+   895  007AF3  00                 	db	0
+   896  007AF4  00                 	db	0
+   897  007AF5  00                 	db	0
+   898  007AF6  00                 	db	0
+   899  007AF7  00                 	db	0
+   900  007AF8  00                 	db	0
+   901  007AF9  00                 	db	0
+   902  007AFA  00                 	db	0
+   903  007AFB  00                 	db	0
+   904  007AFC  00                 	db	0
+   905  007AFD  00                 	db	0
+   906  007AFE  00                 	db	0
+   907  007AFF  00                 	db	0
+   908  007B00  00                 	db	0
+   909  007B01  00                 	db	0
+   910  007B02  00                 	db	0
+   911  007B03  00                 	db	0
+   912  007B04  00                 	db	0
+   913  007B05  00                 	db	0
+   914  007B06  00                 	db	0
+   915  007B07  00                 	db	0
+   916  007B08  00                 	db	0
+   917  007B09  00                 	db	0
+   918  007B0A  00                 	db	0
+   919  007B0B  00                 	db	0
+   920  007B0C  00                 	db	0
+   921  007B0D  00                 	db	0
+   922  007B0E  00                 	db	0
+   923  007B0F  00                 	db	0
+   924  007B10  00                 	db	0
+   925  007B11  00                 	db	0
+   926  007B12  00                 	db	0
+   927  007B13  00                 	db	0
+   928  007B14  00                 	db	0
+   929  007B15  00                 	db	0
+   930  007B16  00                 	db	0
+   931  007B17  00                 	db	0
+   932  007B18  00                 	db	0
+   933  007B19  00                 	db	0
+   934  007B1A  00                 	db	0
+   935  007B1B  00                 	db	0
+   936  007B1C  00                 	db	0
+   937  007B1D  00                 	db	0
+   938  007B1E  00                 	db	0
+   939  007B1F  00                 	db	0
+   940  007B20  00                 	db	0
+   941  007B21  00                 	db	0
+   942  007B22  00                 	db	0
+   943  007B23  00                 	db	0
+   944  007B24  00                 	db	0
+   945  007B25  00                 	db	0
+   946  007B26  00                 	db	0
+   947  007B27  00                 	db	0
+   948  007B28  00                 	db	0
+   949  007B29  00                 	db	0
+   950  007B2A  00                 	db	0
+   951  007B2B  00                 	db	0
+   952  007B2C  00                 	db	0
+   953  007B2D  00                 	db	0
+   954  007B2E  00                 	db	0
+   955  007B2F  00                 	db	0
+   956  007B30  00                 	db	0
+   957  007B31  00                 	db	0
+   958  007B32  00                 	db	0
+   959  007B33  00                 	db	0
+   960  007B34  00                 	db	0
+   961  007B35  00                 	db	0
+   962  007B36  00                 	db	0
+   963  007B37  00                 	db	0
+   964  007B38  00                 	db	0
+   965  007B39  00                 	db	0
+   966  007B3A  00                 	db	0
+   967  007B3B  00                 	db	0
+   968  007B3C  00                 	db	0
+   969  007B3D  00                 	db	0
+   970  007B3E  00                 	db	0
+   971  007B3F  00                 	db	0
+   972  007B40  00                 	db	0
+   973  007B41  00                 	db	0
+   974  007B42  00                 	db	0
+   975  007B43  00                 	db	0
+   976  007B44  00                 	db	0
+   977  007B45  00                 	db	0
+   978  007B46  00                 	db	0
+   979  007B47  00                 	db	0
+   980  007B48  00                 	db	0
+   981  007B49  00                 	db	0
+   982  007B4A  00                 	db	0
+   983  007B4B  00                 	db	0
+   984  007B4C  00                 	db	0
+   985  007B4D  00                 	db	0
+   986  007B4E  00                 	db	0
+   987  007B4F  00                 	db	0
+   988  007B50  00                 	db	0
+   989  007B51  00                 	db	0
+   990  007B52  00                 	db	0
+   991  007B53  00                 	db	0
+   992  007B54  00                 	db	0
+   993  007B55  00                 	db	0
+   994  007B56  00                 	db	0
+   995  007B57  00                 	db	0
+   996  007B58  00                 	db	0
+   997  007B59  00                 	db	0
+   998  007B5A  00                 	db	0
+   999  007B5B  00                 	db	0
+  1000  007B5C  00                 	db	0
+  1001  007B5D  00                 	db	0
+  1002  007B5E  00                 	db	0
+  1003  007B5F  00                 	db	0
+  1004  007B60  00                 	db	0
+  1005  007B61  00                 	db	0
+  1006  007B62  00                 	db	0
+  1007  007B63  00                 	db	0
+  1008  007B64  00                 	db	0
+  1009  007B65  00                 	db	0
+  1010  007B66  00                 	db	0
+  1011  007B67  00                 	db	0
+  1012  007B68  00                 	db	0
+  1013  007B69  00                 	db	0
+  1014  007B6A  00                 	db	0
+  1015  007B6B  00                 	db	0
+  1016  007B6C  00                 	db	0
+  1017  007B6D  00                 	db	0
+  1018  007B6E  00                 	db	0
+  1019  007B6F  00                 	db	0
+  1020  007B70  00                 	db	0
+  1021  007B71  00                 	db	0
+  1022  007B72  00                 	db	0
+  1023  007B73  00                 	db	0
+  1024  007B74  00                 	db	0
+  1025  007B75  00                 	db	0
+  1026  007B76  00                 	db	0
+  1027  007B77  00                 	db	0
+  1028  007B78  00                 	db	0
+  1029  007B79  00                 	db	0
+  1030  007B7A  00                 	db	0
+  1031  007B7B  00                 	db	0
+  1032  007B7C  00                 	db	0
+  1033  007B7D  00                 	db	0
+  1034  007B7E  00                 	db	0
+  1035  007B7F  00                 	db	0
+  1036  007B80  00                 	db	0
+  1037  007B81  00                 	db	0
+  1038  007B82  00                 	db	0
+  1039  007B83  00                 	db	0
+  1040  007B84  00                 	db	0
+  1041  007B85  00                 	db	0
+  1042  007B86  00                 	db	0
+  1043  007B87  00                 	db	0
+  1044  007B88  00                 	db	0
+  1045  007B89  00                 	db	0
+  1046  007B8A  00                 	db	0
+  1047  007B8B  00                 	db	0
+  1048  007B8C  00                 	db	0
+  1049  007B8D  00                 	db	0
+  1050  007B8E  00                 	db	0
+  1051  007B8F  00                 	db	0
+  1052  007B90  00                 	db	0
+  1053  007B91  00                 	db	0
+  1054  007B92  00                 	db	0
+  1055  007B93  00                 	db	0
+  1056  007B94  00                 	db	0
+  1057  007B95  00                 	db	0
+  1058  007B96  00                 	db	0
+  1059  007B97  00                 	db	0
+  1060  007B98  00                 	db	0
+  1061  007B99  00                 	db	0
+  1062  007B9A  00                 	db	0
+  1063  007B9B  00                 	db	0
+  1064  007B9C  00                 	db	0
+  1065  007B9D  00                 	db	0
+  1066  007B9E  00                 	db	0
+  1067  007B9F  00                 	db	0
+  1068  007BA0  00                 	db	0
+  1069  007BA1  00                 	db	0
+  1070  007BA2  00                 	db	0
+  1071  007BA3  00                 	db	0
+  1072  007BA4  00                 	db	0
+  1073  007BA5  00                 	db	0
+  1074  007BA6  00                 	db	0
+  1075  007BA7  00                 	db	0
+  1076  007BA8  00                 	db	0
+  1077  007BA9  00                 	db	0
+  1078  007BAA  00                 	db	0
+  1079  007BAB  00                 	db	0
+  1080  007BAC  00                 	db	0
+  1081  007BAD  00                 	db	0
+  1082  007BAE  00                 	db	0
+  1083  007BAF  00                 	db	0
+  1084  007BB0  00                 	db	0
+  1085  007BB1  00                 	db	0
+  1086  007BB2  00                 	db	0
+  1087  007BB3                     __end_of_cypress:
+  1088                           	opt callstack 0
+  1089  007BB3                     _Font:
+  1090                           	opt callstack 0
+  1091  007BB3  00                 	db	0
+  1092  007BB4  00                 	db	0
+  1093  007BB5  00                 	db	0
+  1094  007BB6  00                 	db	0
+  1095  007BB7  00                 	db	0
+  1096  007BB8  00                 	db	0
+  1097  007BB9  00                 	db	0
+  1098  007BBA  00                 	db	0
+  1099  007BBB  00                 	db	0
+  1100  007BBC  00                 	db	0
+  1101  007BBD  5F                 	db	95
+  1102  007BBE  00                 	db	0
+  1103  007BBF  00                 	db	0
+  1104  007BC0  00                 	db	0
+  1105  007BC1  00                 	db	0
+  1106  007BC2  00                 	db	0
+  1107  007BC3  00                 	db	0
+  1108  007BC4  00                 	db	0
+  1109  007BC5  07                 	db	7
+  1110  007BC6  00                 	db	0
+  1111  007BC7  07                 	db	7
+  1112  007BC8  00                 	db	0
+  1113  007BC9  00                 	db	0
+  1114  007BCA  00                 	db	0
+  1115  007BCB  00                 	db	0
+  1116  007BCC  14                 	db	20
+  1117  007BCD  7F                 	db	127
+  1118  007BCE  14                 	db	20
+  1119  007BCF  7F                 	db	127
+  1120  007BD0  14                 	db	20
+  1121  007BD1  00                 	db	0
+  1122  007BD2  00                 	db	0
+  1123  007BD3  00                 	db	0
+  1124  007BD4  24                 	db	36
+  1125  007BD5  2A                 	db	42
+  1126  007BD6  7F                 	db	127
+  1127  007BD7  2A                 	db	42
+  1128  007BD8  12                 	db	18
+  1129  007BD9  00                 	db	0
+  1130  007BDA  00                 	db	0
+  1131  007BDB  00                 	db	0
+  1132  007BDC  23                 	db	35
+  1133  007BDD  13                 	db	19
+  1134  007BDE  08                 	db	8
+  1135  007BDF  64                 	db	100
+  1136  007BE0  62                 	db	98
+  1137  007BE1  00                 	db	0
+  1138  007BE2  00                 	db	0
+  1139  007BE3  00                 	db	0
+  1140  007BE4  36                 	db	54
+  1141  007BE5  49                 	db	73
+  1142  007BE6  55                 	db	85
+  1143  007BE7  22                 	db	34
+  1144  007BE8  50                 	db	80
+  1145  007BE9  00                 	db	0
+  1146  007BEA  00                 	db	0
+  1147  007BEB  00                 	db	0
+  1148  007BEC  00                 	db	0
+  1149  007BED  05                 	db	5
+  1150  007BEE  03                 	db	3
+  1151  007BEF  00                 	db	0
+  1152  007BF0  00                 	db	0
+  1153  007BF1  00                 	db	0
+  1154  007BF2  00                 	db	0
+  1155  007BF3  00                 	db	0
+  1156  007BF4  1C                 	db	28
+  1157  007BF5  22                 	db	34
+  1158  007BF6  41                 	db	65
+  1159  007BF7  00                 	db	0
+  1160  007BF8  00                 	db	0
+  1161  007BF9  00                 	db	0
+  1162  007BFA  00                 	db	0
+  1163  007BFB  00                 	db	0
+  1164  007BFC  41                 	db	65
+  1165  007BFD  22                 	db	34
+  1166  007BFE  1C                 	db	28
+  1167  007BFF  00                 	db	0
+  1168  007C00  00                 	db	0
+  1169  007C01  00                 	db	0
+  1170  007C02  00                 	db	0
+  1171  007C03  00                 	db	0
+  1172  007C04  08                 	db	8
+  1173  007C05  2A                 	db	42
+  1174  007C06  1C                 	db	28
+  1175  007C07  2A                 	db	42
+  1176  007C08  08                 	db	8
+  1177  007C09  00                 	db	0
+  1178  007C0A  00                 	db	0
+  1179  007C0B  00                 	db	0
+  1180  007C0C  08                 	db	8
+  1181  007C0D  08                 	db	8
+  1182  007C0E  3E                 	db	62
+  1183  007C0F  08                 	db	8
+  1184  007C10  08                 	db	8
+  1185  007C11  00                 	db	0
+  1186  007C12  00                 	db	0
+  1187  007C13  00                 	db	0
+  1188  007C14  A0                 	db	160
+  1189  007C15  60                 	db	96
+  1190  007C16  00                 	db	0
+  1191  007C17  00                 	db	0
+  1192  007C18  00                 	db	0
+  1193  007C19  00                 	db	0
+  1194  007C1A  00                 	db	0
+  1195  007C1B  00                 	db	0
+  1196  007C1C  08                 	db	8
+  1197  007C1D  08                 	db	8
+  1198  007C1E  08                 	db	8
+  1199  007C1F  08                 	db	8
+  1200  007C20  08                 	db	8
+  1201  007C21  00                 	db	0
+  1202  007C22  00                 	db	0
+  1203  007C23  00                 	db	0
+  1204  007C24  60                 	db	96
+  1205  007C25  60                 	db	96
+  1206  007C26  00                 	db	0
+  1207  007C27  00                 	db	0
+  1208  007C28  00                 	db	0
+  1209  007C29  00                 	db	0
+  1210  007C2A  00                 	db	0
+  1211  007C2B  00                 	db	0
+  1212  007C2C  20                 	db	32
+  1213  007C2D  10                 	db	16
+  1214  007C2E  08                 	db	8
+  1215  007C2F  04                 	db	4
+  1216  007C30  02                 	db	2
+  1217  007C31  00                 	db	0
+  1218  007C32  00                 	db	0
+  1219  007C33  00                 	db	0
+  1220  007C34  3E                 	db	62
+  1221  007C35  51                 	db	81
+  1222  007C36  49                 	db	73
+  1223  007C37  45                 	db	69
+  1224  007C38  3E                 	db	62
+  1225  007C39  00                 	db	0
+  1226  007C3A  00                 	db	0
+  1227  007C3B  00                 	db	0
+  1228  007C3C  00                 	db	0
+  1229  007C3D  42                 	db	66
+  1230  007C3E  7F                 	db	127
+  1231  007C3F  40                 	db	64
+  1232  007C40  00                 	db	0
+  1233  007C41  00                 	db	0
+  1234  007C42  00                 	db	0
+  1235  007C43  00                 	db	0
+  1236  007C44  62                 	db	98
+  1237  007C45  51                 	db	81
+  1238  007C46  49                 	db	73
+  1239  007C47  49                 	db	73
+  1240  007C48  46                 	db	70
+  1241  007C49  00                 	db	0
+  1242  007C4A  00                 	db	0
+  1243  007C4B  00                 	db	0
+  1244  007C4C  22                 	db	34
+  1245  007C4D  41                 	db	65
+  1246  007C4E  49                 	db	73
+  1247  007C4F  49                 	db	73
+  1248  007C50  36                 	db	54
+  1249  007C51  00                 	db	0
+  1250  007C52  00                 	db	0
+  1251  007C53  00                 	db	0
+  1252  007C54  18                 	db	24
+  1253  007C55  14                 	db	20
+  1254  007C56  12                 	db	18
+  1255  007C57  7F                 	db	127
+  1256  007C58  10                 	db	16
+  1257  007C59  00                 	db	0
+  1258  007C5A  00                 	db	0
+  1259  007C5B  00                 	db	0
+  1260  007C5C  27                 	db	39
+  1261  007C5D  45                 	db	69
+  1262  007C5E  45                 	db	69
+  1263  007C5F  45                 	db	69
+  1264  007C60  39                 	db	57
+  1265  007C61  00                 	db	0
+  1266  007C62  00                 	db	0
+  1267  007C63  00                 	db	0
+  1268  007C64  3C                 	db	60
+  1269  007C65  4A                 	db	74
+  1270  007C66  49                 	db	73
+  1271  007C67  49                 	db	73
+  1272  007C68  30                 	db	48
+  1273  007C69  00                 	db	0
+  1274  007C6A  00                 	db	0
+  1275  007C6B  00                 	db	0
+  1276  007C6C  01                 	db	1
+  1277  007C6D  71                 	db	113
+  1278  007C6E  09                 	db	9
+  1279  007C6F  05                 	db	5
+  1280  007C70  03                 	db	3
+  1281  007C71  00                 	db	0
+  1282  007C72  00                 	db	0
+  1283  007C73  00                 	db	0
+  1284  007C74  36                 	db	54
+  1285  007C75  49                 	db	73
+  1286  007C76  49                 	db	73
+  1287  007C77  49                 	db	73
+  1288  007C78  36                 	db	54
+  1289  007C79  00                 	db	0
+  1290  007C7A  00                 	db	0
+  1291  007C7B  00                 	db	0
+  1292  007C7C  06                 	db	6
+  1293  007C7D  49                 	db	73
+  1294  007C7E  49                 	db	73
+  1295  007C7F  29                 	db	41
+  1296  007C80  1E                 	db	30
+  1297  007C81  00                 	db	0
+  1298  007C82  00                 	db	0
+  1299  007C83  00                 	db	0
+  1300  007C84  00                 	db	0
+  1301  007C85  36                 	db	54
+  1302  007C86  36                 	db	54
+  1303  007C87  00                 	db	0
+  1304  007C88  00                 	db	0
+  1305  007C89  00                 	db	0
+  1306  007C8A  00                 	db	0
+  1307  007C8B  00                 	db	0
+  1308  007C8C  00                 	db	0
+  1309  007C8D  AC                 	db	172
+  1310  007C8E  6C                 	db	108
+  1311  007C8F  00                 	db	0
+  1312  007C90  00                 	db	0
+  1313  007C91  00                 	db	0
+  1314  007C92  00                 	db	0
+  1315  007C93  00                 	db	0
+  1316  007C94  08                 	db	8
+  1317  007C95  14                 	db	20
+  1318  007C96  22                 	db	34
+  1319  007C97  41                 	db	65
+  1320  007C98  00                 	db	0
+  1321  007C99  00                 	db	0
+  1322  007C9A  00                 	db	0
+  1323  007C9B  00                 	db	0
+  1324  007C9C  14                 	db	20
+  1325  007C9D  14                 	db	20
+  1326  007C9E  14                 	db	20
+  1327  007C9F  14                 	db	20
+  1328  007CA0  14                 	db	20
+  1329  007CA1  00                 	db	0
+  1330  007CA2  00                 	db	0
+  1331  007CA3  00                 	db	0
+  1332  007CA4  41                 	db	65
+  1333  007CA5  22                 	db	34
+  1334  007CA6  14                 	db	20
+  1335  007CA7  08                 	db	8
+  1336  007CA8  00                 	db	0
+  1337  007CA9  00                 	db	0
+  1338  007CAA  00                 	db	0
+  1339  007CAB  00                 	db	0
+  1340  007CAC  02                 	db	2
+  1341  007CAD  01                 	db	1
+  1342  007CAE  51                 	db	81
+  1343  007CAF  09                 	db	9
+  1344  007CB0  06                 	db	6
+  1345  007CB1  00                 	db	0
+  1346  007CB2  00                 	db	0
+  1347  007CB3  00                 	db	0
+  1348  007CB4  32                 	db	50
+  1349  007CB5  49                 	db	73
+  1350  007CB6  79                 	db	121
+  1351  007CB7  41                 	db	65
+  1352  007CB8  3E                 	db	62
+  1353  007CB9  00                 	db	0
+  1354  007CBA  00                 	db	0
+  1355  007CBB  00                 	db	0
+  1356  007CBC  7E                 	db	126
+  1357  007CBD  09                 	db	9
+  1358  007CBE  09                 	db	9
+  1359  007CBF  09                 	db	9
+  1360  007CC0  7E                 	db	126
+  1361  007CC1  00                 	db	0
+  1362  007CC2  00                 	db	0
+  1363  007CC3  00                 	db	0
+  1364  007CC4  7F                 	db	127
+  1365  007CC5  49                 	db	73
+  1366  007CC6  49                 	db	73
+  1367  007CC7  49                 	db	73
+  1368  007CC8  36                 	db	54
+  1369  007CC9  00                 	db	0
+  1370  007CCA  00                 	db	0
+  1371  007CCB  00                 	db	0
+  1372  007CCC  3E                 	db	62
+  1373  007CCD  41                 	db	65
+  1374  007CCE  41                 	db	65
+  1375  007CCF  41                 	db	65
+  1376  007CD0  22                 	db	34
+  1377  007CD1  00                 	db	0
+  1378  007CD2  00                 	db	0
+  1379  007CD3  00                 	db	0
+  1380  007CD4  7F                 	db	127
+  1381  007CD5  41                 	db	65
+  1382  007CD6  41                 	db	65
+  1383  007CD7  22                 	db	34
+  1384  007CD8  1C                 	db	28
+  1385  007CD9  00                 	db	0
+  1386  007CDA  00                 	db	0
+  1387  007CDB  00                 	db	0
+  1388  007CDC  7F                 	db	127
+  1389  007CDD  49                 	db	73
+  1390  007CDE  49                 	db	73
+  1391  007CDF  49                 	db	73
+  1392  007CE0  41                 	db	65
+  1393  007CE1  00                 	db	0
+  1394  007CE2  00                 	db	0
+  1395  007CE3  00                 	db	0
+  1396  007CE4  7F                 	db	127
+  1397  007CE5  09                 	db	9
+  1398  007CE6  09                 	db	9
+  1399  007CE7  09                 	db	9
+  1400  007CE8  01                 	db	1
+  1401  007CE9  00                 	db	0
+  1402  007CEA  00                 	db	0
+  1403  007CEB  00                 	db	0
+  1404  007CEC  3E                 	db	62
+  1405  007CED  41                 	db	65
+  1406  007CEE  41                 	db	65
+  1407  007CEF  51                 	db	81
+  1408  007CF0  72                 	db	114
+  1409  007CF1  00                 	db	0
+  1410  007CF2  00                 	db	0
+  1411  007CF3  00                 	db	0
+  1412  007CF4  7F                 	db	127
+  1413  007CF5  08                 	db	8
+  1414  007CF6  08                 	db	8
+  1415  007CF7  08                 	db	8
+  1416  007CF8  7F                 	db	127
+  1417  007CF9  00                 	db	0
+  1418  007CFA  00                 	db	0
+  1419  007CFB  00                 	db	0
+  1420  007CFC  41                 	db	65
+  1421  007CFD  7F                 	db	127
+  1422  007CFE  41                 	db	65
+  1423  007CFF  00                 	db	0
+  1424  007D00  00                 	db	0
+  1425  007D01  00                 	db	0
+  1426  007D02  00                 	db	0
+  1427  007D03  00                 	db	0
+  1428  007D04  20                 	db	32
+  1429  007D05  40                 	db	64
+  1430  007D06  41                 	db	65
+  1431  007D07  3F                 	db	63
+  1432  007D08  01                 	db	1
+  1433  007D09  00                 	db	0
+  1434  007D0A  00                 	db	0
+  1435  007D0B  00                 	db	0
+  1436  007D0C  7F                 	db	127
+  1437  007D0D  08                 	db	8
+  1438  007D0E  14                 	db	20
+  1439  007D0F  22                 	db	34
+  1440  007D10  41                 	db	65
+  1441  007D11  00                 	db	0
+  1442  007D12  00                 	db	0
+  1443  007D13  00                 	db	0
+  1444  007D14  7F                 	db	127
+  1445  007D15  40                 	db	64
+  1446  007D16  40                 	db	64
+  1447  007D17  40                 	db	64
+  1448  007D18  40                 	db	64
+  1449  007D19  00                 	db	0
+  1450  007D1A  00                 	db	0
+  1451  007D1B  00                 	db	0
+  1452  007D1C  7F                 	db	127
+  1453  007D1D  02                 	db	2
+  1454  007D1E  0C                 	db	12
+  1455  007D1F  02                 	db	2
+  1456  007D20  7F                 	db	127
+  1457  007D21  00                 	db	0
+  1458  007D22  00                 	db	0
+  1459  007D23  00                 	db	0
+  1460  007D24  7F                 	db	127
+  1461  007D25  04                 	db	4
+  1462  007D26  08                 	db	8
+  1463  007D27  10                 	db	16
+  1464  007D28  7F                 	db	127
+  1465  007D29  00                 	db	0
+  1466  007D2A  00                 	db	0
+  1467  007D2B  00                 	db	0
+  1468  007D2C  3E                 	db	62
+  1469  007D2D  41                 	db	65
+  1470  007D2E  41                 	db	65
+  1471  007D2F  41                 	db	65
+  1472  007D30  3E                 	db	62
+  1473  007D31  00                 	db	0
+  1474  007D32  00                 	db	0
+  1475  007D33  00                 	db	0
+  1476  007D34  7F                 	db	127
+  1477  007D35  09                 	db	9
+  1478  007D36  09                 	db	9
+  1479  007D37  09                 	db	9
+  1480  007D38  06                 	db	6
+  1481  007D39  00                 	db	0
+  1482  007D3A  00                 	db	0
+  1483  007D3B  00                 	db	0
+  1484  007D3C  3E                 	db	62
+  1485  007D3D  41                 	db	65
+  1486  007D3E  51                 	db	81
+  1487  007D3F  21                 	db	33
+  1488  007D40  5E                 	db	94
+  1489  007D41  00                 	db	0
+  1490  007D42  00                 	db	0
+  1491  007D43  00                 	db	0
+  1492  007D44  7F                 	db	127
+  1493  007D45  09                 	db	9
+  1494  007D46  19                 	db	25
+  1495  007D47  29                 	db	41
+  1496  007D48  46                 	db	70
+  1497  007D49  00                 	db	0
+  1498  007D4A  00                 	db	0
+  1499  007D4B  00                 	db	0
+  1500  007D4C  26                 	db	38
+  1501  007D4D  49                 	db	73
+  1502  007D4E  49                 	db	73
+  1503  007D4F  49                 	db	73
+  1504  007D50  32                 	db	50
+  1505  007D51  00                 	db	0
+  1506  007D52  00                 	db	0
+  1507  007D53  00                 	db	0
+  1508  007D54  01                 	db	1
+  1509  007D55  01                 	db	1
+  1510  007D56  7F                 	db	127
+  1511  007D57  01                 	db	1
+  1512  007D58  01                 	db	1
+  1513  007D59  00                 	db	0
+  1514  007D5A  00                 	db	0
+  1515  007D5B  00                 	db	0
+  1516  007D5C  3F                 	db	63
+  1517  007D5D  40                 	db	64
+  1518  007D5E  40                 	db	64
+  1519  007D5F  40                 	db	64
+  1520  007D60  3F                 	db	63
+  1521  007D61  00                 	db	0
+  1522  007D62  00                 	db	0
+  1523  007D63  00                 	db	0
+  1524  007D64  1F                 	db	31
+  1525  007D65  20                 	db	32
+  1526  007D66  40                 	db	64
+  1527  007D67  20                 	db	32
+  1528  007D68  1F                 	db	31
+  1529  007D69  00                 	db	0
+  1530  007D6A  00                 	db	0
+  1531  007D6B  00                 	db	0
+  1532  007D6C  3F                 	db	63
+  1533  007D6D  40                 	db	64
+  1534  007D6E  38                 	db	56
+  1535  007D6F  40                 	db	64
+  1536  007D70  3F                 	db	63
+  1537  007D71  00                 	db	0
+  1538  007D72  00                 	db	0
+  1539  007D73  00                 	db	0
+  1540  007D74  63                 	db	99
+  1541  007D75  14                 	db	20
+  1542  007D76  08                 	db	8
+  1543  007D77  14                 	db	20
+  1544  007D78  63                 	db	99
+  1545  007D79  00                 	db	0
+  1546  007D7A  00                 	db	0
+  1547  007D7B  00                 	db	0
+  1548  007D7C  03                 	db	3
+  1549  007D7D  04                 	db	4
+  1550  007D7E  78                 	db	120
+  1551  007D7F  04                 	db	4
+  1552  007D80  03                 	db	3
+  1553  007D81  00                 	db	0
+  1554  007D82  00                 	db	0
+  1555  007D83  00                 	db	0
+  1556  007D84  61                 	db	97
+  1557  007D85  51                 	db	81
+  1558  007D86  49                 	db	73
+  1559  007D87  45                 	db	69
+  1560  007D88  43                 	db	67
+  1561  007D89  00                 	db	0
+  1562  007D8A  00                 	db	0
+  1563  007D8B  00                 	db	0
+  1564  007D8C  7F                 	db	127
+  1565  007D8D  41                 	db	65
+  1566  007D8E  41                 	db	65
+  1567  007D8F  00                 	db	0
+  1568  007D90  00                 	db	0
+  1569  007D91  00                 	db	0
+  1570  007D92  00                 	db	0
+  1571  007D93  00                 	db	0
+  1572  007D94  02                 	db	2
+  1573  007D95  04                 	db	4
+  1574  007D96  08                 	db	8
+  1575  007D97  10                 	db	16
+  1576  007D98  20                 	db	32
+  1577  007D99  00                 	db	0
+  1578  007D9A  00                 	db	0
+  1579  007D9B  00                 	db	0
+  1580  007D9C  41                 	db	65
+  1581  007D9D  41                 	db	65
+  1582  007D9E  7F                 	db	127
+  1583  007D9F  00                 	db	0
+  1584  007DA0  00                 	db	0
+  1585  007DA1  00                 	db	0
+  1586  007DA2  00                 	db	0
+  1587  007DA3  00                 	db	0
+  1588  007DA4  04                 	db	4
+  1589  007DA5  02                 	db	2
+  1590  007DA6  01                 	db	1
+  1591  007DA7  02                 	db	2
+  1592  007DA8  04                 	db	4
+  1593  007DA9  00                 	db	0
+  1594  007DAA  00                 	db	0
+  1595  007DAB  00                 	db	0
+  1596  007DAC  80                 	db	128
+  1597  007DAD  80                 	db	128
+  1598  007DAE  80                 	db	128
+  1599  007DAF  80                 	db	128
+  1600  007DB0  80                 	db	128
+  1601  007DB1  00                 	db	0
+  1602  007DB2  00                 	db	0
+  1603  007DB3  00                 	db	0
+  1604  007DB4  01                 	db	1
+  1605  007DB5  02                 	db	2
+  1606  007DB6  04                 	db	4
+  1607  007DB7  00                 	db	0
+  1608  007DB8  00                 	db	0
+  1609  007DB9  00                 	db	0
+  1610  007DBA  00                 	db	0
+  1611  007DBB  00                 	db	0
+  1612  007DBC  20                 	db	32
+  1613  007DBD  54                 	db	84
+  1614  007DBE  54                 	db	84
+  1615  007DBF  54                 	db	84
+  1616  007DC0  78                 	db	120
+  1617  007DC1  00                 	db	0
+  1618  007DC2  00                 	db	0
+  1619  007DC3  00                 	db	0
+  1620  007DC4  7F                 	db	127
+  1621  007DC5  48                 	db	72
+  1622  007DC6  44                 	db	68
+  1623  007DC7  44                 	db	68
+  1624  007DC8  38                 	db	56
+  1625  007DC9  00                 	db	0
+  1626  007DCA  00                 	db	0
+  1627  007DCB  00                 	db	0
+  1628  007DCC  38                 	db	56
+  1629  007DCD  44                 	db	68
+  1630  007DCE  44                 	db	68
+  1631  007DCF  28                 	db	40
+  1632  007DD0  00                 	db	0
+  1633  007DD1  00                 	db	0
+  1634  007DD2  00                 	db	0
+  1635  007DD3  00                 	db	0
+  1636  007DD4  38                 	db	56
+  1637  007DD5  44                 	db	68
+  1638  007DD6  44                 	db	68
+  1639  007DD7  48                 	db	72
+  1640  007DD8  7F                 	db	127
+  1641  007DD9  00                 	db	0
+  1642  007DDA  00                 	db	0
+  1643  007DDB  00                 	db	0
+  1644  007DDC  38                 	db	56
+  1645  007DDD  54                 	db	84
+  1646  007DDE  54                 	db	84
+  1647  007DDF  54                 	db	84
+  1648  007DE0  18                 	db	24
+  1649  007DE1  00                 	db	0
+  1650  007DE2  00                 	db	0
+  1651  007DE3  00                 	db	0
+  1652  007DE4  08                 	db	8
+  1653  007DE5  7E                 	db	126
+  1654  007DE6  09                 	db	9
+  1655  007DE7  02                 	db	2
+  1656  007DE8  00                 	db	0
+  1657  007DE9  00                 	db	0
+  1658  007DEA  00                 	db	0
+  1659  007DEB  00                 	db	0
+  1660  007DEC  18                 	db	24
+  1661  007DED  A4                 	db	164
+  1662  007DEE  A4                 	db	164
+  1663  007DEF  A4                 	db	164
+  1664  007DF0  7C                 	db	124
+  1665  007DF1  00                 	db	0
+  1666  007DF2  00                 	db	0
+  1667  007DF3  00                 	db	0
+  1668  007DF4  7F                 	db	127
+  1669  007DF5  08                 	db	8
+  1670  007DF6  04                 	db	4
+  1671  007DF7  04                 	db	4
+  1672  007DF8  78                 	db	120
+  1673  007DF9  00                 	db	0
+  1674  007DFA  00                 	db	0
+  1675  007DFB  00                 	db	0
+  1676  007DFC  00                 	db	0
+  1677  007DFD  7D                 	db	125
+  1678  007DFE  00                 	db	0
+  1679  007DFF  00                 	db	0
+  1680  007E00  00                 	db	0
+  1681  007E01  00                 	db	0
+  1682  007E02  00                 	db	0
+  1683  007E03  00                 	db	0
+  1684  007E04  80                 	db	128
+  1685  007E05  84                 	db	132
+  1686  007E06  7D                 	db	125
+  1687  007E07  00                 	db	0
+  1688  007E08  00                 	db	0
+  1689  007E09  00                 	db	0
+  1690  007E0A  00                 	db	0
+  1691  007E0B  00                 	db	0
+  1692  007E0C  7F                 	db	127
+  1693  007E0D  10                 	db	16
+  1694  007E0E  28                 	db	40
+  1695  007E0F  44                 	db	68
+  1696  007E10  00                 	db	0
+  1697  007E11  00                 	db	0
+  1698  007E12  00                 	db	0
+  1699  007E13  00                 	db	0
+  1700  007E14  41                 	db	65
+  1701  007E15  7F                 	db	127
+  1702  007E16  40                 	db	64
+  1703  007E17  00                 	db	0
+  1704  007E18  00                 	db	0
+  1705  007E19  00                 	db	0
+  1706  007E1A  00                 	db	0
+  1707  007E1B  00                 	db	0
+  1708  007E1C  7C                 	db	124
+  1709  007E1D  04                 	db	4
+  1710  007E1E  18                 	db	24
+  1711  007E1F  04                 	db	4
+  1712  007E20  78                 	db	120
+  1713  007E21  00                 	db	0
+  1714  007E22  00                 	db	0
+  1715  007E23  00                 	db	0
+  1716  007E24  7C                 	db	124
+  1717  007E25  08                 	db	8
+  1718  007E26  04                 	db	4
+  1719  007E27  7C                 	db	124
+  1720  007E28  00                 	db	0
+  1721  007E29  00                 	db	0
+  1722  007E2A  00                 	db	0
+  1723  007E2B  00                 	db	0
+  1724  007E2C  38                 	db	56
+  1725  007E2D  44                 	db	68
+  1726  007E2E  44                 	db	68
+  1727  007E2F  38                 	db	56
+  1728  007E30  00                 	db	0
+  1729  007E31  00                 	db	0
+  1730  007E32  00                 	db	0
+  1731  007E33  00                 	db	0
+  1732  007E34  FC                 	db	252
+  1733  007E35  24                 	db	36
+  1734  007E36  24                 	db	36
+  1735  007E37  18                 	db	24
+  1736  007E38  00                 	db	0
+  1737  007E39  00                 	db	0
+  1738  007E3A  00                 	db	0
+  1739  007E3B  00                 	db	0
+  1740  007E3C  18                 	db	24
+  1741  007E3D  24                 	db	36
+  1742  007E3E  24                 	db	36
+  1743  007E3F  FC                 	db	252
+  1744  007E40  00                 	db	0
+  1745  007E41  00                 	db	0
+  1746  007E42  00                 	db	0
+  1747  007E43  00                 	db	0
+  1748  007E44  00                 	db	0
+  1749  007E45  7C                 	db	124
+  1750  007E46  08                 	db	8
+  1751  007E47  04                 	db	4
+  1752  007E48  00                 	db	0
+  1753  007E49  00                 	db	0
+  1754  007E4A  00                 	db	0
+  1755  007E4B  00                 	db	0
+  1756  007E4C  48                 	db	72
+  1757  007E4D  54                 	db	84
+  1758  007E4E  54                 	db	84
+  1759  007E4F  24                 	db	36
+  1760  007E50  00                 	db	0
+  1761  007E51  00                 	db	0
+  1762  007E52  00                 	db	0
+  1763  007E53  00                 	db	0
+  1764  007E54  04                 	db	4
+  1765  007E55  7F                 	db	127
+  1766  007E56  44                 	db	68
+  1767  007E57  00                 	db	0
+  1768  007E58  00                 	db	0
+  1769  007E59  00                 	db	0
+  1770  007E5A  00                 	db	0
+  1771  007E5B  00                 	db	0
+  1772  007E5C  3C                 	db	60
+  1773  007E5D  40                 	db	64
+  1774  007E5E  40                 	db	64
+  1775  007E5F  7C                 	db	124
+  1776  007E60  00                 	db	0
+  1777  007E61  00                 	db	0
+  1778  007E62  00                 	db	0
+  1779  007E63  00                 	db	0
+  1780  007E64  1C                 	db	28
+  1781  007E65  20                 	db	32
+  1782  007E66  40                 	db	64
+  1783  007E67  20                 	db	32
+  1784  007E68  1C                 	db	28
+  1785  007E69  00                 	db	0
+  1786  007E6A  00                 	db	0
+  1787  007E6B  00                 	db	0
+  1788  007E6C  3C                 	db	60
+  1789  007E6D  40                 	db	64
+  1790  007E6E  30                 	db	48
+  1791  007E6F  40                 	db	64
+  1792  007E70  3C                 	db	60
+  1793  007E71  00                 	db	0
+  1794  007E72  00                 	db	0
+  1795  007E73  00                 	db	0
+  1796  007E74  44                 	db	68
+  1797  007E75  28                 	db	40
+  1798  007E76  10                 	db	16
+  1799  007E77  28                 	db	40
+  1800  007E78  44                 	db	68
+  1801  007E79  00                 	db	0
+  1802  007E7A  00                 	db	0
+  1803  007E7B  00                 	db	0
+  1804  007E7C  1C                 	db	28
+  1805  007E7D  A0                 	db	160
+  1806  007E7E  A0                 	db	160
+  1807  007E7F  7C                 	db	124
+  1808  007E80  00                 	db	0
+  1809  007E81  00                 	db	0
+  1810  007E82  00                 	db	0
+  1811  007E83  00                 	db	0
+  1812  007E84  44                 	db	68
+  1813  007E85  64                 	db	100
+  1814  007E86  54                 	db	84
+  1815  007E87  4C                 	db	76
+  1816  007E88  44                 	db	68
+  1817  007E89  00                 	db	0
+  1818  007E8A  00                 	db	0
+  1819  007E8B  00                 	db	0
+  1820  007E8C  08                 	db	8
+  1821  007E8D  36                 	db	54
+  1822  007E8E  41                 	db	65
+  1823  007E8F  00                 	db	0
+  1824  007E90  00                 	db	0
+  1825  007E91  00                 	db	0
+  1826  007E92  00                 	db	0
+  1827  007E93  00                 	db	0
+  1828  007E94  00                 	db	0
+  1829  007E95  7F                 	db	127
+  1830  007E96  00                 	db	0
+  1831  007E97  00                 	db	0
+  1832  007E98  00                 	db	0
+  1833  007E99  00                 	db	0
+  1834  007E9A  00                 	db	0
+  1835  007E9B  00                 	db	0
+  1836  007E9C  41                 	db	65
+  1837  007E9D  36                 	db	54
+  1838  007E9E  08                 	db	8
+  1839  007E9F  00                 	db	0
+  1840  007EA0  00                 	db	0
+  1841  007EA1  00                 	db	0
+  1842  007EA2  00                 	db	0
+  1843  007EA3  00                 	db	0
+  1844  007EA4  02                 	db	2
+  1845  007EA5  01                 	db	1
+  1846  007EA6  01                 	db	1
+  1847  007EA7  02                 	db	2
+  1848  007EA8  01                 	db	1
+  1849  007EA9  00                 	db	0
+  1850  007EAA  00                 	db	0
+  1851  007EAB  00                 	db	0
+  1852  007EAC  02                 	db	2
+  1853  007EAD  05                 	db	5
+  1854  007EAE  05                 	db	5
+  1855  007EAF  02                 	db	2
+  1856  007EB0  00                 	db	0
+  1857  007EB1  00                 	db	0
+  1858  007EB2  00                 	db	0
+  1859  007EB3                     __end_of_Font:
+  1860                           	opt callstack 0
+  1861  007EB3                     _cypress2:
+  1862                           	opt callstack 0
+  1863  007EB3  00                 	db	0
+  1864  007EB4  00                 	db	0
+  1865  007EB5  00                 	db	0
+  1866  007EB6  00                 	db	0
+  1867  007EB7  00                 	db	0
+  1868  007EB8  00                 	db	0
+  1869  007EB9  00                 	db	0
+  1870  007EBA  00                 	db	0
+  1871  007EBB  00                 	db	0
+  1872  007EBC  80                 	db	128
+  1873  007EBD  80                 	db	128
+  1874  007EBE  80                 	db	128
+  1875  007EBF  80                 	db	128
+  1876  007EC0  00                 	db	0
+  1877  007EC1  00                 	db	0
+  1878  007EC2  00                 	db	0
+  1879  007EC3  00                 	db	0
+  1880  007EC4  00                 	db	0
+  1881  007EC5  00                 	db	0
+  1882  007EC6  00                 	db	0
+  1883  007EC7  00                 	db	0
+  1884  007EC8  00                 	db	0
+  1885  007EC9  00                 	db	0
+  1886  007ECA  00                 	db	0
+  1887  007ECB  00                 	db	0
+  1888  007ECC  00                 	db	0
+  1889  007ECD  00                 	db	0
+  1890  007ECE  00                 	db	0
+  1891  007ECF  00                 	db	0
+  1892  007ED0  00                 	db	0
+  1893  007ED1  00                 	db	0
+  1894  007ED2  00                 	db	0
+  1895  007ED3  00                 	db	0
+  1896  007ED4  00                 	db	0
+  1897  007ED5  00                 	db	0
+  1898  007ED6  00                 	db	0
+  1899  007ED7  00                 	db	0
+  1900  007ED8  00                 	db	0
+  1901  007ED9  00                 	db	0
+  1902  007EDA  00                 	db	0
+  1903  007EDB  00                 	db	0
+  1904  007EDC  00                 	db	0
+  1905  007EDD  00                 	db	0
+  1906  007EDE  00                 	db	0
+  1907  007EDF  00                 	db	0
+  1908  007EE0  00                 	db	0
+  1909  007EE1  00                 	db	0
+  1910  007EE2  00                 	db	0
+  1911  007EE3  00                 	db	0
+  1912  007EE4  00                 	db	0
+  1913  007EE5  00                 	db	0
+  1914  007EE6  00                 	db	0
+  1915  007EE7  00                 	db	0
+  1916  007EE8  00                 	db	0
+  1917  007EE9  00                 	db	0
+  1918  007EEA  00                 	db	0
+  1919  007EEB  00                 	db	0
+  1920  007EEC  00                 	db	0
+  1921  007EED  00                 	db	0
+  1922  007EEE  00                 	db	0
+  1923  007EEF  00                 	db	0
+  1924  007EF0  00                 	db	0
+  1925  007EF1  00                 	db	0
+  1926  007EF2  00                 	db	0
+  1927  007EF3  00                 	db	0
+  1928  007EF4  80                 	db	128
+  1929  007EF5  B0                 	db	176
+  1930  007EF6  98                 	db	152
+  1931  007EF7  8C                 	db	140
+  1932  007EF8  0E                 	db	14
+  1933  007EF9  0F                 	db	15
+  1934  007EFA  07                 	db	7
+  1935  007EFB  07                 	db	7
+  1936  007EFC  07                 	db	7
+  1937  007EFD  0F                 	db	15
+  1938  007EFE  0F                 	db	15
+  1939  007EFF  0F                 	db	15
+  1940  007F00  1F                 	db	31
+  1941  007F01  1F                 	db	31
+  1942  007F02  1E                 	db	30
+  1943  007F03  1E                 	db	30
+  1944  007F04  1C                 	db	28
+  1945  007F05  18                 	db	24
+  1946  007F06  80                 	db	128
+  1947  007F07  00                 	db	0
+  1948  007F08  00                 	db	0
+  1949  007F09  E0                 	db	224
+  1950  007F0A  30                 	db	48
+  1951  007F0B  10                 	db	16
+  1952  007F0C  30                 	db	48
+  1953  007F0D  60                 	db	96
+  1954  007F0E  00                 	db	0
+  1955  007F0F  70                 	db	112
+  1956  007F10  C0                 	db	192
+  1957  007F11  C0                 	db	192
+  1958  007F12  30                 	db	48
+  1959  007F13  00                 	db	0
+  1960  007F14  F0                 	db	240
+  1961  007F15  30                 	db	48
+  1962  007F16  10                 	db	16
+  1963  007F17  30                 	db	48
+  1964  007F18  E0                 	db	224
+  1965  007F19  00                 	db	0
+  1966  007F1A  F0                 	db	240
+  1967  007F1B  30                 	db	48
+  1968  007F1C  10                 	db	16
+  1969  007F1D  B0                 	db	176
+  1970  007F1E  C0                 	db	192
+  1971  007F1F  00                 	db	0
+  1972  007F20  F0                 	db	240
+  1973  007F21  30                 	db	48
+  1974  007F22  10                 	db	16
+  1975  007F23  10                 	db	16
+  1976  007F24  00                 	db	0
+  1977  007F25  00                 	db	0
+  1978  007F26  E0                 	db	224
+  1979  007F27  90                 	db	144
+  1980  007F28  30                 	db	48
+  1981  007F29  60                 	db	96
+  1982  007F2A  00                 	db	0
+  1983  007F2B  40                 	db	64
+  1984  007F2C  F0                 	db	240
+  1985  007F2D  10                 	db	16
+  1986  007F2E  30                 	db	48
+  1987  007F2F  60                 	db	96
+  1988  007F30  00                 	db	0
+  1989  007F31  00                 	db	0
+  1990  007F32  00                 	db	0
+  1991  007F33  00                 	db	0
+  1992  007F34  03                 	db	3
+  1993  007F35  1F                 	db	31
+  1994  007F36  3F                 	db	63
+  1995  007F37  3F                 	db	63
+  1996  007F38  BF                 	db	191
+  1997  007F39  BE                 	db	190
+  1998  007F3A  BF                 	db	191
+  1999  007F3B  BF                 	db	191
+  2000  007F3C  BF                 	db	191
+  2001  007F3D  9E                 	db	158
+  2002  007F3E  8C                 	db	140
+  2003  007F3F  B0                 	db	176
+  2004  007F40  92                 	db	146
+  2005  007F41  9C                 	db	156
+  2006  007F42  9E                 	db	158
+  2007  007F43  9E                 	db	158
+  2008  007F44  1D                 	db	29
+  2009  007F45  3E                 	db	62
+  2010  007F46  0E                 	db	14
+  2011  007F47  00                 	db	0
+  2012  007F48  00                 	db	0
+  2013  007F49  0F                 	db	15
+  2014  007F4A  18                 	db	24
+  2015  007F4B  10                 	db	16
+  2016  007F4C  98                 	db	152
+  2017  007F4D  0C                 	db	12
+  2018  007F4E  00                 	db	0
+  2019  007F4F  00                 	db	0
+  2020  007F50  1F                 	db	31
+  2021  007F51  1D                 	db	29
+  2022  007F52  00                 	db	0
+  2023  007F53  00                 	db	0
+  2024  007F54  1F                 	db	31
+  2025  007F55  1B                 	db	27
+  2026  007F56  03                 	db	3
+  2027  007F57  01                 	db	1
+  2028  007F58  01                 	db	1
+  2029  007F59  00                 	db	0
+  2030  007F5A  1F                 	db	31
+  2031  007F5B  01                 	db	1
+  2032  007F5C  03                 	db	3
+  2033  007F5D  1F                 	db	31
+  2034  007F5E  10                 	db	16
+  2035  007F5F  00                 	db	0
+  2036  007F60  1F                 	db	31
+  2037  007F61  11                 	db	17
+  2038  007F62  11                 	db	17
+  2039  007F63  91                 	db	145
+  2040  007F64  00                 	db	0
+  2041  007F65  00                 	db	0
+  2042  007F66  1C                 	db	28
+  2043  007F67  11                 	db	17
+  2044  007F68  13                 	db	19
+  2045  007F69  0E                 	db	14
+  2046  007F6A  00                 	db	0
+  2047  007F6B  04                 	db	4
+  2048  007F6C  1C                 	db	28
+  2049  007F6D  11                 	db	17
+  2050  007F6E  1B                 	db	27
+  2051  007F6F  0E                 	db	14
+  2052  007F70  00                 	db	0
+  2053  007F71  00                 	db	0
+  2054  007F72  00                 	db	0
+  2055  007F73  00                 	db	0
+  2056  007F74  00                 	db	0
+  2057  007F75  00                 	db	0
+  2058  007F76  00                 	db	0
+  2059  007F77  00                 	db	0
+  2060  007F78  00                 	db	0
+  2061  007F79  01                 	db	1
+  2062  007F7A  01                 	db	1
+  2063  007F7B  01                 	db	1
+  2064  007F7C  01                 	db	1
+  2065  007F7D  03                 	db	3
+  2066  007F7E  03                 	db	3
+  2067  007F7F  01                 	db	1
+  2068  007F80  01                 	db	1
+  2069  007F81  01                 	db	1
+  2070  007F82  00                 	db	0
+  2071  007F83  00                 	db	0
+  2072  007F84  00                 	db	0
+  2073  007F85  00                 	db	0
+  2074  007F86  00                 	db	0
+  2075  007F87  00                 	db	0
+  2076  007F88  00                 	db	0
+  2077  007F89  00                 	db	0
+  2078  007F8A  00                 	db	0
+  2079  007F8B  00                 	db	0
+  2080  007F8C  00                 	db	0
+  2081  007F8D  00                 	db	0
+  2082  007F8E  00                 	db	0
+  2083  007F8F  00                 	db	0
+  2084  007F90  00                 	db	0
+  2085  007F91  00                 	db	0
+  2086  007F92  00                 	db	0
+  2087  007F93  00                 	db	0
+  2088  007F94  00                 	db	0
+  2089  007F95  00                 	db	0
+  2090  007F96  00                 	db	0
+  2091  007F97  00                 	db	0
+  2092  007F98  00                 	db	0
+  2093  007F99  00                 	db	0
+  2094  007F9A  00                 	db	0
+  2095  007F9B  00                 	db	0
+  2096  007F9C  00                 	db	0
+  2097  007F9D  00                 	db	0
+  2098  007F9E  00                 	db	0
+  2099  007F9F  00                 	db	0
+  2100  007FA0  00                 	db	0
+  2101  007FA1  00                 	db	0
+  2102  007FA2  00                 	db	0
+  2103  007FA3  00                 	db	0
+  2104  007FA4  00                 	db	0
+  2105  007FA5  00                 	db	0
+  2106  007FA6  00                 	db	0
+  2107  007FA7  00                 	db	0
+  2108  007FA8  00                 	db	0
+  2109  007FA9  00                 	db	0
+  2110  007FAA  00                 	db	0
+  2111  007FAB  00                 	db	0
+  2112  007FAC  00                 	db	0
+  2113  007FAD  00                 	db	0
+  2114  007FAE  00                 	db	0
+  2115  007FAF  00                 	db	0
+  2116  007FB0  00                 	db	0
+  2117  007FB1  00                 	db	0
+  2118  007FB2  00                 	db	0
+  2119  007FB3  00                 	db	0
+  2120  007FB4  00                 	db	0
+  2121  007FB5  00                 	db	0
+  2122  007FB6  00                 	db	0
+  2123  007FB7  00                 	db	0
+  2124  007FB8  00                 	db	0
+  2125  007FB9  00                 	db	0
+  2126  007FBA  00                 	db	0
+  2127  007FBB  00                 	db	0
+  2128  007FBC  00                 	db	0
+  2129  007FBD  00                 	db	0
+  2130  007FBE  00                 	db	0
+  2131  007FBF  00                 	db	0
+  2132  007FC0  00                 	db	0
+  2133  007FC1  00                 	db	0
+  2134  007FC2  00                 	db	0
+  2135  007FC3  00                 	db	0
+  2136  007FC4  00                 	db	0
+  2137  007FC5  00                 	db	0
+  2138  007FC6  00                 	db	0
+  2139  007FC7  00                 	db	0
+  2140  007FC8  00                 	db	0
+  2141  007FC9  00                 	db	0
+  2142  007FCA  00                 	db	0
+  2143  007FCB  00                 	db	0
+  2144  007FCC  00                 	db	0
+  2145  007FCD  00                 	db	0
+  2146  007FCE  00                 	db	0
+  2147  007FCF  00                 	db	0
+  2148  007FD0  00                 	db	0
+  2149  007FD1  00                 	db	0
+  2150  007FD2  00                 	db	0
+  2151  007FD3  00                 	db	0
+  2152  007FD4  00                 	db	0
+  2153  007FD5  00                 	db	0
+  2154  007FD6  00                 	db	0
+  2155  007FD7  00                 	db	0
+  2156  007FD8  00                 	db	0
+  2157  007FD9  00                 	db	0
+  2158  007FDA  00                 	db	0
+  2159  007FDB  00                 	db	0
+  2160  007FDC  00                 	db	0
+  2161  007FDD  00                 	db	0
+  2162  007FDE  00                 	db	0
+  2163  007FDF  00                 	db	0
+  2164  007FE0  00                 	db	0
+  2165  007FE1  00                 	db	0
+  2166  007FE2  00                 	db	0
+  2167  007FE3  00                 	db	0
+  2168  007FE4  00                 	db	0
+  2169  007FE5  00                 	db	0
+  2170  007FE6  00                 	db	0
+  2171  007FE7  00                 	db	0
+  2172  007FE8  00                 	db	0
+  2173  007FE9  00                 	db	0
+  2174  007FEA  00                 	db	0
+  2175  007FEB  00                 	db	0
+  2176  007FEC  00                 	db	0
+  2177  007FED  00                 	db	0
+  2178  007FEE  00                 	db	0
+  2179  007FEF  00                 	db	0
+  2180  007FF0  00                 	db	0
+  2181  007FF1  00                 	db	0
+  2182  007FF2  00                 	db	0
+  2183  007FF3                     __end_of_cypress2:
+  2184                           	opt callstack 0
+  2185  0000                     _TRISDbits	set	3989
+  2186  0000                     _LATDbits	set	3980
+  2187  0000                     _SSPBUF	set	4041
+  2188  0000                     _TRISAbits	set	3986
+  2189  0000                     _ADCON1	set	4033
+  2190  0000                     _SSPCON1bits	set	4038
+  2191  0000                     _SSPSTATbits	set	4039
+  2192  0000                     _TRISBbits	set	3987
+  2193  0000                     _TRISCbits	set	3988
+  2194  007FF3                     STR_1:
+  2195  007FF3  50                 	db	80	;'P'
+  2196  007FF4  49                 	db	73	;'I'
+  2197  007FF5  43                 	db	67	;'C'
+  2198  007FF6  20                 	db	32
+  2199  007FF7  31                 	db	49	;'1'
+  2200  007FF8  38                 	db	56	;'8'
+  2201  007FF9  46                 	db	70	;'F'
+  2202  007FFA  34                 	db	52	;'4'
+  2203  007FFB  35                 	db	53	;'5'
+  2204  007FFC  35                 	db	53	;'5'
+  2205  007FFD  30                 	db	48	;'0'
+  2206  007FFE  00                 	db	0
+  2207                           
+  2208                           ; #config settings
+  2209  007FFF  00                 	db	0	; dummy byte at the end
+  2210  0000                     
+  2211                           	psect	cinit
+  2212  0073FE                     __pcinit:
+  2213                           	opt callstack 0
+  2214  0073FE                     start_initialization:
+  2215                           	opt callstack 0
+  2216  0073FE                     __initialization:
+  2217                           	opt callstack 0
+  2218  0073FE                     end_of_initialization:
+  2219                           	opt callstack 0
+  2220  0073FE                     __end_of__initialization:
+  2221                           	opt callstack 0
+  2222  0073FE  0E00               	movlw	low (__Lmediumconst shr (0+16))
+  2223  007400  6EF8               	movwf	tblptru,c
+  2224  007402  0100               	movlb	0
+  2225  007404  EFB2  F03A         	goto	_main	;jump to C main() function
+  2226                           
+  2227                           	psect	cstackCOMRAM
+  2228  000001                     __pcstackCOMRAM:
+  2229                           	opt callstack 0
+  2230  000001                     SPIInitMaster@cke:
+  2231                           	opt callstack 0
+  2232  000001                     SPIData@Data:
+  2233                           	opt callstack 0
+  2234                           
+  2235                           ; 1 bytes @ 0x0
+  2236  000001                     	ds	1
+  2237  000002                     SPIInitMaster@ckp:
+  2238                           	opt callstack 0
+  2239  000002                     cmdWrite@command:
+  2240                           	opt callstack 0
+  2241  000002                     dataWrite@data:
+  2242                           	opt callstack 0
+  2243                           
+  2244                           ; 1 bytes @ 0x1
+  2245  000002                     	ds	1
+  2246  000003                     ??_displayInit:
+  2247  000003                     SPIInitMaster@mode:
+  2248                           	opt callstack 0
+  2249  000003                     displaySet@y:
+  2250                           	opt callstack 0
+  2251  000003                     displayInvert@value:
+  2252                           	opt callstack 0
+  2253                           
+  2254                           ; 1 bytes @ 0x2
+  2255  000003                     	ds	1
+  2256  000004                     ??_displaySet:
+  2257  000004                     SPIInitMaster@smp:
+  2258                           	opt callstack 0
+  2259                           
+  2260                           ; 1 bytes @ 0x3
+  2261  000004                     	ds	3
+  2262  000007                     displaySet@x:
+  2263                           	opt callstack 0
+  2264                           
+  2265                           ; 1 bytes @ 0x6
+  2266  000007                     	ds	1
+  2267  000008                     ??_displayBitmap:
+  2268  000008                     displayClear@j:
+  2269                           	opt callstack 0
+  2270  000008                     displayString@y:
+  2271                           	opt callstack 0
+  2272                           
+  2273                           ; 1 bytes @ 0x7
+  2274  000008                     	ds	1
+  2275  000009                     displayClear@i:
+  2276                           	opt callstack 0
+  2277  000009                     displayString@cadena:
+  2278                           	opt callstack 0
+  2279                           
+  2280                           ; 2 bytes @ 0x8
+  2281  000009                     	ds	1
+  2282  00000A                     displayBitmap@j:
+  2283                           	opt callstack 0
+  2284                           
+  2285                           ; 2 bytes @ 0x9
+  2286  00000A                     	ds	1
+  2287  00000B                     ??_displayString:
+  2288                           
+  2289                           ; 1 bytes @ 0xA
+  2290  00000B                     	ds	1
+  2291  00000C                     displayBitmap@i:
+  2292                           	opt callstack 0
+  2293                           
+  2294                           ; 1 bytes @ 0xB
+  2295  00000C                     	ds	5
+  2296  000011                     displayString@x:
+  2297                           	opt callstack 0
+  2298                           
+  2299                           ; 1 bytes @ 0x10
+  2300  000011                     	ds	1
+  2301  000012                     displayString@i:
+  2302                           	opt callstack 0
+  2303                           
+  2304                           ; 1 bytes @ 0x11
+  2305  000012                     	ds	1
+  2306  000013                     ??_main:
+  2307                           
+  2308                           ; 1 bytes @ 0x12
+  2309  000013                     	ds	2
+  2310  000015                     main@i:
+  2311                           	opt callstack 0
+  2312                           
+  2313                           ; 1 bytes @ 0x14
+  2314  000015                     	ds	1
+  2315                           
+  2316 ;;
+  2317 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+  2318 ;;
+  2319 ;; *************** function _main *****************
+  2320 ;; Defined at:
+  2321 ;;		line 7 in file "Main.c"
+  2322 ;; Parameters:    Size  Location     Type
+  2323 ;;		None
+  2324 ;; Auto vars:     Size  Location     Type
+  2325 ;;  i               1   20[COMRAM] unsigned char 
+  2326 ;; Return value:  Size  Location     Type
+  2327 ;;                  1    wreg      void 
+  2328 ;; Registers used:
+  2329 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+  2330 ;; Tracked objects:
+  2331 ;;		On entry : 0/0
+  2332 ;;		On exit  : 0/0
+  2333 ;;		Unchanged: 0/0
+  2334 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  2335 ;;      Params:         0       0       0       0       0       0       0       0       0
+  2336 ;;      Locals:         1       0       0       0       0       0       0       0       0
+  2337 ;;      Temps:          2       0       0       0       0       0       0       0       0
+  2338 ;;      Totals:         3       0       0       0       0       0       0       0       0
+  2339 ;;Total ram usage:        3 bytes
+  2340 ;; Hardware stack levels required when called:    4
+  2341 ;; This function calls:
+  2342 ;;		_SPIInitMaster
+  2343 ;;		_displayBitmap
+  2344 ;;		_displayClear
+  2345 ;;		_displayInit
+  2346 ;;		_displayInvert
+  2347 ;;		_displayString
+  2348 ;; This function is called by:
+  2349 ;;		Startup code after reset
+  2350 ;; This function uses a non-reentrant model
+  2351 ;;
+  2352                           
+  2353                           	psect	text0
+  2354  007564                     __ptext0:
+  2355                           	opt callstack 0
+  2356  007564                     _main:
+  2357                           	opt callstack 27
+  2358  007564                     
+  2359                           ;Main.c: 8: TRISDbits.RD7 = 0;
+  2360  007564  9E95               	bcf	149,7,c	;volatile
+  2361                           
+  2362                           ;Main.c: 9: TRISDbits.RD6 = 0;
+  2363  007566  9C95               	bcf	149,6,c	;volatile
+  2364  007568                     
+  2365                           ;Main.c: 11: SPIInitMaster(0x00,0x00,0x01,0x00);
+  2366  007568  0E00               	movlw	0
+  2367  00756A  6E01               	movwf	SPIInitMaster@cke^0,c
+  2368  00756C  0E01               	movlw	1
+  2369  00756E  6E02               	movwf	SPIInitMaster@ckp^0,c
+  2370  007570  0E00               	movlw	0
+  2371  007572  6E03               	movwf	SPIInitMaster@mode^0,c
+  2372  007574  0E00               	movlw	0
+  2373  007576  EC18  F03A         	call	_SPIInitMaster
+  2374  00757A                     
+  2375                           ;Main.c: 12: _delay((unsigned long)((10)*(4E6/4000.0)));
+  2376  00757A  0E0D               	movlw	13
+  2377  00757C  6E13               	movwf	??_main^0,c
+  2378  00757E  0EFC               	movlw	252
+  2379  007580                     u287:
+  2380  007580  2EE8               	decfsz	wreg,f,c
+  2381  007582  D7FE               	bra	u287
+  2382  007584  2E13               	decfsz	??_main^0,f,c
+  2383  007586  D7FC               	bra	u287
+  2384  007588                     
+  2385                           ;Main.c: 13: displayInit();
+  2386  007588  EC6D  F03B         	call	_displayInit	;wreg free
+  2387  00758C                     
+  2388                           ;Main.c: 14: displayClear();
+  2389  00758C  EC51  F03A         	call	_displayClear	;wreg free
+  2390  007590                     
+  2391                           ;Main.c: 15: displayString(0,4,"PIC 18F4550");
+  2392  007590  0E04               	movlw	4
+  2393  007592  6E08               	movwf	displayString@y^0,c
+  2394  007594  0EF3               	movlw	low STR_1
+  2395  007596  6E09               	movwf	displayString@cadena^0,c
+  2396  007598  0E7F               	movlw	high STR_1
+  2397  00759A  6E0A               	movwf	(displayString@cadena+1)^0,c
+  2398  00759C  0E00               	movlw	0
+  2399  00759E  EC0B  F03B         	call	_displayString
+  2400  0075A2                     
+  2401                           ;Main.c: 16: _delay((unsigned long)((2000)*(4E6/4000.0)));
+  2402  0075A2  0E0B               	movlw	11
+  2403  0075A4  6E14               	movwf	(??_main+1)^0,c
+  2404  0075A6  0E26               	movlw	38
+  2405  0075A8  6E13               	movwf	??_main^0,c
+  2406  0075AA  0E5E               	movlw	94
+  2407  0075AC                     u297:
+  2408  0075AC  2EE8               	decfsz	wreg,f,c
+  2409  0075AE  D7FE               	bra	u297
+  2410  0075B0  2E13               	decfsz	??_main^0,f,c
+  2411  0075B2  D7FC               	bra	u297
+  2412  0075B4  2E14               	decfsz	(??_main+1)^0,f,c
+  2413  0075B6  D7FA               	bra	u297
+  2414  0075B8                     
+  2415                           ;Main.c: 17: displayClear();
+  2416  0075B8  EC51  F03A         	call	_displayClear	;wreg free
+  2417  0075BC                     
+  2418                           ;Main.c: 18: displayBitmap();
+  2419  0075BC  EC70  F03A         	call	_displayBitmap	;wreg free
+  2420  0075C0                     
+  2421                           ;Main.c: 19: for(uint8_t i = 0; i < 10; i++){
+  2422  0075C0  0E00               	movlw	0
+  2423  0075C2  6E15               	movwf	main@i^0,c
+  2424  0075C4                     l1179:
+  2425                           
+  2426                           ;Main.c: 20: displayInvert(0xA7);
+  2427  0075C4  0EA7               	movlw	167
+  2428  0075C6  ECFA  F039         	call	_displayInvert
+  2429  0075CA                     
+  2430                           ;Main.c: 21: _delay((unsigned long)((1000)*(4E6/4000.0)));
+  2431  0075CA  0E06               	movlw	6
+  2432  0075CC  6E14               	movwf	(??_main+1)^0,c
+  2433  0075CE  0E13               	movlw	19
+  2434  0075D0  6E13               	movwf	??_main^0,c
+  2435  0075D2  0EAE               	movlw	174
+  2436  0075D4                     u307:
+  2437  0075D4  2EE8               	decfsz	wreg,f,c
+  2438  0075D6  D7FE               	bra	u307
+  2439  0075D8  2E13               	decfsz	??_main^0,f,c
+  2440  0075DA  D7FC               	bra	u307
+  2441  0075DC  2E14               	decfsz	(??_main+1)^0,f,c
+  2442  0075DE  D7FA               	bra	u307
+  2443  0075E0                     
+  2444                           ;Main.c: 22: displayInvert(0xA6);
+  2445  0075E0  0EA6               	movlw	166
+  2446  0075E2  ECFA  F039         	call	_displayInvert
+  2447                           
+  2448                           ;Main.c: 23: _delay((unsigned long)((1000)*(4E6/4000.0)));
+  2449  0075E6  0E06               	movlw	6
+  2450  0075E8  6E14               	movwf	(??_main+1)^0,c
+  2451  0075EA  0E13               	movlw	19
+  2452  0075EC  6E13               	movwf	??_main^0,c
+  2453  0075EE  0EAE               	movlw	174
+  2454  0075F0                     u317:
+  2455  0075F0  2EE8               	decfsz	wreg,f,c
+  2456  0075F2  D7FE               	bra	u317
+  2457  0075F4  2E13               	decfsz	??_main^0,f,c
+  2458  0075F6  D7FC               	bra	u317
+  2459  0075F8  2E14               	decfsz	(??_main+1)^0,f,c
+  2460  0075FA  D7FA               	bra	u317
+  2461  0075FC  2A15               	incf	main@i^0,f,c
+  2462  0075FE  0E09               	movlw	9
+  2463  007600  6415               	cpfsgt	main@i^0,c
+  2464  007602  EF05  F03B         	goto	u271
+  2465  007606  EF07  F03B         	goto	u270
+  2466  00760A                     u271:
+  2467  00760A  EFE2  F03A         	goto	l1179
+  2468  00760E                     u270:
+  2469  00760E                     l92:
+  2470  00760E  EF07  F03B         	goto	l92
+  2471  007612  EF00  F000         	goto	start
+  2472  007616                     __end_of_main:
+  2473                           	opt callstack 0
+  2474                           
+  2475 ;; *************** function _displayString *****************
+  2476 ;; Defined at:
+  2477 ;;		line 341 in file "SPI_SSD1306.h"
+  2478 ;; Parameters:    Size  Location     Type
+  2479 ;;  x               1    wreg     unsigned char 
+  2480 ;;  y               1    7[COMRAM] unsigned char 
+  2481 ;;  cadena          2    8[COMRAM] PTR unsigned char 
+  2482 ;;		 -> STR_1(12), 
+  2483 ;; Auto vars:     Size  Location     Type
+  2484 ;;  x               1   16[COMRAM] unsigned char 
+  2485 ;;  i               1   17[COMRAM] unsigned char 
+  2486 ;; Return value:  Size  Location     Type
+  2487 ;;                  1    wreg      void 
+  2488 ;; Registers used:
+  2489 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+  2490 ;; Tracked objects:
+  2491 ;;		On entry : 0/0
+  2492 ;;		On exit  : 0/0
+  2493 ;;		Unchanged: 0/0
+  2494 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  2495 ;;      Params:         3       0       0       0       0       0       0       0       0
+  2496 ;;      Locals:         2       0       0       0       0       0       0       0       0
+  2497 ;;      Temps:          6       0       0       0       0       0       0       0       0
+  2498 ;;      Totals:        11       0       0       0       0       0       0       0       0
+  2499 ;;Total ram usage:       11 bytes
+  2500 ;; Hardware stack levels used:    1
+  2501 ;; Hardware stack levels required when called:    3
+  2502 ;; This function calls:
+  2503 ;;		_dataWrite
+  2504 ;;		_displaySet
+  2505 ;; This function is called by:
+  2506 ;;		_main
+  2507 ;; This function uses a non-reentrant model
+  2508 ;;
+  2509                           
+  2510                           	psect	text1
+  2511  007616                     __ptext1:
+  2512                           	opt callstack 0
+  2513  007616                     _displayString:
+  2514                           	opt callstack 27
+  2515                           
+  2516                           ;incstack = 0
+  2517                           ;displayString@x stored from wreg
+  2518  007616  6E11               	movwf	displayString@x^0,c
+  2519  007618                     
+  2520                           ;SPI_SSD1306.h: 342: displaySet(x,y);
+  2521  007618  C008  F003         	movff	displayString@y,displaySet@y
+  2522  00761C  5011               	movf	displayString@x^0,w,c
+  2523  00761E  EC32  F03A         	call	_displaySet
+  2524                           
+  2525                           ;SPI_SSD1306.h: 343: while(*cadena){
+  2526  007622  EF5E  F03B         	goto	l1135
+  2527  007626                     l1113:
+  2528                           
+  2529                           ;SPI_SSD1306.h: 344: for(uint8_t i = 0; i < 8; i++){
+  2530  007626  0E00               	movlw	0
+  2531  007628  6E12               	movwf	displayString@i^0,c
+  2532  00762A                     l1119:
+  2533                           
+  2534                           ;SPI_SSD1306.h: 345: dataWrite(Font[*cadena - 0x20][i]);
+  2535  00762A  0E00               	movlw	0
+  2536  00762C  6E0B               	movwf	??_displayString^0,c
+  2537  00762E  0EFF               	movlw	255
+  2538  007630  6E0C               	movwf	(??_displayString+1)^0,c
+  2539  007632  C009  FFF6         	movff	displayString@cadena,tblptrl
+  2540  007636  C00A  FFF7         	movff	displayString@cadena+1,tblptrh
+  2541  00763A                     	if	0	;tblptru may be non-zero
+  2542  00763A                     	endif
+  2543  00763A                     	if	0	;tblptru may be non-zero
+  2544  00763A                     	endif
+  2545  00763A  0008               	tblrd		*
+  2546  00763C  50F5               	movf	tablat,w,c
+  2547  00763E  6E0D               	movwf	(??_displayString+2)^0,c
+  2548  007640  6A0E               	clrf	(??_displayString+3)^0,c
+  2549  007642  90D8               	bcf	status,0,c
+  2550  007644  360D               	rlcf	(??_displayString+2)^0,f,c
+  2551  007646  360E               	rlcf	(??_displayString+3)^0,f,c
+  2552  007648  90D8               	bcf	status,0,c
+  2553  00764A  360D               	rlcf	(??_displayString+2)^0,f,c
+  2554  00764C  360E               	rlcf	(??_displayString+3)^0,f,c
+  2555  00764E  90D8               	bcf	status,0,c
+  2556  007650  360D               	rlcf	(??_displayString+2)^0,f,c
+  2557  007652  360E               	rlcf	(??_displayString+3)^0,f,c
+  2558  007654  0EB3               	movlw	low _Font
+  2559  007656  6E0F               	movwf	(??_displayString+4)^0,c
+  2560  007658  0E7B               	movlw	high _Font
+  2561  00765A  6E10               	movwf	(??_displayString+5)^0,c
+  2562  00765C  500D               	movf	(??_displayString+2)^0,w,c
+  2563  00765E  260F               	addwf	(??_displayString+4)^0,f,c
+  2564  007660  500E               	movf	(??_displayString+3)^0,w,c
+  2565  007662  2210               	addwfc	(??_displayString+5)^0,f,c
+  2566  007664  5012               	movf	displayString@i^0,w,c
+  2567  007666  260F               	addwf	(??_displayString+4)^0,f,c
+  2568  007668  0E00               	movlw	0
+  2569  00766A  2210               	addwfc	(??_displayString+5)^0,f,c
+  2570  00766C  500B               	movf	??_displayString^0,w,c
+  2571  00766E  260F               	addwf	(??_displayString+4)^0,f,c
+  2572  007670  500C               	movf	(??_displayString+1)^0,w,c
+  2573  007672  2210               	addwfc	(??_displayString+5)^0,f,c
+  2574  007674  C00F  FFF6         	movff	??_displayString+4,tblptrl
+  2575  007678  C010  FFF7         	movff	??_displayString+5,tblptrh
+  2576  00767C                     	if	0	;tblptru may be non-zero
+  2577  00767C                     	endif
+  2578  00767C                     	if	0	;tblptru may be non-zero
+  2579  00767C                     	endif
+  2580  00767C  0008               	tblrd		*
+  2581  00767E  50F5               	movf	tablat,w,c
+  2582  007680  EC04  F03A         	call	_dataWrite
+  2583  007684  2A12               	incf	displayString@i^0,f,c
+  2584  007686  0E07               	movlw	7
+  2585  007688  6412               	cpfsgt	displayString@i^0,c
+  2586  00768A  EF49  F03B         	goto	u211
+  2587  00768E  EF4B  F03B         	goto	u210
+  2588  007692                     u211:
+  2589  007692  EF15  F03B         	goto	l1119
+  2590  007696                     u210:
+  2591  007696                     
+  2592                           ;SPI_SSD1306.h: 346: };SPI_SSD1306.h: 347: *cadena++;
+  2593  007696  4A09               	infsnz	displayString@cadena^0,f,c
+  2594  007698  2A0A               	incf	(displayString@cadena+1)^0,f,c
+  2595                           
+  2596                           ;SPI_SSD1306.h: 348: x++;
+  2597  00769A  2A11               	incf	displayString@x^0,f,c
+  2598  00769C                     
+  2599                           ;SPI_SSD1306.h: 349: if(x >= 15){
+  2600  00769C  0E0E               	movlw	14
+  2601  00769E  6411               	cpfsgt	displayString@x^0,c
+  2602  0076A0  EF54  F03B         	goto	u221
+  2603  0076A4  EF56  F03B         	goto	u220
+  2604  0076A8                     u221:
+  2605  0076A8  EF5E  F03B         	goto	l1135
+  2606  0076AC                     u220:
+  2607  0076AC                     
+  2608                           ;SPI_SSD1306.h: 350: x = 0;
+  2609  0076AC  0E00               	movlw	0
+  2610  0076AE  6E11               	movwf	displayString@x^0,c
+  2611  0076B0                     
+  2612                           ;SPI_SSD1306.h: 351: y++;
+  2613  0076B0  2A08               	incf	displayString@y^0,f,c
+  2614  0076B2                     
+  2615                           ;SPI_SSD1306.h: 352: displaySet(x,y);
+  2616  0076B2  C008  F003         	movff	displayString@y,displaySet@y
+  2617  0076B6  0E00               	movlw	0
+  2618  0076B8  EC32  F03A         	call	_displaySet
+  2619  0076BC                     l1135:
+  2620  0076BC  C009  FFF6         	movff	displayString@cadena,tblptrl
+  2621  0076C0  C00A  FFF7         	movff	displayString@cadena+1,tblptrh
+  2622  0076C4                     	if	0	;tblptru may be non-zero
+  2623  0076C4                     	endif
+  2624  0076C4                     	if	0	;tblptru may be non-zero
+  2625  0076C4                     	endif
+  2626  0076C4  0008               	tblrd		*
+  2627  0076C6  50F5               	movf	tablat,w,c
+  2628  0076C8  0900               	iorlw	0
+  2629  0076CA  A4D8               	btfss	status,2,c
+  2630  0076CC  EF6A  F03B         	goto	u231
+  2631  0076D0  EF6C  F03B         	goto	u230
+  2632  0076D4                     u231:
+  2633  0076D4  EF13  F03B         	goto	l1113
+  2634  0076D8                     u230:
+  2635  0076D8  0012               	return		;funcret
+  2636  0076DA                     __end_of_displayString:
+  2637                           	opt callstack 0
+  2638                           
+  2639 ;; *************** function _displayInvert *****************
+  2640 ;; Defined at:
+  2641 ;;		line 366 in file "SPI_SSD1306.h"
+  2642 ;; Parameters:    Size  Location     Type
+  2643 ;;  value           1    wreg     unsigned char 
+  2644 ;; Auto vars:     Size  Location     Type
+  2645 ;;  value           1    2[COMRAM] unsigned char 
+  2646 ;; Return value:  Size  Location     Type
+  2647 ;;                  1    wreg      void 
+  2648 ;; Registers used:
+  2649 ;;		wreg, status,2, cstack
+  2650 ;; Tracked objects:
+  2651 ;;		On entry : 0/0
+  2652 ;;		On exit  : 0/0
+  2653 ;;		Unchanged: 0/0
+  2654 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  2655 ;;      Params:         0       0       0       0       0       0       0       0       0
+  2656 ;;      Locals:         1       0       0       0       0       0       0       0       0
+  2657 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  2658 ;;      Totals:         1       0       0       0       0       0       0       0       0
+  2659 ;;Total ram usage:        1 bytes
+  2660 ;; Hardware stack levels used:    1
+  2661 ;; Hardware stack levels required when called:    2
+  2662 ;; This function calls:
+  2663 ;;		_cmdWrite
+  2664 ;; This function is called by:
+  2665 ;;		_main
+  2666 ;; This function uses a non-reentrant model
+  2667 ;;
+  2668                           
+  2669                           	psect	text2
+  2670  0073F4                     __ptext2:
+  2671                           	opt callstack 0
+  2672  0073F4                     _displayInvert:
+  2673                           	opt callstack 28
+  2674                           
+  2675                           ;incstack = 0
+  2676                           ;displayInvert@value stored from wreg
+  2677  0073F4  6E03               	movwf	displayInvert@value^0,c
+  2678  0073F6                     
+  2679                           ;SPI_SSD1306.h: 367: cmdWrite(value);
+  2680  0073F6  5003               	movf	displayInvert@value^0,w,c
+  2681  0073F8  EC0A  F03A         	call	_cmdWrite
+  2682  0073FC  0012               	return		;funcret
+  2683  0073FE                     __end_of_displayInvert:
+  2684                           	opt callstack 0
+  2685                           
+  2686 ;; *************** function _displayInit *****************
+  2687 ;; Defined at:
+  2688 ;;		line 267 in file "SPI_SSD1306.h"
+  2689 ;; Parameters:    Size  Location     Type
+  2690 ;;		None
+  2691 ;; Auto vars:     Size  Location     Type
+  2692 ;;		None
+  2693 ;; Return value:  Size  Location     Type
+  2694 ;;                  1    wreg      void 
+  2695 ;; Registers used:
+  2696 ;;		wreg, status,2, cstack
+  2697 ;; Tracked objects:
+  2698 ;;		On entry : 0/0
+  2699 ;;		On exit  : 0/0
+  2700 ;;		Unchanged: 0/0
+  2701 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  2702 ;;      Params:         0       0       0       0       0       0       0       0       0
+  2703 ;;      Locals:         0       0       0       0       0       0       0       0       0
+  2704 ;;      Temps:          1       0       0       0       0       0       0       0       0
+  2705 ;;      Totals:         1       0       0       0       0       0       0       0       0
+  2706 ;;Total ram usage:        1 bytes
+  2707 ;; Hardware stack levels used:    1
+  2708 ;; Hardware stack levels required when called:    2
+  2709 ;; This function calls:
+  2710 ;;		_cmdWrite
+  2711 ;; This function is called by:
+  2712 ;;		_main
+  2713 ;; This function uses a non-reentrant model
+  2714 ;;
+  2715                           
+  2716                           	psect	text3
+  2717  0076DA                     __ptext3:
+  2718                           	opt callstack 0
+  2719  0076DA                     _displayInit:
+  2720                           	opt callstack 28
+  2721  0076DA                     
+  2722                           ;SPI_SSD1306.h: 269: LATDbits.LATD6 = 1;
+  2723  0076DA  8C8C               	bsf	140,6,c	;volatile
+  2724  0076DC                     
+  2725                           ;SPI_SSD1306.h: 270: _delay((unsigned long)((5)*(4E6/4000.0)));
+  2726  0076DC  0E07               	movlw	7
+  2727  0076DE  6E03               	movwf	??_displayInit^0,c
+  2728  0076E0  0E7D               	movlw	125
+  2729  0076E2                     u327:
+  2730  0076E2  2EE8               	decfsz	wreg,f,c
+  2731  0076E4  D7FE               	bra	u327
+  2732  0076E6  2E03               	decfsz	??_displayInit^0,f,c
+  2733  0076E8  D7FC               	bra	u327
+  2734  0076EA  F000               	nop	
+  2735  0076EC                     
+  2736                           ;SPI_SSD1306.h: 271: LATDbits.LATD6 = 0;
+  2737  0076EC  9C8C               	bcf	140,6,c	;volatile
+  2738                           
+  2739                           ;SPI_SSD1306.h: 272: _delay((unsigned long)((10)*(4E6/4000.0)));
+  2740  0076EE  0E0D               	movlw	13
+  2741  0076F0  6E03               	movwf	??_displayInit^0,c
+  2742  0076F2  0EFC               	movlw	252
+  2743  0076F4                     u337:
+  2744  0076F4  2EE8               	decfsz	wreg,f,c
+  2745  0076F6  D7FE               	bra	u337
+  2746  0076F8  2E03               	decfsz	??_displayInit^0,f,c
+  2747  0076FA  D7FC               	bra	u337
+  2748  0076FC                     
+  2749                           ;SPI_SSD1306.h: 273: LATDbits.LATD6 = 1;
+  2750  0076FC  8C8C               	bsf	140,6,c	;volatile
+  2751                           
+  2752                           ;SPI_SSD1306.h: 274: _delay((unsigned long)((20)*(4E6/4000.0)));
+  2753  0076FE  0E1A               	movlw	26
+  2754  007700  6E03               	movwf	??_displayInit^0,c
+  2755  007702  0EF8               	movlw	248
+  2756  007704                     u347:
+  2757  007704  2EE8               	decfsz	wreg,f,c
+  2758  007706  D7FE               	bra	u347
+  2759  007708  2E03               	decfsz	??_displayInit^0,f,c
+  2760  00770A  D7FC               	bra	u347
+  2761  00770C  D000               	nop2	
+  2762  00770E                     
+  2763                           ;SPI_SSD1306.h: 276: cmdWrite(0xAE);
+  2764  00770E  0EAE               	movlw	174
+  2765  007710  EC0A  F03A         	call	_cmdWrite
+  2766  007714                     
+  2767                           ;SPI_SSD1306.h: 278: cmdWrite(0xA8);
+  2768  007714  0EA8               	movlw	168
+  2769  007716  EC0A  F03A         	call	_cmdWrite
+  2770  00771A                     
+  2771                           ;SPI_SSD1306.h: 279: cmdWrite(0x3F);
+  2772  00771A  0E3F               	movlw	63
+  2773  00771C  EC0A  F03A         	call	_cmdWrite
+  2774  007720                     
+  2775                           ;SPI_SSD1306.h: 281: cmdWrite(0xD3);
+  2776  007720  0ED3               	movlw	211
+  2777  007722  EC0A  F03A         	call	_cmdWrite
+  2778  007726                     
+  2779                           ;SPI_SSD1306.h: 282: cmdWrite(0x00);
+  2780  007726  0E00               	movlw	0
+  2781  007728  EC0A  F03A         	call	_cmdWrite
+  2782  00772C                     
+  2783                           ;SPI_SSD1306.h: 284: cmdWrite(0x40);
+  2784  00772C  0E40               	movlw	64
+  2785  00772E  EC0A  F03A         	call	_cmdWrite
+  2786  007732                     
+  2787                           ;SPI_SSD1306.h: 286: cmdWrite(0xA1);
+  2788  007732  0EA1               	movlw	161
+  2789  007734  EC0A  F03A         	call	_cmdWrite
+  2790  007738                     
+  2791                           ;SPI_SSD1306.h: 288: cmdWrite(0xC8);
+  2792  007738  0EC8               	movlw	200
+  2793  00773A  EC0A  F03A         	call	_cmdWrite
+  2794  00773E                     
+  2795                           ;SPI_SSD1306.h: 290: cmdWrite(0xDA);
+  2796  00773E  0EDA               	movlw	218
+  2797  007740  EC0A  F03A         	call	_cmdWrite
+  2798  007744                     
+  2799                           ;SPI_SSD1306.h: 291: cmdWrite(0x12);
+  2800  007744  0E12               	movlw	18
+  2801  007746  EC0A  F03A         	call	_cmdWrite
+  2802  00774A                     
+  2803                           ;SPI_SSD1306.h: 293: cmdWrite(0x81);
+  2804  00774A  0E81               	movlw	129
+  2805  00774C  EC0A  F03A         	call	_cmdWrite
+  2806  007750                     
+  2807                           ;SPI_SSD1306.h: 294: cmdWrite(0xFF);
+  2808  007750  0EFF               	movlw	255
+  2809  007752  EC0A  F03A         	call	_cmdWrite
+  2810  007756                     
+  2811                           ;SPI_SSD1306.h: 296: cmdWrite(0xA4);
+  2812  007756  0EA4               	movlw	164
+  2813  007758  EC0A  F03A         	call	_cmdWrite
+  2814  00775C                     
+  2815                           ;SPI_SSD1306.h: 298: cmdWrite(0xA6);
+  2816  00775C  0EA6               	movlw	166
+  2817  00775E  EC0A  F03A         	call	_cmdWrite
+  2818  007762                     
+  2819                           ;SPI_SSD1306.h: 300: cmdWrite(0xD5);
+  2820  007762  0ED5               	movlw	213
+  2821  007764  EC0A  F03A         	call	_cmdWrite
+  2822  007768                     
+  2823                           ;SPI_SSD1306.h: 301: cmdWrite(0x80);
+  2824  007768  0E80               	movlw	128
+  2825  00776A  EC0A  F03A         	call	_cmdWrite
+  2826  00776E                     
+  2827                           ;SPI_SSD1306.h: 303: cmdWrite(0x21);
+  2828  00776E  0E21               	movlw	33
+  2829  007770  EC0A  F03A         	call	_cmdWrite
+  2830  007774                     
+  2831                           ;SPI_SSD1306.h: 304: cmdWrite(0x00);
+  2832  007774  0E00               	movlw	0
+  2833  007776  EC0A  F03A         	call	_cmdWrite
+  2834  00777A                     
+  2835                           ;SPI_SSD1306.h: 305: cmdWrite(0x7F);
+  2836  00777A  0E7F               	movlw	127
+  2837  00777C  EC0A  F03A         	call	_cmdWrite
+  2838  007780                     
+  2839                           ;SPI_SSD1306.h: 307: cmdWrite(0x22);
+  2840  007780  0E22               	movlw	34
+  2841  007782  EC0A  F03A         	call	_cmdWrite
+  2842  007786                     
+  2843                           ;SPI_SSD1306.h: 308: cmdWrite(0x00);
+  2844  007786  0E00               	movlw	0
+  2845  007788  EC0A  F03A         	call	_cmdWrite
+  2846  00778C                     
+  2847                           ;SPI_SSD1306.h: 309: cmdWrite(0x07);
+  2848  00778C  0E07               	movlw	7
+  2849  00778E  EC0A  F03A         	call	_cmdWrite
+  2850  007792                     
+  2851                           ;SPI_SSD1306.h: 311: cmdWrite(0x20);
+  2852  007792  0E20               	movlw	32
+  2853  007794  EC0A  F03A         	call	_cmdWrite
+  2854  007798                     
+  2855                           ;SPI_SSD1306.h: 312: cmdWrite(0x02);
+  2856  007798  0E02               	movlw	2
+  2857  00779A  EC0A  F03A         	call	_cmdWrite
+  2858  00779E                     
+  2859                           ;SPI_SSD1306.h: 314: cmdWrite(0x8D);
+  2860  00779E  0E8D               	movlw	141
+  2861  0077A0  EC0A  F03A         	call	_cmdWrite
+  2862  0077A4                     
+  2863                           ;SPI_SSD1306.h: 315: cmdWrite(0x14);
+  2864  0077A4  0E14               	movlw	20
+  2865  0077A6  EC0A  F03A         	call	_cmdWrite
+  2866  0077AA                     
+  2867                           ;SPI_SSD1306.h: 317: cmdWrite(0xAF);
+  2868  0077AA  0EAF               	movlw	175
+  2869  0077AC  EC0A  F03A         	call	_cmdWrite
+  2870  0077B0  0012               	return		;funcret
+  2871  0077B2                     __end_of_displayInit:
+  2872                           	opt callstack 0
+  2873                           
+  2874 ;; *************** function _displayClear *****************
+  2875 ;; Defined at:
+  2876 ;;		line 326 in file "SPI_SSD1306.h"
+  2877 ;; Parameters:    Size  Location     Type
+  2878 ;;		None
+  2879 ;; Auto vars:     Size  Location     Type
+  2880 ;;  j               1    7[COMRAM] unsigned char 
+  2881 ;;  i               1    8[COMRAM] unsigned char 
+  2882 ;; Return value:  Size  Location     Type
+  2883 ;;                  1    wreg      void 
+  2884 ;; Registers used:
+  2885 ;;		wreg, status,2, status,0, prodl, prodh, cstack
+  2886 ;; Tracked objects:
+  2887 ;;		On entry : 0/0
+  2888 ;;		On exit  : 0/0
+  2889 ;;		Unchanged: 0/0
+  2890 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  2891 ;;      Params:         0       0       0       0       0       0       0       0       0
+  2892 ;;      Locals:         2       0       0       0       0       0       0       0       0
+  2893 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  2894 ;;      Totals:         2       0       0       0       0       0       0       0       0
+  2895 ;;Total ram usage:        2 bytes
+  2896 ;; Hardware stack levels used:    1
+  2897 ;; Hardware stack levels required when called:    3
+  2898 ;; This function calls:
+  2899 ;;		_dataWrite
+  2900 ;;		_displaySet
+  2901 ;; This function is called by:
+  2902 ;;		_main
+  2903 ;; This function uses a non-reentrant model
+  2904 ;;
+  2905                           
+  2906                           	psect	text4
+  2907  0074A2                     __ptext4:
+  2908                           	opt callstack 0
+  2909  0074A2                     _displayClear:
+  2910                           	opt callstack 27
+  2911  0074A2                     
+  2912                           ;SPI_SSD1306.h: 327: for(uint8_t i = 0; i < 8; i++){
+  2913  0074A2  0E00               	movlw	0
+  2914  0074A4  6E09               	movwf	displayClear@i^0,c
+  2915  0074A6                     l1093:
+  2916                           
+  2917                           ;SPI_SSD1306.h: 328: displaySet(0,i);
+  2918  0074A6  C009  F003         	movff	displayClear@i,displaySet@y
+  2919  0074AA  0E00               	movlw	0
+  2920  0074AC  EC32  F03A         	call	_displaySet
+  2921  0074B0                     
+  2922                           ;SPI_SSD1306.h: 329: for(uint8_t j = 0; j < 128; j ++){
+  2923  0074B0  0E00               	movlw	0
+  2924  0074B2  6E08               	movwf	displayClear@j^0,c
+  2925  0074B4                     l1101:
+  2926                           
+  2927                           ;SPI_SSD1306.h: 330: dataWrite(0x00);
+  2928  0074B4  0E00               	movlw	0
+  2929  0074B6  EC04  F03A         	call	_dataWrite
+  2930  0074BA  2A08               	incf	displayClear@j^0,f,c
+  2931  0074BC  0E7F               	movlw	127
+  2932  0074BE  6408               	cpfsgt	displayClear@j^0,c
+  2933  0074C0  EF64  F03A         	goto	u191
+  2934  0074C4  EF66  F03A         	goto	u190
+  2935  0074C8                     u191:
+  2936  0074C8  EF5A  F03A         	goto	l1101
+  2937  0074CC                     u190:
+  2938  0074CC  2A09               	incf	displayClear@i^0,f,c
+  2939  0074CE  0E07               	movlw	7
+  2940  0074D0  6409               	cpfsgt	displayClear@i^0,c
+  2941  0074D2  EF6D  F03A         	goto	u201
+  2942  0074D6  EF6F  F03A         	goto	u200
+  2943  0074DA                     u201:
+  2944  0074DA  EF53  F03A         	goto	l1093
+  2945  0074DE                     u200:
+  2946  0074DE  0012               	return		;funcret
+  2947  0074E0                     __end_of_displayClear:
+  2948                           	opt callstack 0
+  2949                           
+  2950 ;; *************** function _displayBitmap *****************
+  2951 ;; Defined at:
+  2952 ;;		line 357 in file "SPI_SSD1306.h"
+  2953 ;; Parameters:    Size  Location     Type
+  2954 ;;		None
+  2955 ;; Auto vars:     Size  Location     Type
+  2956 ;;  j               2    9[COMRAM] unsigned int 
+  2957 ;;  i               1   11[COMRAM] unsigned char 
+  2958 ;; Return value:  Size  Location     Type
+  2959 ;;                  1    wreg      void 
+  2960 ;; Registers used:
+  2961 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+  2962 ;; Tracked objects:
+  2963 ;;		On entry : 0/0
+  2964 ;;		On exit  : 0/0
+  2965 ;;		Unchanged: 0/0
+  2966 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  2967 ;;      Params:         0       0       0       0       0       0       0       0       0
+  2968 ;;      Locals:         3       0       0       0       0       0       0       0       0
+  2969 ;;      Temps:          2       0       0       0       0       0       0       0       0
+  2970 ;;      Totals:         5       0       0       0       0       0       0       0       0
+  2971 ;;Total ram usage:        5 bytes
+  2972 ;; Hardware stack levels used:    1
+  2973 ;; Hardware stack levels required when called:    3
+  2974 ;; This function calls:
+  2975 ;;		_dataWrite
+  2976 ;;		_displaySet
+  2977 ;; This function is called by:
+  2978 ;;		_main
+  2979 ;; This function uses a non-reentrant model
+  2980 ;;
+  2981                           
+  2982                           	psect	text5
+  2983  0074E0                     __ptext5:
+  2984                           	opt callstack 0
+  2985  0074E0                     _displayBitmap:
+  2986                           	opt callstack 27
+  2987  0074E0                     
+  2988                           ;SPI_SSD1306.h: 358: for(uint8_t i = 0; i < 8; i++){
+  2989  0074E0  0E00               	movlw	0
+  2990  0074E2  6E0C               	movwf	displayBitmap@i^0,c
+  2991  0074E4                     l1139:
+  2992  0074E4  0E07               	movlw	7
+  2993  0074E6  640C               	cpfsgt	displayBitmap@i^0,c
+  2994  0074E8  EF78  F03A         	goto	u241
+  2995  0074EC  EF7A  F03A         	goto	u240
+  2996  0074F0                     u241:
+  2997  0074F0  EF7C  F03A         	goto	l1143
+  2998  0074F4                     u240:
+  2999  0074F4  EFB1  F03A         	goto	l82
+  3000  0074F8                     l1143:
+  3001                           
+  3002                           ;SPI_SSD1306.h: 359: displaySet(0,i);
+  3003  0074F8  C00C  F003         	movff	displayBitmap@i,displaySet@y
+  3004  0074FC  0E00               	movlw	0
+  3005  0074FE  EC32  F03A         	call	_displaySet
+  3006  007502                     
+  3007                           ;SPI_SSD1306.h: 360: for(uint16_t j = 128*i; j < 128*(i+1); j ++){
+  3008  007502  500C               	movf	displayBitmap@i^0,w,c
+  3009  007504  0D80               	mullw	128
+  3010  007506  CFF3 F00A          	movff	prodl,displayBitmap@j
+  3011  00750A  CFF4 F00B          	movff	prodh,displayBitmap@j+1
+  3012  00750E  EF95  F03A         	goto	l1151
+  3013  007512                     l1147:
+  3014                           
+  3015                           ;SPI_SSD1306.h: 361: dataWrite(cypress[j]);
+  3016  007512  0EB3               	movlw	low _cypress
+  3017  007514  240A               	addwf	displayBitmap@j^0,w,c
+  3018  007516  6EF6               	movwf	tblptrl,c
+  3019  007518  0E77               	movlw	high _cypress
+  3020  00751A  200B               	addwfc	(displayBitmap@j+1)^0,w,c
+  3021  00751C  6EF7               	movwf	tblptrh,c
+  3022  00751E                     	if	0	;There are less than 3 active tblptr bytes
+  3023  00751E                     	endif
+  3024  00751E  0008               	tblrd		*
+  3025  007520  50F5               	movf	tablat,w,c
+  3026  007522  EC04  F03A         	call	_dataWrite
+  3027  007526  4A0A               	infsnz	displayBitmap@j^0,f,c
+  3028  007528  2A0B               	incf	(displayBitmap@j+1)^0,f,c
+  3029  00752A                     l1151:
+  3030  00752A  500C               	movf	displayBitmap@i^0,w,c
+  3031  00752C  6E08               	movwf	??_displayBitmap^0,c
+  3032  00752E  6A09               	clrf	(??_displayBitmap+1)^0,c
+  3033  007530  0E07               	movlw	7
+  3034  007532                     u255:
+  3035  007532  90D8               	bcf	status,0,c
+  3036  007534  3608               	rlcf	??_displayBitmap^0,f,c
+  3037  007536  3609               	rlcf	(??_displayBitmap+1)^0,f,c
+  3038  007538  2EE8               	decfsz	wreg,f,c
+  3039  00753A  EF99  F03A         	goto	u255
+  3040  00753E  0E80               	movlw	128
+  3041  007540  2608               	addwf	??_displayBitmap^0,f,c
+  3042  007542  0E00               	movlw	0
+  3043  007544  2209               	addwfc	(??_displayBitmap+1)^0,f,c
+  3044  007546  5008               	movf	??_displayBitmap^0,w,c
+  3045  007548  5C0A               	subwf	displayBitmap@j^0,w,c
+  3046  00754A  5009               	movf	(??_displayBitmap+1)^0,w,c
+  3047  00754C  580B               	subwfb	(displayBitmap@j+1)^0,w,c
+  3048  00754E  A0D8               	btfss	status,0,c
+  3049  007550  EFAC  F03A         	goto	u261
+  3050  007554  EFAE  F03A         	goto	u260
+  3051  007558                     u261:
+  3052  007558  EF89  F03A         	goto	l1147
+  3053  00755C                     u260:
+  3054  00755C  2A0C               	incf	displayBitmap@i^0,f,c
+  3055  00755E  EF72  F03A         	goto	l1139
+  3056  007562                     l82:
+  3057  007562  0012               	return		;funcret
+  3058  007564                     __end_of_displayBitmap:
+  3059                           	opt callstack 0
+  3060                           
+  3061 ;; *************** function _displaySet *****************
+  3062 ;; Defined at:
+  3063 ;;		line 320 in file "SPI_SSD1306.h"
+  3064 ;; Parameters:    Size  Location     Type
+  3065 ;;  x               1    wreg     unsigned char 
+  3066 ;;  y               1    2[COMRAM] unsigned char 
+  3067 ;; Auto vars:     Size  Location     Type
+  3068 ;;  x               1    6[COMRAM] unsigned char 
+  3069 ;; Return value:  Size  Location     Type
+  3070 ;;                  1    wreg      void 
+  3071 ;; Registers used:
+  3072 ;;		wreg, status,2, status,0, prodl, prodh, cstack
+  3073 ;; Tracked objects:
+  3074 ;;		On entry : 0/0
+  3075 ;;		On exit  : 0/0
+  3076 ;;		Unchanged: 0/0
+  3077 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  3078 ;;      Params:         1       0       0       0       0       0       0       0       0
+  3079 ;;      Locals:         1       0       0       0       0       0       0       0       0
+  3080 ;;      Temps:          3       0       0       0       0       0       0       0       0
+  3081 ;;      Totals:         5       0       0       0       0       0       0       0       0
+  3082 ;;Total ram usage:        5 bytes
+  3083 ;; Hardware stack levels used:    1
+  3084 ;; Hardware stack levels required when called:    2
+  3085 ;; This function calls:
+  3086 ;;		_cmdWrite
+  3087 ;; This function is called by:
+  3088 ;;		_displayClear
+  3089 ;;		_displayString
+  3090 ;;		_displayBitmap
+  3091 ;; This function uses a non-reentrant model
+  3092 ;;
+  3093                           
+  3094                           	psect	text6
+  3095  007464                     __ptext6:
+  3096                           	opt callstack 0
+  3097  007464                     _displaySet:
+  3098                           	opt callstack 27
+  3099                           
+  3100                           ;incstack = 0
+  3101                           ;displaySet@x stored from wreg
+  3102  007464  6E07               	movwf	displaySet@x^0,c
+  3103  007466                     
+  3104                           ;SPI_SSD1306.h: 321: cmdWrite(0xB0 + y);
+  3105  007466  5003               	movf	displaySet@y^0,w,c
+  3106  007468  0FB0               	addlw	176
+  3107  00746A  EC0A  F03A         	call	_cmdWrite
+  3108  00746E                     
+  3109                           ;SPI_SSD1306.h: 322: cmdWrite(0x00 + ((8 * x) & 0x0F));
+  3110  00746E  5007               	movf	displaySet@x^0,w,c
+  3111  007470  0D08               	mullw	8
+  3112  007472  50F3               	movf	243,w,c
+  3113  007474  0B0F               	andlw	15
+  3114  007476  EC0A  F03A         	call	_cmdWrite
+  3115  00747A                     
+  3116                           ;SPI_SSD1306.h: 323: cmdWrite(0x10 + ((8 * x>>4) & 0x0F));
+  3117  00747A  5007               	movf	displaySet@x^0,w,c
+  3118  00747C  0D08               	mullw	8
+  3119  00747E  CFF3 F004          	movff	prodl,??_displaySet
+  3120  007482  CFF4 F005          	movff	prodh,??_displaySet+1
+  3121  007486  0E04               	movlw	4
+  3122  007488  6E06               	movwf	(??_displaySet+2)^0,c
+  3123  00748A                     u155:
+  3124  00748A  3405               	rlcf	(??_displaySet+1)^0,w,c
+  3125  00748C  3205               	rrcf	(??_displaySet+1)^0,f,c
+  3126  00748E  3204               	rrcf	??_displaySet^0,f,c
+  3127  007490  2E06               	decfsz	(??_displaySet+2)^0,f,c
+  3128  007492  EF45  F03A         	goto	u155
+  3129  007496  5004               	movf	??_displaySet^0,w,c
+  3130  007498  0B0F               	andlw	15
+  3131  00749A  0F10               	addlw	16
+  3132  00749C  EC0A  F03A         	call	_cmdWrite
+  3133  0074A0  0012               	return		;funcret
+  3134  0074A2                     __end_of_displaySet:
+  3135                           	opt callstack 0
+  3136                           
+  3137 ;; *************** function _cmdWrite *****************
+  3138 ;; Defined at:
+  3139 ;;		line 258 in file "SPI_SSD1306.h"
+  3140 ;; Parameters:    Size  Location     Type
+  3141 ;;  command         1    wreg     unsigned char 
+  3142 ;; Auto vars:     Size  Location     Type
+  3143 ;;  command         1    1[COMRAM] unsigned char 
+  3144 ;; Return value:  Size  Location     Type
+  3145 ;;                  1    wreg      void 
+  3146 ;; Registers used:
+  3147 ;;		wreg, status,2, cstack
+  3148 ;; Tracked objects:
+  3149 ;;		On entry : 0/0
+  3150 ;;		On exit  : 0/0
+  3151 ;;		Unchanged: 0/0
+  3152 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  3153 ;;      Params:         0       0       0       0       0       0       0       0       0
+  3154 ;;      Locals:         1       0       0       0       0       0       0       0       0
+  3155 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  3156 ;;      Totals:         1       0       0       0       0       0       0       0       0
+  3157 ;;Total ram usage:        1 bytes
+  3158 ;; Hardware stack levels used:    1
+  3159 ;; Hardware stack levels required when called:    1
+  3160 ;; This function calls:
+  3161 ;;		_SPIData
+  3162 ;; This function is called by:
+  3163 ;;		_displayInit
+  3164 ;;		_displaySet
+  3165 ;;		_displayInvert
+  3166 ;; This function uses a non-reentrant model
+  3167 ;;
+  3168                           
+  3169                           	psect	text7
+  3170  007414                     __ptext7:
+  3171                           	opt callstack 0
+  3172  007414                     _cmdWrite:
+  3173                           	opt callstack 27
+  3174                           
+  3175                           ;incstack = 0
+  3176                           ;cmdWrite@command stored from wreg
+  3177  007414  6E02               	movwf	cmdWrite@command^0,c
+  3178  007416                     
+  3179                           ;SPI_SSD1306.h: 259: LATDbits.LATD7 = 0;
+  3180  007416  9E8C               	bcf	140,7,c	;volatile
+  3181  007418                     
+  3182                           ;SPI_SSD1306.h: 260: SPIData(command);
+  3183  007418  5002               	movf	cmdWrite@command^0,w,c
+  3184  00741A  EC10  F03A         	call	_SPIData
+  3185  00741E  0012               	return		;funcret
+  3186  007420                     __end_of_cmdWrite:
+  3187                           	opt callstack 0
+  3188                           
+  3189 ;; *************** function _dataWrite *****************
+  3190 ;; Defined at:
+  3191 ;;		line 263 in file "SPI_SSD1306.h"
+  3192 ;; Parameters:    Size  Location     Type
+  3193 ;;  data            1    wreg     unsigned char 
+  3194 ;; Auto vars:     Size  Location     Type
+  3195 ;;  data            1    1[COMRAM] unsigned char 
+  3196 ;; Return value:  Size  Location     Type
+  3197 ;;                  1    wreg      void 
+  3198 ;; Registers used:
+  3199 ;;		wreg, status,2, cstack
+  3200 ;; Tracked objects:
+  3201 ;;		On entry : 0/0
+  3202 ;;		On exit  : 0/0
+  3203 ;;		Unchanged: 0/0
+  3204 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  3205 ;;      Params:         0       0       0       0       0       0       0       0       0
+  3206 ;;      Locals:         1       0       0       0       0       0       0       0       0
+  3207 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  3208 ;;      Totals:         1       0       0       0       0       0       0       0       0
+  3209 ;;Total ram usage:        1 bytes
+  3210 ;; Hardware stack levels used:    1
+  3211 ;; Hardware stack levels required when called:    1
+  3212 ;; This function calls:
+  3213 ;;		_SPIData
+  3214 ;; This function is called by:
+  3215 ;;		_displayClear
+  3216 ;;		_displayString
+  3217 ;;		_displayBitmap
+  3218 ;;		_displayChar
+  3219 ;; This function uses a non-reentrant model
+  3220 ;;
+  3221                           
+  3222                           	psect	text8
+  3223  007408                     __ptext8:
+  3224                           	opt callstack 0
+  3225  007408                     _dataWrite:
+  3226                           	opt callstack 28
+  3227                           
+  3228                           ;incstack = 0
+  3229                           ;dataWrite@data stored from wreg
+  3230  007408  6E02               	movwf	dataWrite@data^0,c
+  3231  00740A                     
+  3232                           ;SPI_SSD1306.h: 264: LATDbits.LATD7 = 1;
+  3233  00740A  8E8C               	bsf	140,7,c	;volatile
+  3234  00740C                     
+  3235                           ;SPI_SSD1306.h: 265: SPIData(data);
+  3236  00740C  5002               	movf	dataWrite@data^0,w,c
+  3237  00740E  EC10  F03A         	call	_SPIData
+  3238  007412  0012               	return		;funcret
+  3239  007414                     __end_of_dataWrite:
+  3240                           	opt callstack 0
+  3241                           
+  3242 ;; *************** function _SPIData *****************
+  3243 ;; Defined at:
+  3244 ;;		line 242 in file "SPI_SSD1306.h"
+  3245 ;; Parameters:    Size  Location     Type
+  3246 ;;  Data            1    wreg     unsigned char 
+  3247 ;; Auto vars:     Size  Location     Type
+  3248 ;;  Data            1    0[COMRAM] unsigned char 
+  3249 ;; Return value:  Size  Location     Type
+  3250 ;;                  1    wreg      void 
+  3251 ;; Registers used:
+  3252 ;;		wreg, status,2, cstack
+  3253 ;; Tracked objects:
+  3254 ;;		On entry : 0/0
+  3255 ;;		On exit  : 0/0
+  3256 ;;		Unchanged: 0/0
+  3257 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  3258 ;;      Params:         0       0       0       0       0       0       0       0       0
+  3259 ;;      Locals:         1       0       0       0       0       0       0       0       0
+  3260 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  3261 ;;      Totals:         1       0       0       0       0       0       0       0       0
+  3262 ;;Total ram usage:        1 bytes
+  3263 ;; Hardware stack levels used:    1
+  3264 ;; This function calls:
+  3265 ;;		Nothing
+  3266 ;; This function is called by:
+  3267 ;;		_cmdWrite
+  3268 ;;		_dataWrite
+  3269 ;; This function uses a non-reentrant model
+  3270 ;;
+  3271                           
+  3272                           	psect	text9
+  3273  007420                     __ptext9:
+  3274                           	opt callstack 0
+  3275  007420                     _SPIData:
+  3276                           	opt callstack 27
+  3277                           
+  3278                           ;incstack = 0
+  3279                           ;SPIData@Data stored from wreg
+  3280  007420  6E01               	movwf	SPIData@Data^0,c
+  3281  007422                     
+  3282                           ;SPI_SSD1306.h: 243: SSPBUF = Data;
+  3283  007422  C001  FFC9         	movff	SPIData@Data,4041	;volatile
+  3284  007426                     
+  3285                           ;SPI_SSD1306.h: 244: _delay((unsigned long)((1)*(4E6/4000.0)));
+  3286  007426  0EC8               	movlw	200
+  3287  007428                     u357:
+  3288  007428  D000               	nop2	
+  3289  00742A  2EE8               	decfsz	wreg,f,c
+  3290  00742C  D7FD               	bra	u357
+  3291  00742E  0012               	return		;funcret
+  3292  007430                     __end_of_SPIData:
+  3293                           	opt callstack 0
+  3294                           
+  3295 ;; *************** function _SPIInitMaster *****************
+  3296 ;; Defined at:
+  3297 ;;		line 221 in file "SPI_SSD1306.h"
+  3298 ;; Parameters:    Size  Location     Type
+  3299 ;;  smp             1    wreg     unsigned char 
+  3300 ;;  cke             1    0[COMRAM] unsigned char 
+  3301 ;;  ckp             1    1[COMRAM] unsigned char 
+  3302 ;;  mode            1    2[COMRAM] unsigned char 
+  3303 ;; Auto vars:     Size  Location     Type
+  3304 ;;  smp             1    3[COMRAM] unsigned char 
+  3305 ;; Return value:  Size  Location     Type
+  3306 ;;                  1    wreg      void 
+  3307 ;; Registers used:
+  3308 ;;		wreg, status,2, status,0
+  3309 ;; Tracked objects:
+  3310 ;;		On entry : 0/0
+  3311 ;;		On exit  : 0/0
+  3312 ;;		Unchanged: 0/0
+  3313 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+  3314 ;;      Params:         3       0       0       0       0       0       0       0       0
+  3315 ;;      Locals:         1       0       0       0       0       0       0       0       0
+  3316 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  3317 ;;      Totals:         4       0       0       0       0       0       0       0       0
+  3318 ;;Total ram usage:        4 bytes
+  3319 ;; Hardware stack levels used:    1
+  3320 ;; This function calls:
+  3321 ;;		Nothing
+  3322 ;; This function is called by:
+  3323 ;;		_main
+  3324 ;; This function uses a non-reentrant model
+  3325 ;;
+  3326                           
+  3327                           	psect	text10
+  3328  007430                     __ptext10:
+  3329                           	opt callstack 0
+  3330  007430                     _SPIInitMaster:
+  3331                           	opt callstack 30
+  3332                           
+  3333                           ;incstack = 0
+  3334                           ;SPIInitMaster@smp stored from wreg
+  3335  007430  6E04               	movwf	SPIInitMaster@smp^0,c
+  3336  007432                     
+  3337                           ;SPI_SSD1306.h: 222: TRISCbits.RC7 = 0;
+  3338  007432  9E94               	bcf	148,7,c	;volatile
+  3339                           
+  3340                           ;SPI_SSD1306.h: 223: TRISBbits.RB0 = 1;
+  3341  007434  8093               	bsf	147,0,c	;volatile
+  3342                           
+  3343                           ;SPI_SSD1306.h: 224: TRISBbits.RB1 = 0;
+  3344  007436  9293               	bcf	147,1,c	;volatile
+  3345  007438                     
+  3346                           ;SPI_SSD1306.h: 225: SSPSTATbits.SMP = smp;
+  3347  007438  B004               	btfsc	SPIInitMaster@smp^0,0,c
+  3348  00743A  D002               	bra	u165
+  3349  00743C  9EC7               	bcf	199,7,c	;volatile
+  3350  00743E  D001               	bra	u166
+  3351  007440                     u165:
+  3352  007440  8EC7               	bsf	199,7,c	;volatile
+  3353  007442                     u166:
+  3354  007442                     
+  3355                           ;SPI_SSD1306.h: 226: SSPSTATbits.CKE = cke;
+  3356  007442  B001               	btfsc	SPIInitMaster@cke^0,0,c
+  3357  007444  D002               	bra	u175
+  3358  007446  9CC7               	bcf	199,6,c	;volatile
+  3359  007448  D001               	bra	u176
+  3360  00744A                     u175:
+  3361  00744A  8CC7               	bsf	199,6,c	;volatile
+  3362  00744C                     u176:
+  3363  00744C                     
+  3364                           ;SPI_SSD1306.h: 227: SSPCON1bits.CKP = ckp;
+  3365  00744C  B002               	btfsc	SPIInitMaster@ckp^0,0,c
+  3366  00744E  D002               	bra	u185
+  3367  007450  98C6               	bcf	198,4,c	;volatile
+  3368  007452  D001               	bra	u186
+  3369  007454                     u185:
+  3370  007454  88C6               	bsf	198,4,c	;volatile
+  3371  007456                     u186:
+  3372  007456                     
+  3373                           ;SPI_SSD1306.h: 228: SSPCON1bits.SSPM = mode;
+  3374  007456  50C6               	movf	198,w,c	;volatile
+  3375  007458  1803               	xorwf	SPIInitMaster@mode^0,w,c
+  3376  00745A  0BF0               	andlw	-16
+  3377  00745C  1803               	xorwf	SPIInitMaster@mode^0,w,c
+  3378  00745E  6EC6               	movwf	198,c	;volatile
+  3379  007460                     
+  3380                           ;SPI_SSD1306.h: 229: SSPCON1bits.SSPEN = 1;
+  3381  007460  8AC6               	bsf	198,5,c	;volatile
+  3382  007462  0012               	return		;funcret
+  3383  007464                     __end_of_SPIInitMaster:
+  3384                           	opt callstack 0
+  3385                           
+  3386                           	psect	rparam
+  3387  0000                     tosu	equ	0xFFF
+  3388                           tosh	equ	0xFFE
+  3389                           tosl	equ	0xFFD
+  3390                           stkptr	equ	0xFFC
+  3391                           pclatu	equ	0xFFB
+  3392                           pclath	equ	0xFFA
+  3393                           pcl	equ	0xFF9
+  3394                           tblptru	equ	0xFF8
+  3395                           tblptrh	equ	0xFF7
+  3396                           tblptrl	equ	0xFF6
+  3397                           tablat	equ	0xFF5
+  3398                           prodh	equ	0xFF4
+  3399                           prodl	equ	0xFF3
+  3400                           indf0	equ	0xFEF
+  3401                           postinc0	equ	0xFEE
+  3402                           postdec0	equ	0xFED
+  3403                           preinc0	equ	0xFEC
+  3404                           plusw0	equ	0xFEB
+  3405                           fsr0h	equ	0xFEA
+  3406                           fsr0l	equ	0xFE9
+  3407                           wreg	equ	0xFE8
+  3408                           indf1	equ	0xFE7
+  3409                           postinc1	equ	0xFE6
+  3410                           postdec1	equ	0xFE5
+  3411                           preinc1	equ	0xFE4
+  3412                           plusw1	equ	0xFE3
+  3413                           fsr1h	equ	0xFE2
+  3414                           fsr1l	equ	0xFE1
+  3415                           bsr	equ	0xFE0
+  3416                           indf2	equ	0xFDF
+  3417                           postinc2	equ	0xFDE
+  3418                           postdec2	equ	0xFDD
+  3419                           preinc2	equ	0xFDC
+  3420                           plusw2	equ	0xFDB
+  3421                           fsr2h	equ	0xFDA
+  3422                           fsr2l	equ	0xFD9
+  3423                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     12
+    Constant    2112
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95     21      21
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+
+Pointer List with Targets:
+
+    displayString@cadena	PTR unsigned char  size(2) Largest target is 12
+		 -> STR_1(CODE[12]), 
+
+
+Critical Paths under _main in COMRAM
+
+    _main->_displayString
+    _displayString->_displaySet
+    _displayInvert->_cmdWrite
+    _displayInit->_cmdWrite
+    _displayClear->_displaySet
+    _displayBitmap->_displaySet
+    _displaySet->_cmdWrite
+    _cmdWrite->_SPIData
+    _dataWrite->_SPIData
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 3     3      0    2377
+                                             18 COMRAM     3     3      0
+                      _SPIInitMaster
+                      _displayBitmap
+                       _displayClear
+                        _displayInit
+                      _displayInvert
+                      _displayString
+ ---------------------------------------------------------------------------------
+ (1) _displayString                                       11     8      3     808
+                                              7 COMRAM    11     8      3
+                          _dataWrite
+                         _displaySet
+ ---------------------------------------------------------------------------------
+ (1) _displayInvert                                        1     1      0      45
+                                              2 COMRAM     1     1      0
+                           _cmdWrite
+ ---------------------------------------------------------------------------------
+ (1) _displayInit                                          1     1      0      30
+                                              2 COMRAM     1     1      0
+                           _cmdWrite
+ ---------------------------------------------------------------------------------
+ (1) _displayClear                                         2     2      0     544
+                                              7 COMRAM     2     2      0
+                          _dataWrite
+                         _displaySet
+ ---------------------------------------------------------------------------------
+ (1) _displayBitmap                                        5     5      0     588
+                                              7 COMRAM     5     5      0
+                          _dataWrite
+                         _displaySet
+ ---------------------------------------------------------------------------------
+ (2) _displaySet                                           5     4      1     400
+                                              2 COMRAM     5     4      1
+                           _cmdWrite
+ ---------------------------------------------------------------------------------
+ (3) _cmdWrite                                             1     1      0      30
+                                              1 COMRAM     1     1      0
+                            _SPIData
+ ---------------------------------------------------------------------------------
+ (2) _dataWrite                                            1     1      0      30
+                                              1 COMRAM     1     1      0
+                            _SPIData
+ ---------------------------------------------------------------------------------
+ (4) _SPIData                                              1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _SPIInitMaster                                        4     1      3     316
+                                              0 COMRAM     4     1      3
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 4
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _SPIInitMaster
+   _displayBitmap
+     _dataWrite
+       _SPIData
+     _displaySet
+       _cmdWrite
+         _SPIData
+   _displayClear
+     _dataWrite
+       _SPIData
+     _displaySet
+       _cmdWrite
+         _SPIData
+   _displayInit
+     _cmdWrite
+       _SPIData
+   _displayInvert
+     _cmdWrite
+       _SPIData
+   _displayString
+     _dataWrite
+       _SPIData
+     _displaySet
+       _cmdWrite
+         _SPIData
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMRAM           5F      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMRAM              5F     15      15       1       22.1%
+STACK                0      0       0       2        0.0%
+DATA                 0      0       0       3        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK6           100      0       0      16        0.0%
+BANK6              100      0       0      17        0.0%
+BITBANK7           100      0       0      18        0.0%
+BANK7              100      0       0      19        0.0%
+ABS                  0      0       0      20        0.0%
+BIGRAM             7FF      0       0      21        0.0%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.10 build 88905656 
+Symbol Table                                                                                   Tue Jul 07 22:55:16 2020
+
+           ?_displayInit 0001              _SSPSTATbits 000FC7                       l50 77B0  
+                     l35 742E                       l44 741E                       l60 74DE  
+                     l29 7462                       l53 74A0                       l47 7412  
+                     l82 7562                       l74 76D8                       l92 760E  
+                     l85 73FC              __CFG_BOR$ON 000000              __CFG_BORV$3 000000  
+          ?_displayClear 0001           ?_SPIInitMaster 0001             __CFG_CP0$OFF 000000  
+           __CFG_CP1$OFF 000000             __CFG_CP2$OFF 000000             __CFG_CP3$OFF 000000  
+                    l901 774A                      l911 7768                      l903 7750  
+                    l921 7786                      l913 776E                      l905 7756  
+                    l843 7422                      l851 740A                      l931 77A4  
+                    l923 778C                      l915 7774                      l907 775C  
+                    l845 7426                      l853 740C                      l933 77AA  
+                    l925 7792                      l917 777A                      l909 7762  
+                    l847 7416                      l927 7798                      l919 7780  
+                    l849 7418                      l929 779E                      l881 770E  
+                    l873 76DA                      l891 772C                      l883 7714  
+                    l875 76DC                      l893 7732                      l885 771A  
+                    l877 76EC                      l895 7738                      l887 7720  
+                    l879 76FC                      l897 773E                      l889 7726  
+                    l899 7744             __CFG_CPB$OFF 000000                      u200 74DE  
+                    u201 74DA                      u210 7696                      u211 7692  
+                    u220 76AC                      u221 76A8                      u230 76D8  
+                    u231 76D4                      u240 74F4                      u241 74F0  
+                    u155 748A                      u307 75D4                      u260 755C  
+                    u165 7440                      u261 7558                      u317 75F0  
+                    u166 7442                      u190 74CC                      u270 760E  
+                    u175 744A                      u255 7532                      u191 74C8  
+                    u327 76E2                      u271 760A                      u176 744C  
+                    u185 7454                      u337 76F4                      u186 7456  
+           __CFG_CPD$OFF 000000                      u347 7704                      u357 7428  
+                    u287 7580                      u297 75AC                      wreg 000FE8  
+         ?_displayBitmap 0001           ?_displayInvert 0001             __CFG_LVP$OFF 000000  
+           __CFG_WDT$OFF 000000           ?_displayString 0008                     l1101 74B4  
+                   l1005 73F6                     l1103 74BA                     l1111 7618  
+                   l1105 74BC                     l1121 7684                     l1113 7626  
+                   l1107 74CC                     l1131 76B0                     l1123 7686  
+                   l1109 74CE                     l1133 76B2                     l1125 7696  
+                   l1071 746E                     l1151 752A                     l1143 74F8  
+                   l1127 769C                     l1119 762A                     l1135 76BC  
+                   l1081 744C                     l1073 747A                     l1153 755C  
+                   l1145 7502                     l1137 74E0                     l1129 76AC  
+                   l1161 757A                     l1083 7456                     l1075 7432  
+                   l1147 7512                     l1139 74E4                     l1171 75B8  
+                   l1163 7588                     l1085 7460                     l1077 7438  
+                   l1069 7466                     l1149 7526                     l1093 74A6  
+                   l1181 75CA                     l1173 75BC                     l1165 758C  
+                   l1157 7564                     l1079 7442                     l1095 74B0  
+                   l1087 74A2                     l1183 75E0                     l1175 75C0  
+                   l1167 7590                     l1159 7568                     l1185 75FC  
+                   l1169 75A2                     l1179 75C4                     STR_1 7FF3  
+                   _Font 7BB3                     _main 7564          __end_of_SPIData 7430  
+            displaySet@x 0007              displaySet@y 0003                     prodh 000FF4  
+                   prodl 000FF3                     start 0000            __CFG_IESO$OFF 000000  
+          __CFG_MCLRE$ON 000000             ___param_bank 000000           ??_displayClear 0008  
+          __CFG_PLLDIV$1 000000           __CFG_CCP2MX$ON 000000                    ?_main 0001  
+          __CFG_USBDIV$1 000000            __CFG_PWRT$OFF 000000            __CFG_WRT0$OFF 000000  
+          __CFG_WRT1$OFF 000000            __CFG_WRT2$OFF 000000            __CFG_WRT3$OFF 000000  
+         __CFG_EBTR0$OFF 000000           __CFG_FCMEN$OFF 000000           __CFG_EBTR1$OFF 000000  
+         __CFG_EBTR2$OFF 000000           __CFG_EBTR3$OFF 000000            __CFG_WRTB$OFF 000000  
+          __CFG_WRTC$OFF 000000            __CFG_WRTD$OFF 000000           __CFG_EBTRB$OFF 000000  
+        __end_of_cypress 7BB3                    main@i 0015                    tablat 000FF5  
+                  status 000FD8           __CFG_ICPRT$OFF 000000          __initialization 73FE  
+           __end_of_Font 7EB3             __end_of_main 7616          ??_SPIInitMaster 0004  
+                 ??_main 0013            __activetblptr 000002          ??_displayBitmap 0008  
+        ??_displayInvert 0003          ??_displayString 000B                   _ADCON1 000FC1  
+              ??_SPIData 0001                   _SSPBUF 000FC9         __end_of_cmdWrite 7420  
+         __CFG_XINST$OFF 000000            displayClear@i 0009            displayClear@j 0008  
+         __CFG_STVREN$ON 000000         __end_of_cypress2 7FF3     __size_of_displayInit 00D8  
+           __mediumconst 77B2                   tblptrh 000FF7                   tblptrl 000FF6  
+                 tblptru 000FF8     __end_of_displayClear 74E0               __accesstop 0060  
+__end_of__initialization 73FE          __CFG_PBADEN$OFF 000000          __CFG_FOSC$XT_XT 000000  
+          ___rparam_used 000001           __pcstackCOMRAM 0001       __size_of_dataWrite 000C  
+          dataWrite@data 0002                ?_cmdWrite 0001               _displaySet 7464  
+                _SPIData 7420        __end_of_dataWrite 7414          __CFG_VREGEN$OFF 000000  
+                __Hparam 0000                  __Lparam 0000           displayBitmap@i 000C  
+         displayBitmap@j 000A         SPIInitMaster@cke 0001         SPIInitMaster@ckp 0002  
+       SPIInitMaster@smp 0004                  __pcinit 73FE                  __ramtop 0800  
+                __ptext0 7564                  __ptext1 7616                  __ptext2 73F4  
+                __ptext3 76DA                  __ptext4 74A2                  __ptext5 74E0  
+                __ptext6 7464                  __ptext7 7414                  __ptext8 7408  
+                __ptext9 7420                  _cypress 77B3               ??_cmdWrite 0002  
+  __size_of_displayClear 003E     end_of_initialization 73FE            __Lmediumconst 77B2  
+         displayString@i 0012           displayString@x 0011           displayString@y 0008  
+  __end_of_SPIInitMaster 7464             _displayClear 74A2              SPIData@Data 0001  
+  __end_of_displayBitmap 7564                _TRISAbits 000F92                _TRISBbits 000F93  
+              _TRISCbits 000F94                _TRISDbits 000F95    __end_of_displayInvert 73FE  
+            ?_displaySet 0003    __end_of_displayString 76DA            ??_displayInit 0003  
+    start_initialization 73FE      displayString@cadena 0009      __size_of_displaySet 003E  
+       __CFG_LPT1OSC$OFF 000000      __end_of_displayInit 77B2                 ?_SPIData 0001  
+      __size_of_cmdWrite 000C                _dataWrite 7408            __pmediumconst 77B2  
+               _LATDbits 000F8C               ?_dataWrite 0001         __CFG_WDTPS$32768 000000  
+            _displayInit 76DA             ??_displaySet 0004         __size_of_SPIData 0010  
+               __Hrparam 0000                 __Lrparam 0000       __end_of_displaySet 74A2  
+      SPIInitMaster@mode 0003                 _cmdWrite 7414                 __ptext10 7430  
+          __size_of_main 00B2   __size_of_SPIInitMaster 0034                 _cypress2 7EB3  
+            ??_dataWrite 0002   __size_of_displayBitmap 0084   __size_of_displayInvert 000A  
+ __size_of_displayString 00C4    __CFG_CPUDIV$OSC1_PLL2 000000       displayInvert@value 0003  
+          _SPIInitMaster 7430            _displayBitmap 74E0              _SSPCON1bits 000FC6  
+          _displayInvert 73F4            _displayString 7616          cmdWrite@command 0002  

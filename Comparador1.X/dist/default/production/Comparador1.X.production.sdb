@@ -1,0 +1,125 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4550 ]
+[d frameptr 4065 ]
+"12 C:\Users\Slyfer\Documents\Cursos\MPLAB X\PIC18F4550\Comparador1.X/Comparator.h
+[v _Comp_Init Comp_Init `(v  1 e 1 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"6 C:\Users\Slyfer\Documents\Cursos\MPLAB X\PIC18F4550\Comparador1.X\Main.c
+[v _main main `(v  1 e 1 0 ]
+[s S130 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
+]
+"2998 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4550.h
+[s S138 . 1 `uc 1 LA0 1 0 :1:0 
+`uc 1 LA1 1 0 :1:1 
+`uc 1 LA2 1 0 :1:2 
+`uc 1 LA3 1 0 :1:3 
+`uc 1 LA4 1 0 :1:4 
+`uc 1 LA5 1 0 :1:5 
+`uc 1 LA6 1 0 :1:6 
+]
+[u S146 . 1 `S130 1 . 1 0 `S138 1 . 1 0 ]
+[v _LATAbits LATAbits `VES146  1 e 1 @3977 ]
+[s S59 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+]
+"3457
+[s S67 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+]
+[u S75 . 1 `S59 1 . 1 0 `S67 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES75  1 e 1 @3986 ]
+[s S95 . 1 `uc 1 CM 1 0 :3:0 
+`uc 1 CIS 1 0 :1:3 
+`uc 1 C1INV 1 0 :1:4 
+`uc 1 C2INV 1 0 :1:5 
+`uc 1 C1OUT 1 0 :1:6 
+`uc 1 C2OUT 1 0 :1:7 
+]
+"5612
+[s S102 . 1 `uc 1 CM0 1 0 :1:0 
+`uc 1 CM1 1 0 :1:1 
+`uc 1 CM2 1 0 :1:2 
+]
+[s S106 . 1 `uc 1 CMEN0 1 0 :1:0 
+`uc 1 CMEN1 1 0 :1:1 
+`uc 1 CMEN2 1 0 :1:2 
+]
+[u S110 . 1 `S95 1 . 1 0 `S102 1 . 1 0 `S106 1 . 1 0 ]
+[v _CMCONbits CMCONbits `VES110  1 e 1 @4020 ]
+[s S24 . 1 `uc 1 PCFG 1 0 :4:0 
+`uc 1 VCFG 1 0 :2:4 
+]
+"6606
+[s S27 . 1 `uc 1 PCFG0 1 0 :1:0 
+`uc 1 PCFG1 1 0 :1:1 
+`uc 1 PCFG2 1 0 :1:2 
+`uc 1 PCFG3 1 0 :1:3 
+`uc 1 VCFG0 1 0 :1:4 
+`uc 1 VCFG1 1 0 :1:5 
+]
+[s S34 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CHSN3 1 0 :1:3 
+`uc 1 VCFG01 1 0 :1:4 
+`uc 1 VCFG11 1 0 :1:5 
+]
+[u S39 . 1 `S24 1 . 1 0 `S27 1 . 1 0 `S34 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES39  1 e 1 @4033 ]
+"6 C:\Users\Slyfer\Documents\Cursos\MPLAB X\PIC18F4550\Comparador1.X\Main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"13
+} 0
+"12 C:\Users\Slyfer\Documents\Cursos\MPLAB X\PIC18F4550\Comparador1.X/Comparator.h
+[v _Comp_Init Comp_Init `(v  1 e 1 0 ]
+{
+[v Comp_Init@Comparators Comparators `uc  1 a 1 wreg ]
+[v Comp_Init@Comparators Comparators `uc  1 a 1 wreg ]
+[v Comp_Init@C1Out C1Out `uc  1 p 1 0 ]
+[v Comp_Init@C2Out C2Out `uc  1 p 1 1 ]
+[v Comp_Init@C1Logic C1Logic `uc  1 p 1 2 ]
+[v Comp_Init@C2Logic C2Logic `uc  1 p 1 3 ]
+[v Comp_Init@Mode Mode `uc  1 p 1 4 ]
+[v Comp_Init@Comparators Comparators `uc  1 a 1 5 ]
+"30
+} 0

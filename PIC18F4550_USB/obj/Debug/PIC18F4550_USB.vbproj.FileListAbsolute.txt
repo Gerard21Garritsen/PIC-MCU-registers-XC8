@@ -1,0 +1,11 @@
+C:\Users\Slyfer\Documents\Cursos\MPLAB X\PIC18F4550_USB\bin\Debug\PIC18F4550_USB.exe
+C:\Users\Slyfer\Documents\Cursos\MPLAB X\PIC18F4550_USB\bin\Debug\PIC18F4550_USB.pdb
+C:\Users\Slyfer\Documents\Cursos\MPLAB X\PIC18F4550_USB\bin\Debug\PIC18F4550_USB.xml
+C:\Users\Slyfer\Documents\Cursos\MPLAB X\PIC18F4550_USB\obj\Debug\PIC18F4550_USB.vbprojAssemblyReference.cache
+C:\Users\Slyfer\Documents\Cursos\MPLAB X\PIC18F4550_USB\obj\Debug\PIC18F4550_USB.frmUSB.resources
+C:\Users\Slyfer\Documents\Cursos\MPLAB X\PIC18F4550_USB\obj\Debug\PIC18F4550_USB.Resources.resources
+C:\Users\Slyfer\Documents\Cursos\MPLAB X\PIC18F4550_USB\obj\Debug\PIC18F4550_USB.vbproj.GenerateResource.cache
+C:\Users\Slyfer\Documents\Cursos\MPLAB X\PIC18F4550_USB\obj\Debug\PIC18F4550_USB.vbproj.CoreCompileInputs.cache
+C:\Users\Slyfer\Documents\Cursos\MPLAB X\PIC18F4550_USB\obj\Debug\PIC18F4550_USB.exe
+C:\Users\Slyfer\Documents\Cursos\MPLAB X\PIC18F4550_USB\obj\Debug\PIC18F4550_USB.xml
+C:\Users\Slyfer\Documents\Cursos\MPLAB X\PIC18F4550_USB\obj\Debug\PIC18F4550_USB.pdb
